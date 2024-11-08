@@ -1,0 +1,75 @@
+{
+    "doctors": [
+      {
+        "id": 1,
+        "name": "Dr. John Smith",
+        "specialty": "Cardiologist",
+        "contact": {
+          "phone": "+1 123-456-7890",
+          "email": "john.smith@healthcare.com"
+        },
+        "location": "New York, NY",
+        "profileImage": "https://example.com/images/dr-john-smith.jpg",
+        "available": true,
+        "rating": 4.7,
+        "patients": 350
+      },
+      {
+        "id": 2,
+        "name": "Dr. Sarah Johnson",
+        "specialty": "Pediatrician",
+        "contact": {
+          "phone": "+1 987-654-3210",
+          "email": "sarah.johnson@healthcare.com"
+        },
+        "location": "Los Angeles, CA",
+        "profileImage": "https://example.com/images/dr-sarah-johnson.jpg",
+        "available": false,
+        "rating": 4.9,
+        "patients": 280
+      },
+      {
+        "id": 3,
+        "name": "Dr. Emily Davis",
+        "specialty": "Neurologist",
+        "contact": {
+          "phone": "+1 555-123-4567",
+          "email": "emily.davis@healthcare.com"
+        },
+        "location": "Chicago, IL",
+        "profileImage": "https://example.com/images/dr-emily-davis.jpg",
+        "available": true,
+        "rating": 4.5,
+        "patients": 420
+      },
+      {
+        "id": 4,
+        "name": "Dr. Michael Brown",
+        "specialty": "Orthopedic Surgeon",
+        "contact": {
+          "phone": "+1 444-567-8901",
+          "email": "michael.brown@healthcare.com"
+        },
+        "location": "San Francisco, CA",
+        "profileImage": "https://example.com/images/dr-michael-brown.jpg",
+        "available": true,
+        "rating": 4.6,
+        "patients": 390
+      },
+      {
+        "id": 5,
+        "name": "Dr. Laura Wilson",
+        "specialty": "Dermatologist",
+        "contact": {
+          "phone": "+1 321-765-4321",
+          "email": "laura.wilson@healthcare.com"
+        },
+        "location": "Miami, FL",
+        "profileImage": "https://example.com/images/dr-laura-wilson.jpg",
+        "available": true,
+        "rating": 4.8,
+        "patients": 300
+      }
+    ]
+  }
+  

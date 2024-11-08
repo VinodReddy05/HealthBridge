@@ -1,0 +1,95 @@
+.DoctorsData{
+    width: 100%;
+    display: flex;
+    // margin: 40px;
+    .patientDIV{
+        height: 60vh;
+        display: flex;
+        justify-content: start;
+    }
+}
+
+
+.doctors{
+    width: 90%;
+display: flex;
+flex: 1;
+flex-direction: column;
+
+.doctors-gird{
+    margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 40px;
+}
+}
+
+.doctor-Card{
+    // flex: 1;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    background-color: bisque;
+    position: relative;
+    
+    .rating{
+        position: absolute;
+        top:-10px;
+        right: -10px;
+        background: lightblue;
+        border-radius: 6px;
+        width: 40px;
+        height: 0;
+        padding: 20px 0;
+        line-height: 0px;
+        text-align: center;
+
+    }
+}
+
+
+.table{
+scrollbar-width: none;
+
+.tablePatient{
+    font-size: 18px;
+}
+
+.tablecell{
+    font-weight: bold !important;
+}
+.tablename{
+    font-size: 16px !important;
+}
+.viewmore{
+   
+    color:#4CAF50    !important;
+    font-size: 18px !important;
+    cursor: pointer;
+}
+
+
+.tablecell {
+    &.pending {
+      color: #FFC107 !important;  
+    }
+  
+    &.recovered {
+      color: #4CAF50 !important;  
+    }
+  
+    &.rejected {
+      color: #F44336 !important;  
+    }
+  }
+  
+}
+
+.form{
+    display: flex;
+    .button{
+        cursor: pointer;
+    }
+}
