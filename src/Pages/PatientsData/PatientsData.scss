@@ -118,16 +118,15 @@
                     text-transform: uppercase;
                 }
 
-                td {
-                    // color: #333;
-                }
-
                 tr:nth-child(even) {
                     background-color: #f9f9f9;
                 }
 
                 tr:hover {
                     background-color: #e0f3ff;
+                }
+                .icon{
+                    cursor: pointer;
                 }
             }
 
@@ -161,28 +160,17 @@
     }
 }
 
-.status-pending, 
-.status-recovered, 
-.status-rejected {
-    color: unset; 
-
-    font-weight: bold;  // Optional: makes the text bold
-}
-
-
-
-
 .status-pending {
-    color: #FFB800;           // Text color for pending
-    font-weight: bold;       // Optional: make the text bold
+    color: #FFB800;            
+    font-weight: bold;       
 }
 
 .status-recovered {
-    color: #2BC155;            // Text color for recovered
-    font-weight: bold;       // Optional: make the text bold
+    color: #2BC155;             
+    font-weight: bold;        
 }
 
 .status-rejected {
-    color: #F46B68;              // Text color for rejected
-    font-weight: bold;       // Optional: make the text bold
+    color: #F46B68;              
+    font-weight: bold;       
 }

@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import SideBar from '../../Components/SideBar/SideBar';
 import NavBar from "../../Components/NavBar/NavBar";
 import "./PatientsData.scss";
+import { Link } from 'react-router-dom';
 import supabase from '../../utilies/SupaBase';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import PatientEdit from './PatientEdit/PatientEdit';
 
 const PatientsData = () => {
     const [doctorName, setDoctorName] = useState('');
@@ -23,8 +27,9 @@ const PatientsData = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setFormError('');
+        setFormError('');  // Reset any previous errors
     
+        // Check if all fields are filled out
         if (!doctorName || !patientName || !ageGender || !disease || !joiningDate || !refDoctor || !consultNo || !status) {
             setFormError("Please fill out all fields correctly.");
             return;
@@ -42,16 +47,18 @@ const PatientsData = () => {
                     referring_doctor: refDoctor.trim(),
                     consultation_number: consultNo.trim(),
                     Status: status.trim(),
-                    
                 }]);
-                console.log(data);
     
             if (error) {
                 setFormError(`Submission error: ${error.message}`);
             } else if (data) {
-                setPatients(prevPatients => [...prevPatients, ...data]); // Only spread if data exists
-                setFormError(null);
-                // Reset form fields
+                // Instead of prepending, append the new patient to the state
+                setPatients(prevPatients => [...prevPatients, data[0]]); // LIFO (last item added at the end)
+    
+                // Fetch the updated list of patients (optional, could be used to get the latest data)
+                fetchPatients(); // This will re-fetch the patient list, or you could update the state directly above
+    
+                // Reset form fields after successful submission
                 setDoctorName('');
                 setPatientName('');
                 setAgeGender('');
@@ -61,24 +68,30 @@ const PatientsData = () => {
                 setConsultNo('');
                 setStatus('');
                 setShowForm(false);
+    
+                // Optionally reset pagination to the first page after adding a patient
+                setCurrentPage(1);
             }
         } catch (error) {
             setFormError("Unexpected error occurred. Please try again.");
         }
     };
+    
 
     const fetchPatients = async () => {
         const { data, error } = await supabase
             .from('patientsdata')
             .select();
-
+    
         if (error) {
             setFetchError("Could not fetch data");
         } else {
+            // Here, we update the patients state directly from the fetched data.
             setPatients(data);
             setFetchError(null);
         }
     };
+    
 
     useEffect(() => {
         fetchPatients();
@@ -176,6 +189,9 @@ const PatientsData = () => {
                                         <td className={getStatusClass(patient.Status)}>{patient.Status}</td>
                                         <td>{patient.referring_doctor}</td>
                                         <td>{patient.consultation_number}</td>
+                                        <td className='icon'> <Link to={`/patients/edit/${patient.id}`}><EditIcon /></Link> </td>
+                                        <td className='icon'><DeleteIcon/></td>
+
                                     </tr>
                                 ))}
                             </tbody>
@@ -195,6 +211,7 @@ const PatientsData = () => {
                     </div>
                 </div>
             </div>
+            {/* <PatientEdit key={patients.id} patients={patients}/> */}
         </div>
     );
 };

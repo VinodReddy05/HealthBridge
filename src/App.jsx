@@ -6,6 +6,7 @@ import Login from './Authentication/Login/Login'
 import PatientsData from './Pages/PatientsData/PatientsData'
 import SinglePatientData from './Pages/SinglePatientData/SinglePatientData'
 import AddNewPatient from './Pages/AddNewPatient/AddNewPatient'
+import PatientEdit from './Pages/PatientsData/PatientEdit/PatientEdit'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="patients" element={<PatientsData />} />
         <Route path="patients/:id" element={<SinglePatientData />} />
         <Route path="patients/new" element={<AddNewPatient />} />
+        <Route path="/patients/edit/:id" element={<PatientEdit />} />
 
         </Routes>
       </BrowserRouter>

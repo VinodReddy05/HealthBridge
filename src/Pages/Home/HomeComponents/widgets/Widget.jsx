@@ -1,11 +1,11 @@
 import React from 'react'
-import "./widget.scss"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MedicationIcon from '@mui/icons-material/Medication';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
+import './widget.scss'
 
 const Widget = () => {  
   return (
