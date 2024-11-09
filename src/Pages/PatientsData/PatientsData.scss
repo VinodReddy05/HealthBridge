@@ -1,0 +1,188 @@
+.patientsData {
+    display: flex;
+    width: 80vw;
+    // height: 100vh;
+    margin-left: 250px;
+    padding-top: 50px;
+    background-color: #f4f7fa;
+
+    .patientContainer {
+        flex: 1;
+        padding: 20px;
+        background-color: #fff;
+        
+        .datatable {
+            max-width: 100%;
+            height: 100vh;
+            overflow-x: auto;  // Enables scrolling for smaller screens
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 0 auto;
+    scrollbar-width: none;
+
+
+            h2 {
+                font-size: 1.8rem;
+                // color: #333;
+                margin-bottom: 20px;
+            }
+
+            button {
+                background-color: #007bff;
+                color: #fff;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1rem;
+                margin-bottom: 20px;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+                background-color: #f7f7f9;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+                
+                label {
+                    font-size: 0.95rem;
+                    color: #444;
+                    font-weight: 600;
+                }
+
+                input {
+                    padding: 12px;
+                    font-size: 1rem;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                    transition: border-color 0.3s ease;
+
+                    &:focus {
+                        outline: none;
+                        border-color: #007bff;
+                    }
+                }
+
+                .error {
+                    color: #d9534f;
+                    font-size: 0.9rem;
+                }
+
+                button[type="submit"] {
+                    background-color: #28a745;
+                    color: #fff;
+                    padding: 12px;
+                    font-size: 1rem;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: #218838;
+                    }
+                }
+            }
+
+            .patient-table {
+                width: 100%;
+                height: 80vh;
+                margin-top: 20px;
+                border-collapse: collapse;
+                
+
+                th, td {
+                    padding: 16px;
+                    text-align: left;
+                    border: 1px solid #ddd;
+                    font-size: 1rem;
+                }
+
+                th {
+                    background-color: #007bff;
+                    color: #fff;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+
+                td {
+                    // color: #333;
+                }
+
+                tr:nth-child(even) {
+                    background-color: #f9f9f9;
+                }
+
+                tr:hover {
+                    background-color: #e0f3ff;
+                }
+            }
+
+            .pagination {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+
+                button {
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    transition: background-color 0.3s ease;
+                    
+                    &.active {
+                        background-color: #0056b3;
+                    }
+
+                    &:hover:not(.active) {
+                        background-color: #0056b3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.status-pending, 
+.status-recovered, 
+.status-rejected {
+    color: unset; 
+
+    font-weight: bold;  // Optional: makes the text bold
+}
+
+
+
+
+.status-pending {
+    color: #FFB800;           // Text color for pending
+    font-weight: bold;       // Optional: make the text bold
+}
+
+.status-recovered {
+    color: #2BC155;            // Text color for recovered
+    font-weight: bold;       // Optional: make the text bold
+}
+
+.status-rejected {
+    color: #F46B68;              // Text color for rejected
+    font-weight: bold;       // Optional: make the text bold
+}

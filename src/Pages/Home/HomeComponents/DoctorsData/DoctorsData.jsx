@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import { createClient } from '@supabase/supabase-js';
 import DoctorCard from "./DoctorCard";
+// import supabase from "../../../../utilies/SupaBase";
 
 import "./DoctorsData.scss"
 import PatientInfo from "../PatientInfo/PatientInfo";
+// import supabase from "../../../../utilies/SupaBase";
 
 
 const supabaseUrl = 'https://exdhwtkeippsrxikocxn.supabase.co';
