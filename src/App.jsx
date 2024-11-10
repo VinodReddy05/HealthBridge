@@ -7,6 +7,10 @@ import PatientsData from './Pages/PatientsData/PatientsData'
 import SinglePatientData from './Pages/SinglePatientData/SinglePatientData'
 import AddNewPatient from './Pages/AddNewPatient/AddNewPatient'
 import PatientEdit from './Pages/PatientsData/PatientEdit/PatientEdit'
+import DoctorsData from './Pages/DoctorsData/DoctorsData/DoctorsData'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 function App() {
 
@@ -21,6 +25,7 @@ function App() {
         <Route path="patients/:id" element={<SinglePatientData />} />
         <Route path="patients/new" element={<AddNewPatient />} />
         <Route path="/patients/edit/:id" element={<PatientEdit />} />
+        <Route path="/Doctors" element={<DoctorsData/>} />
 
         </Routes>
       </BrowserRouter>

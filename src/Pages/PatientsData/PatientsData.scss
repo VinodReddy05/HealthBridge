@@ -17,10 +17,34 @@
             overflow-x: auto;  // Enables scrolling for smaller screens
             background-color: #ffffff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
             border-radius: 8px;
             margin: 0 auto;
     scrollbar-width: none;
+    .createdbtn{
+        // display: flex;
+        .buttonstatus{
+            display: flex;
+            gap: 20px;
+        }
+        .inputfield{
+            display: flex;
+            justify-content: end;
+        }
+        
+    .inputsearch{
+        border: none;
+        outline: none;
+        color: black;
+        border:2px solid #d9534f;
+        padding: 10px 15px; 
+        &:hover{
+            // border-top: 2px solid green;
+            border: 2px solid green;
+        }
+    }
+}
+
 
 
             h2 {
@@ -30,7 +54,7 @@
             }
 
             button {
-                background-color: #007bff;
+                background-color: #36C95F;
                 color: #fff;
                 padding: 12px 24px;
                 border: none;
@@ -112,7 +136,7 @@
                 }
 
                 th {
-                    background-color: #007bff;
+                    background-color: #36C95F;
                     color: #fff;
                     font-weight: 600;
                     text-transform: uppercase;
@@ -137,7 +161,7 @@
                 margin-top: 20px;
 
                 button {
-                    background-color: #007bff;
+                    background-color: #36C95F;
                     color: #fff;
                     border: none;
                     padding: 10px 15px;
@@ -148,7 +172,7 @@
                     transition: background-color 0.3s ease;
                     
                     &.active {
-                        background-color: #0056b3;
+                        background-color: #36C95F;
                     }
 
                     &:hover:not(.active) {

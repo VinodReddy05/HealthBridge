@@ -39,7 +39,7 @@ const SideBar = () => {
           <p className="title">Staff</p>
           <li>
             <PersonSharpIcon />
-            <span onClick={() => handleClick('/patients/1')}>Doctors</span> {/* Navigate to a doctor's specific page, replace `1` with actual dynamic ID */}
+            <span onClick={() => handleClick('/Doctors')}>Doctors</span> {/* Navigate to a doctor's specific page, replace `1` with actual dynamic ID */}
           </li>
           <li>
             <Person3Icon />

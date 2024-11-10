@@ -6,10 +6,13 @@ import Widget from "./HomeComponents/widgets/Widget";
 // import DoctorsData from "../../Components/DoctorsData/DoctorsData";
 
 import Charts from "./HomeComponents/Charts/Charts";
-import DoctorsData from "./HomeComponents/DoctorsData/DoctorsData";
-import AddDoctor from "./HomeComponents/DoctorsData/AddDoctor";
+import DoctorsData from "../DoctorsData/DoctorsData/DoctorsData";
+import AddDoctor from "../DoctorsData/DoctorsData/AddDoctor";
+import PatientInfo from "./HomeComponents/PatientInfo/PatientInfo";
+import DoctorInfo from "./HomeComponents/DoctorInfo/DoctorInfo";
 
 const Home = () => {
+
   return (
     <div className="home">
      <SideBar/>
@@ -22,8 +25,8 @@ const Home = () => {
         <Charts/>
         </div>
         <div className="doctors">
-          <AddDoctor/>
-          <DoctorsData/>
+          <DoctorInfo/>
+        
         </div>
       </div>
   

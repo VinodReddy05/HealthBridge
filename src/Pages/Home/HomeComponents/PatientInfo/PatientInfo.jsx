@@ -6,8 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Link } from 'react-router-dom';
 import "./PatientInfo.scss"
-import "../DoctorsData/DoctorsData.scss";
+// import "../DoctorsData/DoctorsData.scss";
 
 const PatientInfo = () => {
 
@@ -30,7 +31,7 @@ const PatientInfo = () => {
           <TableRow>
             <TableCell className='tablecell'></TableCell>
             <TableCell className='tablecell tablePatient'>Patient Name</TableCell>
-            <TableCell className='tablecell viewmore'>viewmore</TableCell>
+            <TableCell className='tablecell viewmore'> <Link to={"./patients"}>viewmore</Link></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -23,6 +23,7 @@
     }
 
   }
+ 
   .widg-1, .widg-2, .widg-3,.widg-4{
     display: flex;
     justify-content: space-between;
@@ -34,12 +35,14 @@
   .widg-1 {
     background: linear-gradient(135deg, #ff7f7f, #ff9f9f);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
 
   }
 
   .widg-2 {
     background: linear-gradient(135deg, #4caf50, #66bb6a);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 
   }
 
