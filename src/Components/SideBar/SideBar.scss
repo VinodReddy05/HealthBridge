@@ -43,6 +43,10 @@
                 cursor: pointer;
             }
 
+
+            .green{
+                background-color: #797777;
+            }
             li {
                 display: flex;
                 align-items: center;
@@ -50,17 +54,19 @@
                 cursor: pointer;
                 padding: 20px;
 
+
                 &:hover {
-                    background-color: #36C95F;
                     border-radius: 5px 13px 50px 5px;
                 }
+            
 
                 span {
                     font-size: 15px;
                     font-weight: bold;
-                    color: #353333;
+                    // color: #353333;
                 }
             }
+           
         } 
     }
 }

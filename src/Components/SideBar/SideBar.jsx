@@ -1,4 +1,5 @@
 import "./SideBar.scss"
+import { useState } from "react";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 import PersonSharpIcon from '@mui/icons-material/PersonSharp';
@@ -10,10 +11,20 @@ import { useNavigate } from "react-router-dom";
 const SideBar = () => {
   const navigate = useNavigate();
 
+  const [selectedItem, setSelectedItem] = useState(null);
+
   // Handle different route navigation
   const handleClick = (route) => {
     // alert("you have clicked the button")
     navigate(route);  // Navigates to the specified route
+  };
+
+
+  const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+
+  // Handle item click
+  const handleColor = (index) => {
+    setSelectedItem(index);
   };
 
   return (
@@ -25,9 +36,12 @@ const SideBar = () => {
       <div className="center">
         <ul>
           <p className="title">Main</p>
-          <li>
+          <li  className={selectedItem === 1 ? 'green' : 'null'}  >
             <DashboardIcon />
-            <span onClick={() => handleClick('/')}>Dashboard</span> {/* Navigate to Home */}
+            <span onClick={()=>{handleColor(1); handleClick('/')}}
+
+             
+            >Dashboard</span> {/* Navigate to Home */}
           </li>
 
           <p className="title">Patient Details</p>

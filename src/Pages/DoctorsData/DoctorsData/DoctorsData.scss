@@ -1,38 +1,213 @@
-// .doctorcard {
-//     max-width: 400px;
-//     margin: 20px auto;
-//     padding: 20px;
-//     background-color: #f9f9f9;
-//     border-radius: 10px;
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.DoctorsData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f7f7;
   
-//     .doctor-Card {
-//       text-align: center;
-//       padding: 10px;
+    .doctorFetch {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   
-//       h3 {
-//         font-size: 1.5rem;
-//         color: #333;
-//         margin-bottom: 5px;
-//       }
+      .doctors {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 20px;
   
-//       p {
-//         font-size: 1rem;
-//         color: #666;
-//         margin-bottom: 15px;
-//       }
+        .doctors-gird {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 20px;
+        }
+      }
+    }
   
-//       .rating {
-//         margin-top: 10px;
-//         font-size: 1.2rem;
-//         color: #ffcc00;
-//       }
-//     }
+    .doctorFetch p {
+      color: #ff6347;
+      font-size: 1.2rem;
+    }
   
-//     .table {
-//       margin-top: 20px;
-//       border-top: 1px solid #ddd;
-//       padding-top: 15px;
-//     }
-//   }
+    .addDoctorButton {
+      align-self: flex-end;
+      margin-bottom: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+  
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  }
+  
+
+
+  .doctorcard {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-10px);
+    }
+  
+    .doctor-table {
+      width: 100%;
+      border-spacing: 10px;
+      text-align: left;
+      font-size: 1rem;
+      color: #333;
+  
+      th {
+        font-weight: bold;
+        color: #4CAF50;
+      }
+  
+      td {
+        padding: 8px;
+        color: #555;
+      }
+  
+      .rating {
+        font-size: 1.2rem;
+        color: #f39c12;
+        font-weight: bold;
+      }
+  
+      img {
+        max-width: 100px;
+        max-height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+  
+
+
+
+  
+
+
+//   adddoctors scss
+
+.page-create {
+    // width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  
+    button {
+      background-color: #4CAF50; /* Green background */
+      color: white;
+      font-size: 1rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #45a049; /* Slightly darker green */
+      }
+    }
+  
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+      label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      input,
+      textarea {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        transition: border-color 0.3s;
+  
+        &:focus {
+          border-color: #4CAF50; /* Green focus border */
+          outline: none;
+        }
+      }
+  
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
+  
+      button[type='submit'] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #45a049;
+        }
+      }
+  
+      .error {
+        color: #ff6347; /* Red error message */
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+    }
+  
+    .form-toggle {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-bottom: 20px;
+  
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  }
   

@@ -1,0 +1,110 @@
+.single-patient-data {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .inputImg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+        input[type="file"] {
+            display: none;
+        }
+        .preview-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-top: 10px;
+            border: 2px solid #ddd;
+            object-fit: cover;
+        }
+
+        
+    }
+
+    .info {
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+
+        .preview-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-top: 10px;
+            border: 2px solid #ddd;
+            object-fit: cover;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+
+            strong {
+                color: #333;
+            }
+        }
+
+       
+    }
+    .editable-field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+
+            &:focus {
+                border-color: #007bff;
+            }
+        }
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    .error-message {
+        color: #d9534f;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
