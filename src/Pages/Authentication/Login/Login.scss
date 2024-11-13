@@ -1,0 +1,79 @@
+// Import Google Font for stylish typography
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('src/Pages/Authentication/Login/loginAssets/backgroundImage.svg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  // background-color: red;
+  .login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+  }
+
+.login-form{
+//   background: rgba(187, 187, 187, 0.85); // Semi-transparent dark background
+  padding: 2rem;
+  border-radius: 10px;
+ 
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: black;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__form-group {
+    display: flex;
+    // flex-direction: column;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  &__label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid green;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: transparent;
+    // border: 2px solid;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #14a51e;
+    }
+  }
+}
+
+}

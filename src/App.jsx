@@ -1,18 +1,17 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import Home from './Pages/Home/Home'
-import Login from './Authentication/Login/Login'
-import PatientsData from './Pages/PatientsData/PatientsData'
-import SinglePatientData from './Pages/PatientsData/PatientComponent/SinglePatientData/SinglePatientData'
-import AddNewPatient from './Pages/AddNewPatient/AddNewPatient'
-import PatientEdit from './Pages/PatientsData/PatientComponent/PatientEdit/PatientEdit'
-import DoctorsData from './Pages/DoctorsData/DoctorsData/DoctorsData'
-import AddDoctor from './Pages/DoctorsData/DoctorsData/AddDoctor'
+import Login from './Pages/Authentication/Login/Login'
+import PatientsData from './Pages/Accounts/Patients/PatientsData'
+import SinglePatientData from './Pages/Accounts/Patients/PatientsComponents/PatientInfo/SinglePatientData/SinglePatientData'
+import AddNewPatient from './Pages/Accounts/Patients/PatientsComponents/PatientInfo/AddNewPatient/AddNewPatient'
+import PatientEdit from './Pages/Accounts/Patients/PatientsComponents/PatientInfo/PatientEdit/PatientEdit'
+import DoctorsData from './Pages/Accounts/Doctors/DoctorsDashboard/DoctorsData/DoctorsData'
+import AddDoctor from './Pages/Accounts/Doctors/DoctorsDashboard/DoctorsData/AddDoctor'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Signup from './Authentication/Signup/Signup'
-import DoctorsHomePage from './Pages/DoctorsData/DoctocDashBoard/DoctorsHomePage/DoctorsHomePage'
+import Signup from './Pages/Authentication/Signup/Signup'
+import Admin from './Pages/Accounts/Admin/Admin'
 
 
 function App() {
@@ -22,8 +21,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
+        <Route path="/" element={<Admin/>} />
+        <Route path="login" element={<Login/>} />
         <Route path="signup" element={<Signup/>} />
 
         <Route path="patients" element={<PatientsData />} />
@@ -32,7 +31,6 @@ function App() {
         <Route path="/patients/edit/:id" element={<PatientEdit />} />
         <Route path="/Doctors" element={<DoctorsData/>} />
         <Route path="/Doctors/new" element={<AddDoctor/>} />
-        <Route path="/DoctorsDashaboard" element={<DoctorsHomePage/>} />
 
 
         </Routes>
