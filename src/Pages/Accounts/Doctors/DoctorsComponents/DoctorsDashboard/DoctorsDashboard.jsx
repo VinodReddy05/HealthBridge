@@ -14,7 +14,7 @@ const DoctorsDashboard = () => {
         <DoctorsSidebar doctors={doctorsId}/>
 
         <div className="doctordashboard">
-            <h1>doctos</h1>
+            <h1>doctor</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum doloribus omnis incidunt veniam nam non ab quam voluptates unde quos saepe quae, voluptatem libero soluta! Provident accusamus quam nihil praesentium!</p>
         </div>
     </div>

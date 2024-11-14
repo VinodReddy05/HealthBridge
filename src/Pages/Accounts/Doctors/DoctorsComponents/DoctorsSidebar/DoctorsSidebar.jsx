@@ -27,6 +27,8 @@ const DoctorsSidebar = ({doctorsId}) => {
     setSelectedItem(index);
   };
 
+  const currentDoctors = JSON.parse(localStorage.getItem('doctorData'))
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -38,7 +40,7 @@ const DoctorsSidebar = ({doctorsId}) => {
           <p className="title">Main</p>
           <li  className={selectedItem === 1 ? 'green' : 'null'}  >
             <DashboardIcon />
-            <span onClick={()=>{handleColor(1); handleClick('/')}}
+            <span onClick={()=>{handleColor(1); handleClick('/doctors/dashboard')}}
 
              
             >Dashboard</span> {/* Navigate to Home */}
@@ -47,7 +49,7 @@ const DoctorsSidebar = ({doctorsId}) => {
           <p className="title">Patient Details</p>
           <li>
             <AccessibleIcon />
-            <span onClick={() => handleClick(`/doctors/${doctorsId}`)}>Patients</span> {/* Navigate to Patients */}
+            <span onClick={() => handleClick(`/doctors/${currentDoctors.id}`)}>Patients</span> {/* Navigate to Patients */}
           </li>
 
           <p className="title">Staff</p>

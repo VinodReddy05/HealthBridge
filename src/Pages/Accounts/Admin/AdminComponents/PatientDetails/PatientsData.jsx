@@ -27,11 +27,14 @@ const PatientsData = () => {
     const fetchPatients = async () => {
         setLoading(true);
         const { data, error } = await supabase
-            .from('patientsdata')
-            .select();
+        .from('patientsdata')
+        .select('*')
+        .headers({ 'Accept': 'application/json' });
+            
         setLoading(false);
 
         if (error) {
+            console.log("Error from Supabase:", error);
             setFetchError("Could not fetch data");
         } else {
             let filteredPatients = data;
@@ -189,10 +192,10 @@ const PatientsData = () => {
 
 
                         {Array.from({ length: 1 }, (_, i) => (
-                            <div   key={i} >
+                            <div   >
 
                                 <button
-                                  
+                                   key={i}
                                     className={`pagination-button ${currentPage === i + 1 ? 'active' : ''}`}
                                     onClick={() => paginate(i + 1)}
                                 >

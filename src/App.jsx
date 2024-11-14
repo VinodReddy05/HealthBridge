@@ -9,9 +9,10 @@ import AddDoctor from "./Pages/Accounts/Admin/AdminComponents/Doctors/DoctorsDat
 import Signup from "./Pages/Authentication/Signup/Signup";
 import Admin from "./Pages/Accounts/Admin/Admin";
 import "./App.css";
-import Patient from "./Pages/Accounts/Patients/Patient";
+
 import PatientDashboard from "./Pages/Accounts/Patients/PatientsComponents/PatientDashboard/PatientDashboard";
 import DoctorsDashboard from "./Pages/Accounts/Doctors/DoctorsComponents/DoctorsDashboard/DoctorsDashboard";
+import DoctorProfile from "./Pages/Accounts/Doctors/DoctorsComponents/DoctorProfile/DoctorProfile";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           {/* Doctors Routes */}
           <Route path="/doctors" element={<DoctorsData />} />
           <Route path="/doctors/new" element={<AddDoctor />} />
+          <Route path="/doctors/:id" element={<DoctorProfile/>} />
           <Route path="/doctors/dashboard" element={<DoctorsDashboard />} />
 
           {/* Patient Dashboard & Patient */}

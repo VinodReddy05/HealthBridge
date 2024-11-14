@@ -8,7 +8,7 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userId, setUserId] = useState('');
+  // const [userId, setUserId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
 
@@ -20,7 +20,7 @@ const Login = () => {
       // First, check the patientsdata table
       const { data: patientData, error: patientError } = await supabase
         .from('patientsdata')
-        .select('*')
+        .select('*', { headers: { 'Accept': 'application/json' } })
         .eq('email_id', email)
         .eq('password', password)
         .single();
@@ -38,14 +38,14 @@ const Login = () => {
         }));
       
         console.log(`Patient ID: ${patientData.id}`);
-        console.log(`Patient Name: ${patientData.patient_name}`);
+        console.log(`Patient Name: ${patientData.name}`);
          
       }
 
       // If no patient is found, check the doctorsdata table
       const { data: doctorData, error: doctorError } = await supabase
         .from('DoctorsData')
-        .select('*')
+        .select('*', { headers: { 'Accept': 'application/json' } })
         .eq('email_id', email)
         .eq('password', password)
         // .eq('user' , userId )
@@ -63,8 +63,8 @@ const Login = () => {
           userId: doctorData.id, 
           ...doctorData 
         }));
-        console.log(`Patient ID: ${doctorData.id}`);
-        console.log(`Patient Name: ${doctorData.doctor_name}`);
+        console.log(`doctor ID: ${doctorData.id}`);
+        console.log(`doctor Name: ${doctorData.name}`);
       }
       setErrorMessage('Invalid email or password. Please try again.');
 
