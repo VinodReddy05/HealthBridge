@@ -45,6 +45,7 @@ form {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+
     label {
         font-size: 0.95rem;
         color: #444;
@@ -66,11 +67,19 @@ form {
             border-color: #007bff;
         }
     }
+    select{
+        padding: 12px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease;
+     }
 
     .error {
         color: #d9534f;
         font-size: 0.9rem;
     }
+ 
 
     button[type="submit"] {
         background-color: #28a745;

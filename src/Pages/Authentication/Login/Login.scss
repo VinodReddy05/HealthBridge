@@ -1,7 +1,7 @@
 // Import Google Font for stylish typography
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-.login-container {
+.login-container:read-only {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,7 @@
   background-size: cover;
   font-family: 'Poppins', sans-serif;
   // background-color: red;
+
   .login{
     display: flex;
     flex-direction: column;
@@ -52,8 +53,8 @@
     padding: 0.75rem;
     border: none;
     outline: none;
-    border-bottom: 2px solid green;
-    border-radius: 5px;
+    border-bottom: 1px solid green;
+    // border-radius: 5px;
     font-size: 1rem;
     background: transparent;
     // border: 2px solid;

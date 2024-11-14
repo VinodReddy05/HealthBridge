@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import SideBar from '../Admin/AdminComponents/SiderBar/SideBar';
-import NavBar from "../../../Components/NavBar/NavBar";
+import SideBar from '../SiderBar/SideBar';
+import NavBar from "../../../../../Components/NavBar/NavBar";
 import "./PatientsData.scss";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { supabase } from "../../../utilies/SupaBase";
+import { supabase } from "../../../../../utilies/SupaBase";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -113,13 +113,13 @@ const PatientsData = () => {
             <div className="patientContainer">
                 <NavBar />
                 <div className="datatable">
-                    <button onClick={handleAddPatient}>
+                    <button className='addpatientbtn ' onClick={handleAddPatient}>
                         Add a Patient
                     </button>
                     <div className='createdbtn'>
                         <div className="buttonstatus">
-                            <button onClick={() => setOrderBy('created_at')}>Order by Created At</button>
-                            <button onClick={() => setOrderBy('doctor_name')}>Order by Doctor Name</button>
+                            <button className='created_attbtn' onClick={() => setOrderBy('created_at')}>Order by Created At</button>
+                            <button className='doctor_namebtn' onClick={() => setOrderBy('doctor_name')}>Order by Doctor Name</button>
                         </div>
                         <div className="inputfield">
                             <input
@@ -189,10 +189,10 @@ const PatientsData = () => {
 
 
                         {Array.from({ length: 1 }, (_, i) => (
-                            <div>
+                            <div   key={i} >
 
                                 <button
-                                    key={i}
+                                  
                                     className={`pagination-button ${currentPage === i + 1 ? 'active' : ''}`}
                                     onClick={() => paginate(i + 1)}
                                 >

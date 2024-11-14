@@ -8,7 +8,9 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userId, setUserId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -29,7 +31,15 @@ const Login = () => {
 
       if (patientData) {
         alert('Patient Login Successful');
-        return navigate(`/patients/${patientData.id}`);
+         navigate('/patients/dashboard');
+         localStorage.setItem('patientData', JSON.stringify({
+          userId: patientData.id, 
+          ...patientData 
+        }));
+      
+        console.log(`Patient ID: ${patientData.id}`);
+        console.log(`Patient Name: ${patientData.patient_name}`);
+         
       }
 
       // If no patient is found, check the doctorsdata table
@@ -38,6 +48,7 @@ const Login = () => {
         .select('*')
         .eq('email_id', email)
         .eq('password', password)
+        // .eq('user' , userId )
         .single();
 
       if (doctorError && doctorError.code !== 'PGRST116') {
@@ -46,11 +57,15 @@ const Login = () => {
 
       if (doctorData) {
         alert('Doctor Login Successful');
-        return navigate(`/DoctorsDashaboard`);
-        // navigate(`/`)
-      }
+         navigate(`/doctors/dashboard`);
 
-      // If neither patient nor doctor was found
+        localStorage.setItem('doctorData', JSON.stringify({
+          userId: doctorData.id, 
+          ...doctorData 
+        }));
+        console.log(`Patient ID: ${doctorData.id}`);
+        console.log(`Patient Name: ${doctorData.doctor_name}`);
+      }
       setErrorMessage('Invalid email or password. Please try again.');
 
     } catch (error) {

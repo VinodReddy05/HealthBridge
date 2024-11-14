@@ -8,7 +8,7 @@
     background-color: white;  
     z-index: 1000;
     flex: 0 0 250;     
-  
+
     .top {
         height: 9.5vh;
         display: flex;
@@ -44,31 +44,34 @@
                 cursor: pointer;
             }
 
-
-            .green{
-                background-color: #797777;
+            .green {
+                background-color: #58B55C;
+                border-radius: 5px 13px 50px 5px;
+                transition: all 0.5s ease-in-out;
             }
+
             li {
                 display: flex;
                 align-items: center;
                 gap: 5px;
                 cursor: pointer;
+                border-radius: 5px 13px 50px 5px;
                 padding: 20px;
-
+                position: relative;
+                transition: transform 0.5s ease, background-color 0.5s ease; /* Add smooth transition */
 
                 &:hover {
-                    background-color: #58B55C;
-                    border-radius: 5px 13px 50px 5px;
+                    background-color: #58B55C;  /* Hover background */
+                    border-radius: 5px 13px 50px 5px;  /* Hover border radius */
+                    transform: translateY(1px); /* Smoothly move the background down */
+                    color: #fff;
                 }
-            
 
                 span {
                     font-size: 15px;
                     font-weight: bold;
-                    // color: #353333;
                 }
             }
-           
         } 
     }
 }

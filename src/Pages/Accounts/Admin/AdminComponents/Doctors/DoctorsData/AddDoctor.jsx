@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../../../../../utilies/SupaBase';
+import { supabase } from '../../../../../../utilies/SupaBase';
 import emailjs from 'emailjs-com';
 
 const AddDoctor = ({ refreshDoctors }) => {

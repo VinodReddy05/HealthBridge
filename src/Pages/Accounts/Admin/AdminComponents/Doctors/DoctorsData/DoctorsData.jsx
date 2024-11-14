@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../../../../../utilies/SupaBase"; 
+import { supabase } from '../../../../../../utilies/SupaBase';
 import DoctorCard from "./DoctorCard";
-import AddDoctor from "./AddDoctor";
+// import AddDoctor from "./AddDoctor";
 
 import "./DoctorsData.scss";
 import { useNavigate } from "react-router-dom";

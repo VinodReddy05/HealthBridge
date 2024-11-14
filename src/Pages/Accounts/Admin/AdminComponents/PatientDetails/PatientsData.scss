@@ -21,6 +21,14 @@
             border-radius: 8px;
             margin: 0 auto;
     scrollbar-width: none;
+    .addpatientbtn{
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border: none;
+    }
+    .created_attbtn,.doctor_namebtn{
+        padding: 10px 15px;
+    }
     .createdbtn{
         // display: flex;
         .buttonstatus{

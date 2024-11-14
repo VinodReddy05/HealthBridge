@@ -1,8 +1,13 @@
 import React from 'react';
+import NavBar from '../../../../../../Components/NavBar/NavBar';
+import DoctorsSidebar from '../../../../Doctors/DoctorsComponents/DoctorsSidebar/DoctorsSidebar';
+
 
 const DoctorCard = ({ doctor }) => {
    return (
-
+      <>
+     <NavBar/>
+     <DoctorsSidebar/>
       <div className="doctorcard">
          
          <table className="doctor-table">
@@ -38,6 +43,7 @@ const DoctorCard = ({ doctor }) => {
             </tbody>
          </table>
       </div>
+      </>
    
    );
 };

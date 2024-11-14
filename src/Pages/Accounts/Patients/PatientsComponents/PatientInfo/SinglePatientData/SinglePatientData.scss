@@ -1,11 +1,12 @@
 .single-patient-data {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 60px auto;
     padding: 20px;
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
+    flex: 0 0 250px;
 
     h2 {
         font-size: 24px;
