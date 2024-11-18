@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from '../../../../../../utilies/SupaBase';
-import DoctorCard from "./DoctorCard";
+import DoctorCard from "../DoctorCard/DoctorCard";
 // import AddDoctor from "./AddDoctor";
 
 import "./DoctorsData.scss";
@@ -47,7 +47,7 @@ const DoctorsData = () => {
                 {fetchError && <p>{fetchError}</p>}
                 {doctors && (
                     <div className="doctors">
-                        <div className="doctors-gird">
+                        <div className="doctors-grid">
                             {doctors.map(doctor => (
                                 <DoctorCard key={doctor.id || index} doctor={doctor} />
                             ))}
@@ -60,3 +60,8 @@ const DoctorsData = () => {
 };
 
 export default DoctorsData;
+
+
+
+
+

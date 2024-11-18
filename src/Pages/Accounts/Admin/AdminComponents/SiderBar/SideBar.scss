@@ -71,4 +71,28 @@
            
         } 
     }
+
+
+    
+    .bottom{
+    display: flex;
+    justify-content:center;
+    align-items: end;
+    margin-top: 100px;
+    position: relative;
+    button{
+        border: none;
+        padding: 10px 30px 10px 40px;
+        background: linear-gradient(to right, #bf0505, #f67e7e);
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .logouticon{
+        position: absolute;
+        left:75px  ;
+
+    }
+    }
 }

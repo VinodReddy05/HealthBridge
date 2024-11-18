@@ -1,108 +1,147 @@
-import React, { useState } from 'react';
-import { supabase } from '../../../utilies/SupaBase';
-import { useNavigate } from 'react-router-dom';
-import './Login.scss'
+import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { supabase } from "../../../utilies/SupaBase";
+import { useNavigate } from "react-router-dom";
+import "./Login.scss";
+
+import { HashLoader } from "react-spinners";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+  const [blur, setBlur] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  // const [userId, setUserId] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
+  useEffect(() => {
+    const userRole = localStorage.getItem("userRole");
+    if (userRole) {
+      if (userRole === "admin") {
+        navigate("/");
+      } else if (userRole === "patient") {
+        navigate("/patients/dashboard");
+      } else if (userRole === "doctor") {
+        navigate("/doctors/dashboard");
+      }
+    }
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setErrorMessage('');
+    setLoading(true);
+    setBlur(true)
 
     try {
-      // First, check the patientsdata table
+      const adminEmail = import.meta.env.VITE_ADMIN;
+      const adminPasskey = import.meta.env.VITE_PASSKEY;
+
+      if (email === adminEmail && password === adminPasskey) {
+        toast.success("Admin Login Successful", { theme: "dark" });
+        setTimeout(() => {
+          localStorage.setItem("userRole", "admin");
+          navigate("/");
+        }, 1500);
+        return;
+      }
+
       const { data: patientData, error: patientError } = await supabase
-        .from('patientsdata')
-        .select('*', { headers: { 'Accept': 'application/json' } })
-        .eq('email_id', email)
-        .eq('password', password)
+        .from("patientsdata")
+        .select("*")
+        .eq("email_id", email)
+        .eq("password", password)
         .single();
 
-      if (patientError && patientError.code !== 'PGRST116') { // Skip if no patient found
+      if (patientError && patientError.code !== "PGRST116") {
         throw patientError;
       }
 
       if (patientData) {
-        alert('Patient Login Successful');
-         navigate('/patients/dashboard');
-         localStorage.setItem('patientData', JSON.stringify({
-          userId: patientData.id, 
-          ...patientData 
-        }));
-      
-        console.log(`Patient ID: ${patientData.id}`);
-        console.log(`Patient Name: ${patientData.name}`);
-         
+        toast.success("Patient Login Successful", { theme: "dark" });
+        setTimeout(() => {
+          setBlur(true);  
+          localStorage.setItem("userRole", "patient");
+          localStorage.setItem("patientData", JSON.stringify({
+            userId: patientData.id,
+            ...patientData,
+          }));
+          navigate("/patients/dashboard");
+        }, 3000);
+        return;
       }
 
-      // If no patient is found, check the doctorsdata table
       const { data: doctorData, error: doctorError } = await supabase
-        .from('DoctorsData')
-        .select('*', { headers: { 'Accept': 'application/json' } })
-        .eq('email_id', email)
-        .eq('password', password)
-        // .eq('user' , userId )
+        .from("DoctorsData")
+        .select("*")
+        .eq("email_id", email)
+        .eq("password", password)
         .single();
 
-      if (doctorError && doctorError.code !== 'PGRST116') {
+      if (doctorError && doctorError.code !== "PGRST116") {
         throw doctorError;
       }
 
       if (doctorData) {
-        alert('Doctor Login Successful');
-         navigate(`/doctors/dashboard`);
-
-        localStorage.setItem('doctorData', JSON.stringify({
-          userId: doctorData.id, 
-          ...doctorData 
-        }));
-        console.log(`doctor ID: ${doctorData.id}`);
-        console.log(`doctor Name: ${doctorData.name}`);
+        toast.success("Doctor Login Successful", { theme: "dark" });
+        setTimeout(() => {
+          localStorage.setItem("userRole", "doctor");
+          localStorage.setItem("doctorData", JSON.stringify({
+            userId: doctorData.id,
+            ...doctorData,
+          }));
+          navigate("/doctors/dashboard");
+        }, 1500);
+        return;
       }
-      setErrorMessage('Invalid email or password. Please try again.');
-
     } catch (error) {
-      setErrorMessage('Error logging in. Please check your credentials.');
+      toast.error("Invalid Credentials", { theme: "dark" });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="login-container">
-     <div className="login">
-     <h2>Login</h2>
-      <form className='login-form' onSubmit={handleLogin}>
-        <div>
-          <label className="form-label" >Email</label>
-          <input
-            type="email"
+      {loading || blur ? <div className="blur-background"></div> : null}
+
+      <div className="login">
+        <h2>Login</h2>
+        <form className="login-form" onSubmit={handleLogin}>
+          <div>
+            <label className="form-label">Email</label>
+            <input
+              type="email"
               className="form-input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label className="form-label">Password</label>
-          <input
-            type="password"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label">Password</label>
+            <input
+              type="password"
               className="form-input"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="submit-button">Login</button>
-      </form>
-     </div>
-  
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          {loading && (
+            <div className="spinner-container">
+              <HashLoader color="#36d7b7" loading={loading} size={50} />
+            </div>
+          )}
+
+          <button type="submit" className="submit-button">
+            Login
+          </button>
+        </form>
+      </div>
+
+      <ToastContainer />
     </div>
   );
 };

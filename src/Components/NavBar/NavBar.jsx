@@ -8,6 +8,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import avatar from "../../assets/vinodPic.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -20,9 +21,12 @@ const NavBar = () => {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const handleLogout = () => {
-    console.log("User logged out");
+   toast.warning("You loged out ")
     localStorage.clear();
-    navigate("/login");
+    setTimeout(() => {
+      
+      navigate("/login");
+    }, 1500);
   };
 
   const handleProfile = () => {
@@ -64,15 +68,33 @@ const NavBar = () => {
             <MenuOutlinedIcon className="icon" />
           </div>
           <div className="profile">
-            <h4>{doctorData ? doctorData.name : patientData.name}</h4>
+            {/* <h4>
+              {doctorData
+                ? doctorData.name
+                : patientData
+                ? patientData.name
+                : "Admin"}
+            </h4> */}
             <div className="item">
               <img
-                src={doctorData ? doctorData.image_url : patientData.image_url}
+                src={
+                  doctorData
+                    ? doctorData.image_url
+                    : patientData
+                    ? patientData.image_url
+                    : avatar
+                }
                 alt="User Avatar"
                 className="avatar"
                 onClick={toggleDropdown}
               />
-              <h4>{doctorData ? doctorData.email_id : patientData.email_id}</h4>
+              <h4>
+                {doctorData
+                  ? doctorData.email_id
+                  : patientData
+                  ? patientData.email_id
+                  : "Admin@example.com"}
+              </h4>
             </div>
 
             {dropdownOpen && (

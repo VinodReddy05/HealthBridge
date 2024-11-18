@@ -1,0 +1,43 @@
+
+.doctorcard {
+    padding: 20px;
+    background-color: #f9f9f9;
+  
+    .doctor-table {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-collapse: collapse;
+      margin: 20px 0;
+  
+      th {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 1.2rem;
+      }
+  
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        font-size: 1rem;
+        text-align: left;
+      }
+  
+      img {
+        display: block;
+        width: 150px;
+        height: auto;
+        border-radius: 8px;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+  
+      tr:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+  

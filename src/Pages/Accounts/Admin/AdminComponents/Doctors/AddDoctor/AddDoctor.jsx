@@ -1,65 +1,49 @@
-
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../../../../../utilies/SupaBase';
 import emailjs from 'emailjs-com';
+import NavBar from '../../../../../../Components/NavBar/NavBar';
+import SideBar from '../../SiderBar/SideBar';
+import './AddDoctor.scss'
 
-const AddDoctor = ({ refreshDoctors }) => {
+const AddDoctor = () => {   
    const [name, setName] = useState('');
    const [designation, setDesignation] = useState('');
    const [info, setInfo] = useState('');
    const [rating, setRating] = useState('');
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
-   const [image, setImage] = useState(null);
    const [formError, setFormError] = useState('');
    const [showForm, setShowForm] = useState(false);
+
+   const specializations = [
+      "Cardiology",
+      "Neurology",
+      "Orthopedics",
+      "Pediatrics",
+      "Dermatology",
+    ];
 
    const handleFileChange = (e) => {
       setImage(e.target.files[0]);
    };
 
-   // Password generation logic
    const generatePassword = () => {
       const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
       const newPassword = Array.from({ length: 6 }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
       setPassword(newPassword);
    };
 
-   // Trigger password generation when email is entered
    useEffect(() => {
       if (email) generatePassword();
    }, [email]);
 
-   const handleImageUpload = async (file) => {
-      if (!file) return null;
-      const fileName = `${Date.now()}_${file.name}`;
-      console.log('Uploading image with filename:', fileName);
-
-      const { data, error } = await supabase
-         .storage
-         .from('Doctors-profile-pic')
-         .upload(fileName, file);
-
-      if (error) {
-         console.error('Image upload error:', error);
-         setFormError('Failed to upload image.');
-         return null;
-      }
-
-      const { publicUrl } = supabase
-         .storage
-         .from('Doctors-profile-pic')
-         .getPublicUrl(fileName).data;
-
-      return publicUrl || null;
-   };
-
    const handleSubmit = async (e) => {
       e.preventDefault();
       console.log("Form submitted");
-      // console.log("Doctor Name:", );
-      console.log("Patient Name:", info);
-      console.log("Gender:", rating);
+      console.log("Doctor Name:", name);
+      console.log("Designation:", designation);
+      console.log("Info:", info);
+      console.log("Rating:", rating);
       console.log("Email:", email); 
       setFormError('');
 
@@ -73,12 +57,6 @@ const AddDoctor = ({ refreshDoctors }) => {
          return;
       }
 
-      let imageUrl = null;
-      if (image) {
-         imageUrl = await handleImageUpload(image);
-         if (!imageUrl) return;
-      }
-
       try {
          const { data, error } = await supabase
             .from('DoctorsData')
@@ -87,9 +65,8 @@ const AddDoctor = ({ refreshDoctors }) => {
                Designation: trimmedDesignation,
                info: trimmedInfo,
                rating: parsedRating,
-               image_url: imageUrl,
                email_id: email,
-               password  // Save the generated password for login
+               password
             }]);
 
          if (error) {
@@ -102,22 +79,16 @@ const AddDoctor = ({ refreshDoctors }) => {
             console.log('Doctor data inserted:', data);
             alert("Doctor added successfully");
 
-            sendEmail();  // Send email with login credentials
+            sendEmail();   
 
-            // Clear form fields after successful submission
             setName('');
             setDesignation('');
             setInfo('');
             setRating('');
             setEmail('');
             setPassword('');
-            setImage(null);
             setShowForm(true);
             refreshDoctors();
-         }
-         else{
-            alert("success")
-            sendEmail()
          }
       } catch (error) {
          console.error("Error during form submission:", error);
@@ -125,7 +96,6 @@ const AddDoctor = ({ refreshDoctors }) => {
       }
    };
 
-   // Email sending logic
    const sendEmail = () => {
       console.log('Attempting to send email...');
       const userTemplateParams = {
@@ -147,73 +117,69 @@ const AddDoctor = ({ refreshDoctors }) => {
          );
    };
 
-
    return (
+      <>
+         <NavBar/>
+         <SideBar/>
       <div className='page-create'>
-       
+         <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Name</label>
+            <input
+               type="text"
+               id="name"
+               value={name}
+               onChange={(e) => setName(e.target.value)}
+               required
+            />
 
-        
-            <form onSubmit={handleSubmit}>
-               <label htmlFor="name">Name</label>
-               <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-               />
+            <label htmlFor="designation">Designation</label>
+            <select
+               id="specializations"
+               value={designation}
+               onChange={(e) => setDesignation(e.target.value)}
+               required
+            >
+               <option value="">Select Designation</option>
+               {specializations && specializations.map((designationOption, index) => (
+                  <option key={index} value={designationOption}>
+                     {designationOption}
+                  </option>
+               ))}
+            </select>
 
-               <label htmlFor="designation">Designation</label>
-               <input
-                  type="text"
-                  id="designation"
-                  value={designation}
-                  onChange={(e) => setDesignation(e.target.value)}
-                  required
-               />
+            <label htmlFor="info">Info</label>
+            <textarea
+               id="info"
+               value={info}
+               onChange={(e) => setInfo(e.target.value)}
+               required
+            />
 
-               <label htmlFor="info">Info</label>
-               <textarea
-                  id="info"
-                  value={info}
-                  onChange={(e) => setInfo(e.target.value)}
-                  required
-               />
+            <label htmlFor="rating">Rating</label>
+            <input
+               type="number"
+               id="rating"
+               value={rating}
+               onChange={(e) => setRating(e.target.value)}
+               required
+            />
 
-               <label htmlFor="rating">Rating</label>
-               <input
-                  type="number"
-                  id="rating"
-                  value={rating}
-                  onChange={(e) => setRating(e.target.value)}
-                  required
-               />
+            <label htmlFor="email">Email</label>
+            <input
+               type="email"
+               id="email"
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+               required
+            />
 
-               <label htmlFor="email">Email</label>
-               <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-               />
+            <button type="submit">Submit</button>
 
-               <label htmlFor="image">Image</label>
-               <input
-                  type="file"
-                  id="image"
-                  accept="image/*"
-                  onChange={handleFileChange}
-               />
-
-               <button type="submit">Submit</button>
-
-               {formError && <p className='error'>{formError}</p>}
-            </form>
-        
+            {formError && <p className='error'>{formError}</p>}
+         </form>
       </div>
+      </>
    );
 };
 
 export default AddDoctor;
-

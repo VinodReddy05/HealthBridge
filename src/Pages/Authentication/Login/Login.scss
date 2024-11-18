@@ -1,80 +1,116 @@
-// Import Google Font for stylish typography
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-.login-container:read-only {
+// Global container that centers the login form and applies background
+.login-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+  position: relative;
   background: url('src/Pages/Authentication/Login/loginAssets/backgroundImage.svg') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Poppins', sans-serif;
-  // background-color: red;
+}
 
-  .login{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 50px;
-  }
-
-.login-form{
-//   background: rgba(187, 187, 187, 0.85); // Semi-transparent dark background
-  padding: 2rem;
-  border-radius: 10px;
- 
+// Styling for the login form container
+.login {
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
-  color: black;
+}
 
-  &__title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
+// Heading style
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
 
-  &__form-group {
-    display: flex;
-    // flex-direction: column;
-    margin-bottom: 1.5rem;
-    text-align: left;
-  }
+// Login form with column arrangement
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-  &__label {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
+// Form group to keep elements organized
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  &__input {
-    padding: 0.75rem;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid green;
-    // border-radius: 5px;
-    font-size: 1rem;
-    background: transparent;
-    // border: 2px solid;
-  }
+// Label style for form inputs
+.form-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
 
-  &__button {
-    width: 100%;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #4caf50;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #14a51e;
-    }
+// Style for form inputs with flexible layout
+.form-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid green;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    border-color: #36d7b7;
   }
 }
 
+// Styling for the submit button
+.submit-button {
+  padding: 12px 20px;
+  background-color: #36d77c;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: #2ba748;
+  }
+}
+
+// Container for the spinner
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20; 
+}
+
+// Blur effect to show during loading
+.blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+}
+
+.error {
+  border: 2px solid red;
 }

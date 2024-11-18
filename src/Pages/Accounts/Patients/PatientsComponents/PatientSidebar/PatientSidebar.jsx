@@ -7,6 +7,7 @@ import ChecklistRtlIcon from "@mui/icons-material/ChecklistRtl";
 import Person3Icon from "@mui/icons-material/Person3";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { useNavigate } from "react-router-dom";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const PatientSidebar = () => {
   // console.log(patientId && )
@@ -27,6 +28,11 @@ const PatientSidebar = () => {
 const currentPatients = JSON.parse(localStorage.getItem('patientData'))
 console.log(currentPatients.id);
 
+const handleLogout = () => {
+  console.log("User logged out");
+  localStorage.clear();
+  navigate("/login");
+};
   return (
     <nav className="sidebar">
       <div className="top">
@@ -100,6 +106,14 @@ console.log(currentPatients.id);
           </li>
         </ul>
       </div>
+
+      <div className="bottom">
+       
+       <button className="logout" onClick={handleLogout}>
+       <LogoutIcon className="logouticon"/>
+         logout
+       </button>
+     </div>
     </nav>
   );
 };
