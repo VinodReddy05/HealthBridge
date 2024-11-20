@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, PieChart, Tooltip, XAxis, YAxis, } from 'recharts';
 import './Charts.scss';
 
 const Charts = () => {
@@ -91,6 +91,9 @@ const Charts = () => {
                     <Line type="monotone" dataKey="uv" stroke="red" name="Recovered Patients" />
                 </LineChart>
             </div>
+    
+
+
         </div>
     );
 };

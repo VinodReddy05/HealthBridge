@@ -26,7 +26,7 @@ const PatientSidebar = () => {
 
 
 const currentPatients = JSON.parse(localStorage.getItem('patientData'))
-console.log(currentPatients.id);
+console.log(currentPatients.name);
 
 const handleLogout = () => {
   console.log("User logged out");
@@ -38,7 +38,7 @@ const handleLogout = () => {
       <div className="top">
         <span className="logo">HealthBridge</span>
       </div>
-      <hr />
+      {/* <hr /> */}
       <div className="center">
         <ul>
           <p className="title">Main</p>

@@ -1,14 +1,14 @@
-.widget-container {
-  height: 70vh;
+.widget-containers {
+  // height: 70vh;
   color: #404040;
-  // text-shadow: 2px 2px 4px rgba(128, 124, 124, 0.3);
+  text-shadow: 2px 2px 4px rgba(128, 124, 124, 0.3);
 
-  .widget-heading{
+  .widget-headings{
     margin: 50px 0 0 40px ;
     font-family: sans-serif,Open;
     font-weight: bold;
   }
-  .widget {
+  .widgets {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -17,15 +17,14 @@
     padding: 25px;
     
 
-    .patient {
+    .patients {
       display: flex;
       flex-direction: column;
-      // gap: 30px;
     }
 
   }
  
-  .widg-1, .widg-2, .widg-3,.widg-4{
+  .widg-11, .widg-33{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,27 +32,15 @@
     border-radius: 20px;
   }
 
-  .widg-1 {
+  .widg-11 {
     background: linear-gradient(135deg, #ff7f7f, #ff9f9f);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 cursor: pointer;
 
   }
 
-  .widg-2 {
-    background: linear-gradient(135deg, #4caf50, #66bb6a);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-
-  }
-
-  .widg-3 {
+  .widg-33 {
     background: linear-gradient(135deg, #42a5f5, #64b5f6);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .widg-4 {
-    background: linear-gradient(135deg, #ba68c8, #ce93d8);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 

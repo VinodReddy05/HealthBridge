@@ -10,8 +10,16 @@
       display: flex;
       flex-direction: column;
     }
-
+    
     .doctors {
+      width: 100%;
       display: flex;
+      margin-top: 40px;
+      gap: 20px;
+      .doctors-1{
+        width: 50%;
+        display:flex;
+       
+      }
     }
   }

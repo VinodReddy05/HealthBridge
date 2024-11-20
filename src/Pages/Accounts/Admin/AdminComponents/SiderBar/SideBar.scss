@@ -3,10 +3,10 @@
     top: 0;           
     left: 0;           
     height: 100vh;     
-    width: 250px;      
-    border-right: 5px solid lightgrey;
-    background-color: white;  
-    z-index: 1000;
+    // width: 250px;      
+    // border-right: 5px solid white;
+    // background-color: white;  
+    // z-index: 1000;
     flex: 0 0 250;     
   
     .top {
@@ -22,18 +22,17 @@
         }
     }
 
-    hr {
-        height: 0;
-        border: 2px solid lightgrey;
-    }
+
     
     .center {
         display: flex;
         flex-direction: column;
+        justify-content:space-between;
+       
         ul {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 10px;
 
             .title {
                 font-size: 12px;
@@ -42,6 +41,7 @@
                 margin-top: 15px;
                 margin-bottom: 5px;
                 cursor: pointer;
+                gap: 20px;
             }
 
 
@@ -65,7 +65,7 @@
                 span {
                     font-size: 15px;
                     font-weight: bold;
-                    // color: #353333;
+                    gap: 30px;
                 }
             }
            
@@ -73,18 +73,18 @@
     }
 
 
-    
+
     .bottom{
     display: flex;
-    justify-content:center;
+    justify-content:space-around;
     align-items: end;
-    margin-top: 100px;
-    position: relative;
+    margin-top:400px;
+    // position: relative;
     button{
         border: none;
         padding: 10px 30px 10px 40px;
-        background: linear-gradient(to right, #bf0505, #f67e7e);
-        color: #fff;
+        // background: linear-gradient(to right, #bf0505, #ff4f4f, #f67e7e);
+// color: #fff;
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
@@ -95,4 +95,50 @@
 
     }
     }
+
+    .login-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+      }
+      
+      .blur-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(8px);
+        z-index: 2;
+      }
+      
+      .gif-container {
+      width: 100%;
+      height: auto;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 3;
+      
+        img {
+          width: 200px;
+          height: auto;
+        }
+      
+        p {
+          margin-top: 10px;
+          font-size: 1.2rem;
+          color: #333;
+          font-weight: bold;
+        }
+      }
+      
+      .hidden {
+        display: none;
+      }
+      
 }
+
+
+
+
+

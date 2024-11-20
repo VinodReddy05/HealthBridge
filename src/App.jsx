@@ -18,8 +18,9 @@
 //   return (
 //     <>
 //       <BrowserRouter>
+
 //         <Routes>
-//           <Route path="/" element={<Admin />} />
+//           <Route path="/admin" element={<Admin />} />
 //           <Route path="/login" element={<Login />} />
 //           <Route path="/patients" element={<PatientsData />} />
 //           <Route path="/patients/new" element={<AddNewPatient />} />
@@ -29,7 +30,7 @@
 //           <Route path="/doctors" element={<DoctorsData/>}/>
 //           <Route path="/doctors/new" element={<AddDoctor/>}/>
 //           <Route path="/doctors/:id" element={<DoctorProfile/>} />
-//           <Route path="/doctor/dashboard" element={<DoctorsDashboard />} />
+//           <Route path="/doctors/dashboard" element={<DoctorsDashboard />} />
 
 //           {/* Patient Dashboard & Patient */}
 //           <Route path="/patients/dashboard" element={<PatientDashboard />} />
@@ -42,6 +43,72 @@
 // }
 
 // export default App;
+
+
+
+
+// import React, { Suspense, lazy } from "react";
+// import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// import "./App.css";
+
+// // Lazy load components
+// const Login = lazy(() => import("./Pages/Authentication/Login/Login"));
+// const Admin = lazy(() => import("./Pages/Accounts/Admin/Admin"));
+// const PatientsData = lazy(() => import("./Pages/Accounts/Admin/AdminComponents/PatientDetails/PatientsData"));
+// const SinglePatientData = lazy(() => import("./Pages/Accounts/Patients/PatientsComponents/PatientInfo/SinglePatientData/SinglePatientData"));
+// const AddNewPatient = lazy(() => import("./Pages/Accounts/Admin/AdminComponents/PatientDetails/AddNewPatient/AddNewPatient"));
+// const PatientEdit = lazy(() => import("./Pages/Accounts/Admin/AdminComponents/PatientDetails/PatientEdit/PatientEdit"));
+// const PatientDashboard = lazy(() => import("./Pages/Accounts/Patients/PatientsComponents/PatientDashboard/PatientDashboard"));
+// const DoctorsData = lazy(() => import("./Pages/Accounts/Admin/AdminComponents/Doctors/DoctorsData/DoctorsData"));
+// const AddDoctor = lazy(() => import("./Pages/Accounts/Admin/AdminComponents/Doctors/AddDoctor/AddDoctor"));
+// const DoctorProfile = lazy(() => import("./Pages/Accounts/Doctors/DoctorsComponents/DoctorProfile/DoctorProfile"));
+// const DoctorsDashboard = lazy(() => import("./Pages/Accounts/Doctors/DoctorsComponents/DoctorsDashboard/DoctorsDashboard"));
+
+// const App = () => {
+//   const PrivateRoute = ({ element: Component }) => {
+//     const token = localStorage.getItem("token");
+//     return token ? <Component /> : <Navigate to="/login" />;
+//   };
+
+//   return (
+//     <BrowserRouter>
+//       <Suspense fallback={<div>Loading...</div>}>
+//         <Routes>
+//           {/* Public Routes */}
+//           <Route path="/login" element={<Login />} />
+          
+//           {/* Redirect root to login */}
+//           <Route path="/" element={<Navigate to="/login" />} />
+
+//           {/* Admin Routes */}
+//           <Route path="/admin" element={<PrivateRoute element={Admin} />} />
+//           <Route path="/patients" element={<PrivateRoute element={PatientsData} />} />
+//           <Route path="/patients/new" element={<PrivateRoute element={AddNewPatient} />} />
+//           <Route path="/patients/edit/:id" element={<PrivateRoute element={PatientEdit} />} />
+
+//           {/* Doctors Routes */}
+//           <Route path="/doctors" element={<PrivateRoute element={DoctorsData} />} />
+//           <Route path="/doctors/new" element={<PrivateRoute element={AddDoctor} />} />
+//           <Route path="/doctors/:id" element={<PrivateRoute element={DoctorProfile} />} />
+//           <Route path="/doctors/dashboard" element={<PrivateRoute element={DoctorsDashboard} />} />
+
+//           {/* Patient Dashboard */}
+//           <Route path="/patients/dashboard" element={<PrivateRoute element={PatientDashboard} />} />
+//           <Route path="/patients/:id" element={<PrivateRoute element={SinglePatientData} />} />
+//         </Routes>
+//       </Suspense>
+//     </BrowserRouter>
+//   );
+// };
+
+// export default App;
+
+
+
+
+
+
+
 
 
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
@@ -62,6 +129,9 @@ import DoctorsSidebar from "./Pages/Accounts/Doctors/DoctorsComponents/DoctorsSi
 import NotFoundPage from "./utilies/NotFoundPage/NotFoundPage";
 import "./App.css";
 import PatientSidebar from "./Pages/Accounts/Patients/PatientsComponents/PatientSidebar/PatientSidebar";
+import MyPatients from "./Pages/Accounts/Doctors/DoctorsComponents/MyPatients/MyPatients";
+// import DoctorHome from "./Pages/Accounts/Doctors/DoctorsComponents/DoctorHome/DoctorHome";
+// import Doctors from "./Pages/Accounts/Doctors/Doctors";
 
 function App() {
   return (
@@ -96,7 +166,7 @@ function RoutesWrapper() {
         {/* Admin Routes */}
         {userRole === "admin" && (
           <>
-            <Route path="/" element={<Admin />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/admin/patients" element={<PatientsData />} />
             <Route path="/patients/new" element={<AddNewPatient />} />
             <Route path="/patients/edit/:id" element={<PatientEdit />} />
@@ -108,8 +178,9 @@ function RoutesWrapper() {
         {/* Doctor Routes */}
         {userRole === "doctor" && (
           <>
-            <Route path="/doctor/dashboard" element={<DoctorsDashboard />} />
-            <Route path="/doctor/details" element={<DoctorProfile />} />
+            <Route path="/doctor/dashboard" element={<DoctorsDashboard/>}/>
+            <Route path="/doctor/:doctorId" element={<DoctorProfile />} />
+            <Route path="/doctor/mypatients" element={<MyPatients/>} />
            
           </>
         )}
@@ -124,7 +195,7 @@ function RoutesWrapper() {
        )}
 
         {/* 404 Not Found Route */}
-        <Route path="*" element={<NotFoundPage />} />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>
     </>
   );

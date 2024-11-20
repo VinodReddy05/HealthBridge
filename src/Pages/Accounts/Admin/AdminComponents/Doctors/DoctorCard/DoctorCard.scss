@@ -1,43 +1,85 @@
+.doctorcard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
 
 .doctorcard {
-    padding: 20px;
-    background-color: #f9f9f9;
-  
-    .doctor-table {
-      width: 100%;
-      border: 1px solid #ddd;
-      border-collapse: collapse;
-      margin: 20px 0;
-  
-      th {
-        background-color: #4CAF50;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        font-size: 1.2rem;
-      }
-  
-      td {
-        border: 1px solid #ddd;
-        padding: 10px;
-        font-size: 1rem;
-        text-align: left;
-      }
-  
-      img {
-        display: block;
-        width: 150px;
-        height: auto;
-        border-radius: 8px;
-      }
-  
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-  
-      tr:hover {
-        background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  .doctor-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .doctor-details {
+    .doctor-name {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .doctor-info {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .doctor-designation {
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .doctor-rating {
+      font-size: 1rem;
+      color: #4caf50;
+      margin-bottom: 15px;
+    }
+
+    .doctor-actions {
+      display: flex;
+      justify-content: space-between;
+      width: 100px;
+
+      .action-icon {
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &.edit-icon {
+          color: #4caf50;
+
+          &:hover {
+            color: #388e3c;
+          }
+        }
+
+        &.delete-icon {
+          color: #f44336;
+
+          &:hover {
+            color: #d32f2f;
+          }
+        }
       }
     }
   }
-  
+}

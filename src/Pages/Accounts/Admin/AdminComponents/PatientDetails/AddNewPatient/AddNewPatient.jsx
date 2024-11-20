@@ -103,7 +103,7 @@ const AddNewPatient = () => {
         sendEmail() ;
       
         setTimeout(() => {
-        navigate("/patients");
+        navigate("/admin/patients");
         },1500);
       }
     } catch (error) {

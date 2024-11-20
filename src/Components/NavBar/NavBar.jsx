@@ -6,25 +6,45 @@ import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsAc
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import avatar from "../../assets/vinodPic.jpg";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useTheme } from "../ThemeContext/ThemeContext";
 
 const NavBar = () => {
   const navigate = useNavigate();
 
   const doctorData = JSON.parse(localStorage.getItem("doctorData"));
   const patientData = JSON.parse(localStorage.getItem("patientData"));
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+  // const [darkMode, setDarkMode] = useState(
+  //   localStorage.getItem("darkMode") === "true"
+  // );
+
+
+  const { darkMode, toggleDarkMode } = useTheme();
+
+
+  // const toggleDarkMode = () => {
+     
+  //   setDarkMode(!darkMode);
+  //   localStorage.setItem("darkMode", newMode); 
+  //   document.body.classList.toggle("dark-mode", newMode); 
+  // };
+
+  // useEffect(() => {
+  //   if (darkMode) {
+  //     document.body.classList.add("dark-mode");
+  //   } else {
+  //     document.body.classList.remove("dark-mode");
+  //   }
+  // }, [darkMode]);
 
   const handleLogout = () => {
-   toast.warning("You loged out ")
+    toast.warning("You loged out ");
     localStorage.clear();
     setTimeout(() => {
-      
       navigate("/login");
     }, 1500);
   };
@@ -49,12 +69,12 @@ const NavBar = () => {
           <SearchIcon />
         </div>
         <div className="items">
-          <div className="item">
+          {/* <div className="item">
             <LanguageIcon className="icon" />
             English
-          </div>
+          </div> */}
           <div className="item">
-            <Brightness4Icon className="icon" />
+            <Brightness4Icon className="icon"  onClick={toggleDarkMode}/>
           </div>
           <div className="item">
             <NotificationsActiveOutlinedIcon className="icon" />
@@ -64,9 +84,9 @@ const NavBar = () => {
             <ChatBubbleOutlineOutlinedIcon className="icon" />
             <div className="counter">2</div>
           </div>
-          <div className="item">
+          {/* <div className="item">
             <MenuOutlinedIcon className="icon" />
-          </div>
+          </div> */}
           <div className="profile">
             {/* <h4>
               {doctorData

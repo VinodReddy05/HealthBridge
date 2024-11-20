@@ -42,6 +42,14 @@
         border-radius: 5px;
       }
     }
+    
+ .doctorcard-grid {
+
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));   /* Responsive rows */
+  gap: 20px; /* Space between items */
+  padding: 20px;
+}
   }
 
   Button {
@@ -63,3 +71,9 @@
   }
 }
 
+// .doctorcard-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//   gap: 20px;
+//   padding: 20px;
+// }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MedicationIcon from '@mui/icons-material/Medication';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -7,9 +7,36 @@ import ShowChartIcon from '@mui/icons-material/ShowChart';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 import './widget.scss'
 import { Route, useNavigate } from 'react-router-dom';
+import { Key } from '@mui/icons-material';
+import { supabase } from '../../../../../../utilies/SupaBase';
 
 const Widget = () => {  
   const navigate = useNavigate();
+
+  const [totalPatients, setTotalPatients] = useState(0);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const fetchTotalPatients = async () => {
+      try {
+        const { count, error } = await supabase
+          .from("patientsdata")
+          .select("*", { count: 'exact', head: true }); // Only fetch the count
+  
+        if (error) throw error;
+  
+        setTotalPatients(count || 0); // Set the total count
+        console.log("Total Patients:", count);
+      } catch (err) {
+        console.error("Error fetching total patients:", err);
+      } finally {
+        setLoading(false); // Stop loading regardless of success or failure
+      }
+    };
+  
+    fetchTotalPatients();
+  }, []);
+
 
   const handleClick = (route) => {
     navigate(route);   
@@ -26,7 +53,13 @@ const Widget = () => {
         <div className=" widg-1" onClick={() => handleClick('/patients')}>
           <div className="patient" >
             <h3 >Total Patients</h3> 
-            <h1>723 <ShowChartIcon fontSize="large" /></h1>
+            {/* <h1>723 <ShowChartIcon fontSize="large" /></h1> */}
+            {loading ? (
+      <p>Loading total patients...</p>
+    ) : (
+      <h3>{totalPatients}</h3>
+    )}
+
           </div>
           <div className="icon"><FavoriteIcon fontSize="large" /></div>
         </div>

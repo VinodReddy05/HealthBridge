@@ -5,3 +5,44 @@ box-sizing: border-box;
 font-family:'Open Sans';
 }
 
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9; /* Optional background color */
+  }
+  
+  .loading-gif {
+    width: 150px;
+    height: auto;
+  }
+
+
+  /* Default Light Mode */
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.light-mode input {
+  color: #000000;
+}
+
+body.dark-mode input {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #555555;
+}
+
+/* Example styles for buttons */
+body.light-mode button {
+  color: #ffffff;
+}
+

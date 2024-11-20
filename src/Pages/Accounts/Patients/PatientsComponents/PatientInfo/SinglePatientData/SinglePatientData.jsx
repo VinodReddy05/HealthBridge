@@ -49,7 +49,7 @@ const SinglePatientData = () => {
           setEmail(data.email_id || "");
         }
         if(data){
-          console.log(patient);
+          // console.log(patient);
           
         }
       } catch (error) {

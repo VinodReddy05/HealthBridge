@@ -1,0 +1,67 @@
+ 
+
+.doctors-Patients {
+  display: flex;
+  flex-direction: column;
+  margin:90px 0 0 250px;  
+  background-color: #E6E6E6;
+  border-radius: 25px 10px 10px 10px;
+  height: 93vh;
+  .heading h1{
+display: flex;
+width: fit-content;
+    margin: 10px 0 0 20px;  
+    height: fit-content;
+    background-color:#45A049;
+    padding: 5px 15px;
+    border-radius: 10px ;
+    font-weight: 700;
+    color: #fff;
+  }
+  .sidebar {
+    flex: 1;
+  }
+
+  .content {
+    flex: 4; 
+    margin: 40px 0 0 0;  
+
+    display: flex;
+    flex-direction: column;
+
+    .my-patients-container {
+      padding: 20px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .patients-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .patient-card {
+        // border: 3px solid #dbd4d4;
+        background-color: #F2F2F2;
+        border-radius: 8px;
+        padding: 20px;
+        // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 250px;
+      }
+      span{
+        font-weight: bold;
+      }
+
+      .patient-card h2 {
+        margin: 0 0 10px;
+        // font-size: 20px;
+      }
+
+      .patient-card p {
+        margin: 5px 0;
+        font-size: 16px;
+      }
+    }
+  }
+}

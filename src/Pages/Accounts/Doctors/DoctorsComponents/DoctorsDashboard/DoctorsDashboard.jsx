@@ -3,21 +3,31 @@ import NavBar from '../../../../../Components/NavBar/NavBar'
 import DoctorsSidebar from '../DoctorsSidebar/DoctorsSidebar'
 import './DoctorsDashboard.scss'
 import { useParams } from 'react-router-dom'
+import Widget from './widgets/Widget'
+import Charts from '../DoctorsDashboard/charts/Charts'
+import DoctorProfile from '../DoctorProfile/DoctorProfile'
+import { PieChart } from '@mui/icons-material'
+
 
 const DoctorsDashboard = () => {
  
   const {doctorsId} = useParams()
 
   return (
-    <div>
-        <NavBar/>
-        <DoctorsSidebar doctors={doctorsId}/>
-
-        <div className="doctordashboard">
-            <h1>doctor</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum doloribus omnis incidunt veniam nam non ab quam voluptates unde quos saepe quae, voluptatem libero soluta! Provident accusamus quam nihil praesentium!</p>
+    <div className="container">
+    <NavBar/>
+    <div className="main-content">
+        <div className='doctordashboard'>
+            <DoctorsSidebar doctors={doctorsId}/>
+        </div> 
+        <div className="homeinfo"> 
+            <Widget/> 
+            <Charts/>
         </div>
+        
+       
     </div>
+</div>
   )
 }
 

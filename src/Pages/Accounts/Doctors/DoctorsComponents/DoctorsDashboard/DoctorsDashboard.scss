@@ -1,4 +1,28 @@
-.doctordashboard {
-    margin: 10vh auto 0 250px; 
-    padding: 20px; 
-}
+/* Make the outer container a flex container */
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Make the main-content area a flex container */
+  .main-content {
+    display: flex;
+    flex: 1;  /* Takes up remaining space */
+  }
+  
+  /* Sidebar styling */
+  .doctordashboard {
+    flex: 1;
+    padding: 20px;
+    /* Optionally you can add fixed width if you want to control the sidebar size */
+    min-width: 200px; // You can set the minimum width if needed
+  }
+  
+  /* Content section styling */
+  .homeinfo {
+    flex: 6;  
+    padding: 20px;
+    overflow-x: hidden;
+    // min-width: 200px;
+  }
+  

@@ -1,11 +1,28 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark-mode .navbar {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  
+  body.dark-mode input[type="text"] {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  
+
+
 .navbar{
     position: fixed;
     top: 0;
     left: 250px;
-    width: 87%;
-    // height: 54.5px;
+    width: 85%;
     height: 10vh;
-    border-bottom: 5px solid rgb(231,228,228);
+    // border-bottom: 5px solid rgb(231,228,228);
     display: flex;
     align-items: center;
     font-size:14px;
@@ -16,7 +33,8 @@
     .search{
         display: flex;
         align-items: center;
-        border: 0.5px solid lightgrey;
+        // border: 0.5px solid lightgrey;
+        border-bottom: 2px solid lightgrey;
         padding: 3px;
         input{
             border: none;

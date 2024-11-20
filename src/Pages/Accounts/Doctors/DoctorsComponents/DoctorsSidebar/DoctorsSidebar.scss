@@ -1,0 +1,18 @@
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .sidebar ul li.green {
+    background-color: #28a745; /* Example: Green background */
+    color: #fff; /* White text */
+    border-radius: 5px;
+  }
+  
+  .sidebar ul li span {
+    cursor: pointer;
+  }
+  

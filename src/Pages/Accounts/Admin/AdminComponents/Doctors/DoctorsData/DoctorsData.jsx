@@ -5,6 +5,7 @@ import DoctorCard from "../DoctorCard/DoctorCard";
 
 import "./DoctorsData.scss";
 import { useNavigate } from "react-router-dom";
+import SideBar from "../../SiderBar/SideBar";
 
 const DoctorsData = () => {
 
