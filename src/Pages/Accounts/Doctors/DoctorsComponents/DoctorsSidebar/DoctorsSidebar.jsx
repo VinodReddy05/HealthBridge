@@ -5,6 +5,8 @@ import AccessibleIcon from "@mui/icons-material/Accessible";
 import ChecklistRtlIcon from "@mui/icons-material/ChecklistRtl";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DoctorsSidebar = () => {
   const navigate = useNavigate();
@@ -17,9 +19,21 @@ const DoctorsSidebar = () => {
   };
 
   const handleLogout = () => {
+    // Clear the localStorage data
     localStorage.clear();
-    navigate("/login");
+
+    // Display success toast with correct position
+    toast.success("Successfully logged out from website!", {
+      position: toast.position.top-left, // Corrected position
+    });
+
+    // Navigate to login page after 1.5 seconds
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
   };
+
+
 
   return (
     <div className="sidebar">
@@ -71,6 +85,7 @@ const DoctorsSidebar = () => {
           Logout
         </button>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

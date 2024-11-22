@@ -1,136 +1,189 @@
-.single-patient-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 100px 0 0 250px;
+.single-doctor-data {
   width: 80%;
-  border-radius: 12px;
-  overflow: hidden;
+  height: 70vh;
+    padding: 20px;
+    margin: 100px 0 0 250px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   .profile-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1rem;
+    gap: 20px;
 
     img {
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
       object-fit: cover;
-      margin-left: 1rem;
-      border-radius: 10px;
-      border: 3px solid #fff;
     }
 
     .profile-details {
-      flex-grow: 1;
-      padding: 0 2rem;
-
+     
       h2 {
         margin: 0;
-        font-size: 40px;
-        font-weight: bold;
+        font-size: 24px;
+        color: #333;
       }
-
       p {
-        margin: 10px 20px;
-        font-size: 18px;
+        margin: 5px 0;
+        color: #666;
       }
     }
 
     button {
-      margin-right: 1rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      background-color: #50a071;
-      color: #fff;
-      cursor: pointer;
-
-      &:hover {
-        background-color: green;
-        color: #fff;
-      }
-    }
-  }
-
-  .editable-field {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem 0;
-
-    label {
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-
-    input {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  }
-
-  .actions {
-    margin-top: 1rem;
-
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
+      margin-left: auto;
+      padding: 10px 20px;
       background-color: #007bff;
       color: #fff;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
-
       &:hover {
         background-color: #0056b3;
       }
     }
   }
 
-  .info {
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
+  .edit-section {
+  
     margin-top: 20px;
-    color: black;
+    .editable-field {
+      
+      margin-bottom: 15px;
 
-    .info-content {
-      .project-detail {
-        width: 50%;
-        margin-top: 40px;
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="file"] {
+        // width: 100%;
+        padding: 10px;
+        border: 1px solid #bd2e2e;
+        border-radius: 5px;
+        &:focus {
+          outline: none;
+          border-color: #007bff;
+        }
+      }
+    }
+
+    .actions {
+      button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+          background-color: #218838;
+        }
       }
     }
   }
 
-  .info-buttons {
-    display: flex;
-    gap: 20px;
+  .info {
+    margin-top: 20px;
 
-    button {
-      background-color: unset;
-      background-color: #9dc8d2;
-      color: black;
+    .info-buttons {
+      display: flex;
+      gap: 10px;
+
+      button {
+        padding: 10px 15px;
+        background-color: #4d9be9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &.active1 {
+          background-color: #007bff;
+          color: #fff;
+        }
+
+        &:hover {
+          background-color: #007bff;
+        }
+      }
     }
 
-    .active1 {
-      background-color: #eaf3f5;
-    }
-
-    .active2 {
-      background-color: #eaf3f5;
-    }
-
-    .active3 {
-      background-color: #eaf3f5;
-    }
-
-    .active4 {
-      background-color: #eaf3f5;
+    .info-content {
+      width: 50%;
+      margin-top: 20px;
+      ul{
+        margin: 30px;
+        
+list-style-type:square
+      
+      }
+      .project-detail {
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
     }
   }
+}
+
+
+.popform {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popform-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.popform-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.popform-header h3 {
+  margin: 0;
+}
+
+.popform-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  .editable-field{
+    display: flex;
+    gap: 20px;
+    input{
+      border: none;
+      border-bottom: 2px solid;
+    }
+  }
+}
+
+.popform-footer {
+  display: flex;
+  justify-content: flex-end;
 }

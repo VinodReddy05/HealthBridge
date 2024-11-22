@@ -131,6 +131,7 @@ import "./App.css";
 import PatientSidebar from "./Pages/Accounts/Patients/PatientsComponents/PatientSidebar/PatientSidebar";
 import MyPatients from "./Pages/Accounts/Doctors/DoctorsComponents/MyPatients/MyPatients";
 import EditDoctors from "./Pages/Accounts/Admin/AdminComponents/Doctors/EditDoctors/EditDoctors";
+import Appointments from "./Pages/Accounts/Patients/PatientsComponents/Appointments/Appointments";
 // import DoctorHome from "./Pages/Accounts/Doctors/DoctorsComponents/DoctorHome/DoctorHome";
 // import Doctors from "./Pages/Accounts/Doctors/Doctors";
 
@@ -193,6 +194,7 @@ function RoutesWrapper() {
         <Route path="/patients/dashboard" element={<PatientDashboard />} />
         <Route path="/patients" element={<PatientsData />} />
         <Route path="/patients/:id" element={<SinglePatientData />} />
+        <Route path="/patient/appointment" element={<Appointments/>} />
         </>
        )}
 

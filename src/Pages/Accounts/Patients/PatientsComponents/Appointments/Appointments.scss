@@ -1,0 +1,50 @@
+/* Container for the doctor cards */
+.doctors-card {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    gap: 16px; /* Space between cards */
+    justify-content: center; /* Centers the cards */
+    padding: 16px;
+    margin: 100px 0 0 250px;
+  }
+  
+  /* Individual doctor card */
+  .doctor-info-card {
+    width: 20%;
+    display: flex;
+    flex-direction: column; /* Stacks image and text vertically */
+    align-items: center; /* Center-aligns content */
+    border: 1px solid #ccc; /* Light border for the card */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Inner spacing */
+    // width: 200px; /* Fixed width for consistency */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    // background-color: #fff; /* White background */
+    text-align: center; /* Centers text */
+    strong{
+        color: rgb(72, 160, 75);
+    }
+    .appointmentbtn{
+        width: fit-content;
+        padding: 5px ;
+        font-size: 10x;
+        font-weight: unset;
+    }
+  }
+  
+  /* Image inside the card */
+  .doctor-info-card img {
+    width: 200px; /* Fixed image width */
+    height: 200px; /* Fixed image height */
+    // border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image maintains aspect ratio */
+    margin-bottom: 12px; /* Space below the image */
+  }
+  
+  /* Text styling */
+  .doctor-info-card p {
+    margin: 4px 0; /* Space between text */
+    color: #333; /* Dark gray text */
+    font-size: 14px; /* Adjust font size */
+  }
+  

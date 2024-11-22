@@ -34,6 +34,9 @@ body.dark-mode {
 body.light-mode input {
   color: #000000;
 }
+body.dark-mode p {
+  color: #fffdfd;
+}
 
 body.dark-mode input {
   background-color: #333333;

@@ -8,6 +8,8 @@ import Person3Icon from "@mui/icons-material/Person3";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PatientSidebar = () => {
   // console.log(patientId && )
@@ -31,10 +33,13 @@ console.log(currentPatients.name);
 const handleLogout = () => {
   console.log("User logged out");
   localStorage.clear();
+toast.success("Successfully logout!!!")
+ setTimeout(() => {
   navigate("/login");
+ }, 1500);
 };
   return (
-    <nav className="sidebar">
+    <div className="sidebar">
       <div className="top">
         <span className="logo">HealthBridge</span>
       </div>
@@ -84,7 +89,7 @@ const handleLogout = () => {
             <span
               onClick={() => {
                 handleColor(4);
-                handleClick("/appointments");
+                handleClick("/patient/appointment");
               }}
             >
               Appointments
@@ -114,7 +119,8 @@ const handleLogout = () => {
          logout
        </button>
      </div>
-    </nav>
+     <ToastContainer/>
+    </div>
   );
 };
 

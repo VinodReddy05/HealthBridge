@@ -39,6 +39,40 @@
     position: sticky;
     top: 0; /* Keep sidebar fixed when scrolling */
   }
+
+  .doctor-details{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .doctors-card2{
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .doctor-card{
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+
+      padding: 20px;
+      // border: 2px solid red;
+     h4 strong{
+        color: #45A049;
+        padding: 10px 15px ;
+        border-radius:10px ;
+        // background-color:#45A049;
+      }
+      .disg{
+        color:red;
+      }
+
+    }
+  }
   
   /* NavBar styles */
 //   .navbar {

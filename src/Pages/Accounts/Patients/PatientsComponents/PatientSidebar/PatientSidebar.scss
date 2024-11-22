@@ -78,14 +78,16 @@
             border: none;
             padding: 10px 30px 10px 40px;
             border-radius: 20px;
+            border: 2px solid #50A071;
             color: red;
+            background-color: unset;
             font-weight: bold;
             font-size: 16px;
             cursor: pointer;
         }
         .logouticon{
             position: absolute;
-            left:75px  ;
+            left:70px  ;
     
         }
         }

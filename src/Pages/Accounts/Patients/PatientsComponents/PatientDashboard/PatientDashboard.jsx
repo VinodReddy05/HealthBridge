@@ -99,16 +99,21 @@ const PatientDashboard = () => {
           {patientData && doctorData && (
             <div className="doctor-details">
               <h3>Recommended Doctor(s)</h3>
-              {doctorData && doctorData.length > 0 ? (
+             <div className="doctors-card2">
+             {doctorData && doctorData.length > 0 ? (
                 doctorData.map((doctor) => (
                   <div key={doctor.id} className="doctor-card">
-                    <h4>{doctor.name}</h4>
-                    <p>{doctor.Designation}</p>
+                    <img src={doctor.image_url} alt="" />
+                    <h4><strong>{doctor.name}</strong></h4>
+                    <p><strong className="disg">{doctor.Designation}</strong></p>
+                    <p>{doctor.info}</p>
+                    <button>Get Appointment</button>
                   </div>
                 ))
               ) : (
                 <p>No doctors found for the given specialization.</p>
               )}
+             </div>
             </div>
           )}
         </div>
