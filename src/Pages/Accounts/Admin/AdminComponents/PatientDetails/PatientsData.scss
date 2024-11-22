@@ -9,27 +9,29 @@
     .patientContainer {
         flex: 1;
         padding: 20px;
-        background-color: #fff;
+        // background-color: #fff;
         
         .datatable {
             max-width: 100%;
             height: 100vh;
             // overflow-x: auto;  
-            background-color: #ffffff;
+            // background-color: #ffffff;
             padding: 20px;
             // box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
             border-radius: 8px;
             margin: 0 auto;
     scrollbar-width: none;
     .created_attbtn,.addpatientbtn,.doctor_namebtn{
+        
         padding: 10px 15px;
         margin-bottom: 10px;
         border: none;
         border-radius:10px ;
         font-weight: bold;
         background-color: #36C95F;
-        color: rgb(9, 8, 8);
+        color: rgb(22, 22, 22);
         cursor: pointer;
+        margin-right: 20px;
         &:hover{
             background-color: #55df7c;
             color: #fff;
@@ -93,7 +95,7 @@
                 }
 
                 tr:hover {
-                    background-color: #e0f3ff;
+                    background-color: #949799;
                 }
                 .icon{
                     cursor: pointer;

@@ -1,82 +1,43 @@
 .doctor-info {
-    // width: 50%;
+  text-align: center;
+
+  .doctor-swiper {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px 0;
+  }
+
+  .doctor-slide {
     display: flex;
-    // border: 2px solid red;
-    flex-direction: column;
-    h2 {
+    justify-content: center;
+    align-items: center;
+
+    .doctor-card {
+      // background: #fff;
+      border-radius: 10px;
+      // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
       text-align: center;
-      margin-bottom: 20px;
-    }
-  
-    .doctor-list {
-// width: 100%;
-      display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  
-     
-  
-      .doctor-card {
-        width: 100px;
-        flex: 1 0 200px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-        &:hover {
-          transform: translateY(-5px); /* Card lift effect */
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-        }
-  
-        img {
-          width: 100%;
-          height: auto;
-          border-radius: 50%;
-          max-width: 150px; /* Limit image size */
-          margin-bottom: 15px;
-        }
-  
-        h3 {
-          font-size: 1.2rem;
-          margin-bottom: 10px;
-        }
-  
-        p {
-          font-size: 1rem;
-          color: #555;
-          margin-bottom: 15px;
-        }
-  
-        button {
-          background-color: #007bff;
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          cursor: pointer;
-          margin: 5px;
-          transition: background-color 0.3s;
-  
-          &:hover {
-            background-color: #0056b3;
-          }
-  
-          &:focus {
-            outline: none;
-          }
-        }
+      padding: 20px;
+      width: 300px;
+
+      .doctor-image {
+        width: 100%;
+        height: auto;
+        // border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      h3 {
+        margin: 10px 0;
+        font-size: 1.2em;
+      }
+
+      p {
+        font-size: 0.9em;
+        color: #666;
       }
     }
-  
-    .loading,
-    .no-doctors {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #666;
-    }
   }
-  
+}

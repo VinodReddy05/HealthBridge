@@ -1,15 +1,10 @@
 .DoctorsData {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  // flex-direction: column;
+  // align-items: center;
   padding: 20px;
   background-color: #f7f7f7;
   margin: 10vh auto 0 250px;
-
-  .doctorFetch {
-    width: 100%;
-    max-width: 1200px;
-    padding: 20px;
 
     table {
       width: 100%;
@@ -43,12 +38,10 @@
       }
     }
     
- .doctorcard-grid {
-
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
-  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));   /* Responsive rows */
-  gap: 20px; /* Space between items */
-  padding: 20px;
+.doctors-grid{
+  display: flex;
+  flex-wrap: wrap;
+ 
 }
   }
 
@@ -69,7 +62,6 @@
      
     }
   }
-}
 
 // .doctorcard-grid {
 //   display: grid;

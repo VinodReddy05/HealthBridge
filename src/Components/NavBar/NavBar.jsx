@@ -26,20 +26,6 @@ const NavBar = () => {
   const { darkMode, toggleDarkMode } = useTheme();
 
 
-  // const toggleDarkMode = () => {
-     
-  //   setDarkMode(!darkMode);
-  //   localStorage.setItem("darkMode", newMode); 
-  //   document.body.classList.toggle("dark-mode", newMode); 
-  // };
-
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.body.classList.add("dark-mode");
-  //   } else {
-  //     document.body.classList.remove("dark-mode");
-  //   }
-  // }, [darkMode]);
 
   const handleLogout = () => {
     toast.warning("You loged out ");

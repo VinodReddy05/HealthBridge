@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-// import { createClient } from "@supabase/supabase-js";
-// Remove the slick carousel imports
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { supabase } from "../../../../../../utilies/SupaBase";
-import './DoctorInfo.scss'
+import './DoctorInfo.scss';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 const DoctorInfo = () => {
   const [doctors, setDoctors] = useState([]);
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDoctorsData = async () => {
@@ -18,13 +20,11 @@ const DoctorInfo = () => {
           .select("*");
         if (error) throw error;
 
-        setDoctors(data || []); // Set fetched doctors data or an empty array
-        // console.log(data);
-        
+        setDoctors(data || []);
       } catch (err) {
         console.error("Error fetching doctors data:", err);
       } finally {
-        setLoading(false); // Stop loading regardless of success or failure
+        setLoading(false);
       }
     };
 
@@ -39,24 +39,37 @@ const DoctorInfo = () => {
       ) : doctors.length === 0 ? (
         <p>No doctors available.</p>
       ) : (
-        <div className="doctor-list">
+        <Swiper
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView="auto"
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 2,
+            slideShadows: true,
+          }}
+          pagination={{ clickable: true }}
+          navigation
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          className="doctor-swiper"
+        >
           {doctors.map((doctor) => (
-            <div key={doctor.id} className="doctor-card">
-              <img
-                src={doctor.image_url || "https://via.placeholder.com/150"}
-                alt={doctor.name}
-              />
-              <h3>{doctor.name}</h3>
-              <p>Specialization: {doctor.Designation}</p> {/* Use correct field name */}
-              {/* <button onClick={() => alert(`Viewing ${doctor.name}`)}>
-                View Details
-              </button>
-              <button onClick={() => alert(`Editing ${doctor.name}`)}>
-                Edit
-              </button> */}
-            </div>
+            <SwiperSlide key={doctor.id} className="doctor-slide">
+              <div className="doctor-card">
+                <img
+                  src={doctor.image_url || "https://via.placeholder.com/150"}
+                  alt={doctor.name}
+                  className="doctor-image"
+                />
+                <h3>{doctor.name}</h3>
+                <p>Specialization: {doctor.Designation}</p>
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       )}
     </div>
   );

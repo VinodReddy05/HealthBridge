@@ -47,8 +47,17 @@
                 transition: background-color 0.55s ease;
                 color: #fff;
                 border-radius: 10px;
-                background-color: #36C95F;
+                background-color: rgb(74, 213, 74);
+            
+                &:hover {
+                    background-color: green;  
+                }
+            
+                // &:focus {
+                //     background-color: green;  // Adjust the focus color
+                // }
             }
+            
 
         }
     }

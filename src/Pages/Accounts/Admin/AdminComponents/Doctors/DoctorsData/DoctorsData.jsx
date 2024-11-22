@@ -47,13 +47,13 @@ const DoctorsData = () => {
             <div className="doctorFetch">
                 {fetchError && <p>{fetchError}</p>}
                 {doctors && (
-                    <div className="doctors">
+                 
                         <div className="doctors-grid">
                             {doctors.map(doctor => (
                                 <DoctorCard key={doctor.id || index} doctor={doctor} />
                             ))}
                         </div>
-                    </div>
+                
                 )}
             </div>
         </div>

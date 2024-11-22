@@ -58,7 +58,7 @@ const PatientEdit = () => {
                 setFormError(`Submission error: ${error.message}`);
             } else if (data && data.length > 0) {
                 setFormError(null);
-                navigate('/patients');
+                navigate('/admin/patients');
             } else {
                 setFormError("No patient data was updated, please check your input.");
             }

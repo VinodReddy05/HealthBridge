@@ -130,6 +130,7 @@ import NotFoundPage from "./utilies/NotFoundPage/NotFoundPage";
 import "./App.css";
 import PatientSidebar from "./Pages/Accounts/Patients/PatientsComponents/PatientSidebar/PatientSidebar";
 import MyPatients from "./Pages/Accounts/Doctors/DoctorsComponents/MyPatients/MyPatients";
+import EditDoctors from "./Pages/Accounts/Admin/AdminComponents/Doctors/EditDoctors/EditDoctors";
 // import DoctorHome from "./Pages/Accounts/Doctors/DoctorsComponents/DoctorHome/DoctorHome";
 // import Doctors from "./Pages/Accounts/Doctors/Doctors";
 
@@ -170,6 +171,7 @@ function RoutesWrapper() {
             <Route path="/admin/patients" element={<PatientsData />} />
             <Route path="/patients/new" element={<AddNewPatient />} />
             <Route path="/patients/edit/:id" element={<PatientEdit />} />
+            <Route path="/doctors/edit/:id" element={<EditDoctors/>} />
             <Route path="/admin/doctors" element={<DoctorsData />} />
             <Route path="/doctors/new" element={<AddDoctor />} />
           </>
@@ -202,3 +204,5 @@ function RoutesWrapper() {
 }
 
 export default App;
+
+

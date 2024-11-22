@@ -107,7 +107,7 @@ const handleLogout = () => {
         </ul>
       </div>
 
-      <div className="bottom">
+      <div className="bottom2">
        
        <button className="logout" onClick={handleLogout}>
        <LogoutIcon className="logouticon"/>

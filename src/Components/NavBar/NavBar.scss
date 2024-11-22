@@ -1,17 +1,18 @@
 body.dark-mode {
-    background-color: #121212;
+    background-color: #000000;
     color: #ffffff;
   }
   
   body.dark-mode .navbar {
     background-color: #1e1e1e;
+    border-radius: 0 0 0 20px ;
     color: #ffffff;
   }
   
   body.dark-mode input[type="text"] {
-    background-color: #333;
+    // background-color: #080808;
     color: #fff;
-    border: 1px solid #555;
+    // border: 1px solid #555;
   }
   
 
@@ -106,7 +107,7 @@ body.dark-mode {
             position: absolute;
             top: 100%;
             right: 0;
-            background-color: #fff;
+            background-color: #6d6a6a;
             border: 1px solid #ddd;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
@@ -119,6 +120,7 @@ body.dark-mode {
             padding: 8px 16px;
             text-align: left;
             border: none;
+            background-color: unset;
             background: none;
             cursor: pointer;
             font-size: 14px;

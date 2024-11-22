@@ -7,10 +7,10 @@ import NavBar from '../../../Components/NavBar/NavBar'
 const Doctors = ({doctorsId}) => {
   return (
     <div>
-    //   <NavBar/>
-    //   <DoctorsSidebar doctors={doctorsId}/>
-    //   <Widget/>
-    //   <Charts/>
+      <NavBar/>
+      <DoctorsSidebar doctors={doctorsId}/>
+      <Widget/>
+      {/* <Charts/> */}
     </div>
   )
 }

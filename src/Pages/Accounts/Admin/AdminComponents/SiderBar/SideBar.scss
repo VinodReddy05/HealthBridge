@@ -1,144 +1,127 @@
 .sidebar {
-    position: fixed;
-    top: 0;           
-    left: 0;           
-    height: 100vh;     
-    // width: 250px;      
-    // border-right: 5px solid white;
-    // background-color: white;  
-    // z-index: 1000;
-    flex: 0 0 250;     
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    // background-color: #f5f5f5;
+    position: relative; // For absolute positioning of blur and gif container
+    padding: 10px;
+  
+    .blur-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+  
+    .gif-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 20;
+  
+      img {
+        max-width: 150px;
+        border-radius: 10px;
+      }
+  
+      p {
+        margin-top: 10px;
+        font-size: 1rem;
+        color: #333;
+      }
+    }
   
     .top {
-        height: 9.5vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #50A071;
-        }
-    }
-
-
-    
-    .center {
-        display: flex;
-        flex-direction: column;
-        justify-content:space-between;
-       
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px;
-
-            .title {
-                font-size: 12px;
-                font-weight: bold;
-                color: #797777;
-                margin-top: 15px;
-                margin-bottom: 5px;
-                cursor: pointer;
-                gap: 20px;
-            }
-
-
-            .green{
-                background-color: #797777;
-            }
-            li {
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                cursor: pointer;
-                padding: 20px;
-
-
-                &:hover {
-                    background-color: #58B55C;
-                    border-radius: 5px 13px 50px 5px;
-                }
-            
-
-                span {
-                    font-size: 15px;
-                    font-weight: bold;
-                    gap: 30px;
-                }
-            }
-           
-        } 
-    }
-
-
-
-    .bottom{
-    display: flex;
-    justify-content:space-around;
-    align-items: end;
-    margin-top:400px;
-    // position: relative;
-    button{
-        border: none;
-        padding: 10px 30px 10px 40px;
-        // background: linear-gradient(to right, #bf0505, #ff4f4f, #f67e7e);
-// color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      z-index: 5;
+  
+      .logo {
+        font-size: 1.5rem;
         font-weight: bold;
-        font-size: 16px;
+        color: #333;
+      }
+    }
+  
+    .center {
+      flex-grow: 1;
+      z-index: 5;
+  
+      ul {
+        list-style: none;
+        padding: 0;
+  
+        .title {
+          font-size: 0.9rem;
+          color: #888;
+          margin: 10px 0 5px;
+        }
+  
+        li {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+  
+          &:hover {
+            background-color: #e0e0e0;
+          }
+  
+          &.green {
+            background-color: #4caf50;
+            color: #fff;
+          }
+  
+          span {
+            margin-left: 10px;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  
+    .bottom {
+      margin-top: auto;
+      z-index: 5;
+  
+      .logout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #ff5252;
+        border: none;
+        border-radius: 5px;
         cursor: pointer;
-    }
-    .logouticon{
-        position: absolute;
-        left:75px  ;
-
-    }
-    }
-
-    .login-container {
+        transition: background-color 0.3s;
         position: relative;
-        width: 100%;
-        height: 100vh;
-      }
-      
-      .blur-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        backdrop-filter: blur(8px);
-        z-index: 2;
-      }
-      
-      .gif-container {
-      width: 100%;
-      height: auto;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        z-index: 3;
-      
-        img {
-          width: 200px;
-          height: auto;
+        bottom: 20px;
+        left: 20px;
+  
+        &:hover {
+          background-color: #ff1744;
         }
-      
-        p {
-          margin-top: 10px;
+  
+        &.hidden {
+          display: none;
+        }
+  
+        .logouticon {
+          margin-right: 10px;
           font-size: 1.2rem;
-          color: #333;
-          font-weight: bold;
         }
       }
-      
-      .hidden {
-        display: none;
-      }
-      
-}
-
-
-
-
-
+    }
+  }
+  

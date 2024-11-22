@@ -9,42 +9,36 @@ import { useNavigate } from "react-router-dom";
 // import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const SideBar = () => {
+const SideBar = ({ setShowGif, setGifMessage }) => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState(null);
-  const [showGif, setShowGif] = useState(false);
-  const [blur, setBlur] = useState(false);
-  const [gifMessage, setGifMessage] = useState(""); 
-  const [loading, setLoading] = useState(false);
+  // const [blur, setBlur] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const handleClick = (route, index) => {
     setSelectedItem(index);
     navigate(route);
-    setLoading(true);
-    setBlur(true);
   };
 
   const handleLogout = () => {
+    // Update the state in Admin through props
     setGifMessage("You have logged out!");
-    setShowGif(true)
+    setShowGif(true);
+    // setBlur(true)
+    // setLoading(true)
+
     localStorage.clear();
+
+    // Navigate to login after a delay
     setTimeout(() => {
+      setShowGif(false); // Optionally hide the GIF
       navigate("/login");
     }, 1500);
   };
 
   return (
     <div className="sidebar">
-      {loading || blur ? <div className="blur-background"></div> : null}
-      {showGif && (
-        <div className="gif-container">
-          <img
-            src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=ecf05e47l2mubft6j3ziu9t1qbgvfkfngodcfrx0efthlwlz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
-            alt="Loading..."
-          />
-          <p>{gifMessage}</p>
-        </div>
-      )}
+      {/* {loading || blur ? <div className="blur-background"></div> : null} */}
       <div className="top">
         <span className="logo">HealthBridge</span>
       </div>
@@ -70,12 +64,11 @@ const SideBar = () => {
         </ul>
       </div>
       <div className="bottom">
-        <button className={`logout ${showGif ? "hidden" : ""}   `}onClick={handleLogout}>
+        <button className="logout" onClick={handleLogout}>
           <LogoutIcon className="logouticon" />
           Logout
         </button>
       </div>
-      {/* <ToastContainer /> */}
     </div>
   );
 };

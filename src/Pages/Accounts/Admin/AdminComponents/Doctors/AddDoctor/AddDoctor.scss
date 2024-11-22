@@ -4,11 +4,11 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f4f4f4;
+    // background-color: #f4f4f4;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 10vh auto 0 510px; 
+    margin: 10vh auto 510px; 
     padding: 20px; 
   
     button {
@@ -33,9 +33,9 @@
       flex-direction: column;
       gap: 15px;
       padding: 20px;
-      background-color: #ffffff;
+      // background-color: #ffffff;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
       label {
         font-size: 1rem;
@@ -48,7 +48,7 @@
       textarea {
         padding: 10px;
         font-size: 1rem;
-        border: 1px solid #ccc;
+        // border: 1px solid #ccc;
         border-radius: 5px;
         margin-top: 5px;
         transition: border-color 0.3s;
@@ -64,6 +64,7 @@
       textarea {
         resize: vertical;
         height: 100px;
+        background-color: unset;
       }
   
       button[type='submit'] {
@@ -94,6 +95,7 @@
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
+      background-color: unset;
       cursor: pointer;
       transition: background-color 0.3s;
       margin-bottom: 20px;

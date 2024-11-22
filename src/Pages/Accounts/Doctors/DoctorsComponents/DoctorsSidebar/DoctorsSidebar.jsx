@@ -65,7 +65,7 @@ const DoctorsSidebar = () => {
           </li>
         </ul>
       </div>
-      <div className="bottom">
+      <div className="bottom1">
         <button className="logout" onClick={handleLogout}>
           <LogoutIcon className="logouticon" />
           Logout
