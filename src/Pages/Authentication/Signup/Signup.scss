@@ -1,0 +1,76 @@
+// Signup.scss
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // padding: 2rem;
+    height: 100vh;
+    // background-color: #f7f8fa;
+    border-radius: 8px;
+ 
+    //
+    // margin: 2rem auto;
+    // background-color: #f7f7f7;
+    // position: relative;
+    background: url('../Login/loginAssets/backgroundImage.svg') no-repeat center center fixed;
+    background-size: cover;
+    // border: 2px solid red;
+  
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #333;
+      text-align: center;
+    }
+  
+    .signup-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 15px;
+      max-width: 500px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      gap: 16px;
+  
+      .form-label {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 0.5rem;
+      }
+  
+      .form-input {
+        width: 100%;
+        border: none;
+        outline: none;
+        border-bottom: 3px solid grey;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          outline: none;
+          border-bottom: 3px solid green;
+        }
+      }
+  
+      .submit-button {
+        width: 100%;
+        // background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+  
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  

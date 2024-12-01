@@ -1,10 +1,10 @@
 .widget-container {
-  height: 70vh;
+  // height: 70vh;
   color: #404040;
   // text-shadow: 2px 2px 4px rgba(128, 124, 124, 0.3);
 
   .widget-heading{
-    margin: 50px 0 0 40px ;
+    // margin: 50px 0 0 40px ;
     font-family: sans-serif,Open;
     font-weight: bold;
   }
@@ -12,7 +12,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    margin: 25px 25px 0 25px;
+    // margin: 25px 25px 0 25px;
     color: white;
     padding: 25px;
     

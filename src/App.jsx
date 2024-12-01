@@ -134,6 +134,10 @@ import EditDoctors from "./Pages/Accounts/Admin/AdminComponents/Doctors/EditDoct
 import Appointments from "./Pages/Accounts/Patients/PatientsComponents/Appointments/Appointments";
 // import DoctorHome from "./Pages/Accounts/Doctors/DoctorsComponents/DoctorHome/DoctorHome";
 // import Doctors from "./Pages/Accounts/Doctors/Doctors";
+import Footer from "./Components/Footer/Footer";
+import AppointmentSchedule from "./Pages/Accounts/Patients/PatientsComponents/AppointmentSchedule/AppointmentSchedule";
+import MyAppointments from "./Pages/Accounts/Doctors/DoctorsComponents/Appointments/MyAppointments";
+import Signup from "./Pages/Authentication/SignUp/SignUp";
 
 function App() {
   return (
@@ -149,10 +153,13 @@ function RoutesWrapper() {
 
   // Check if the user is logged in and redirect if necessary
   useEffect(() => {
-    if (!userRole) {
-      navigate('/login');
+    const currentPath = window.location.pathname;
+
+    // Prevent redirect if on the login or signup pages
+    if (!userRole && currentPath !== "/login" && currentPath !== "/signup") {
+      navigate("/login");
     }
-  }, [navigate, userRole]);  // Depend on navigate and userRole to handle changes
+  }, [navigate, userRole]); // Depend on navigate and userRole to handle changes
 
   return (
     <>
@@ -164,6 +171,7 @@ function RoutesWrapper() {
       <Routes>
         {/* Common Routes */}
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup/>} />
 
         {/* Admin Routes */}
         {userRole === "admin" && (
@@ -182,8 +190,9 @@ function RoutesWrapper() {
         {userRole === "doctor" && (
           <>
             <Route path="/doctor/dashboard" element={<DoctorsDashboard/>}/>
-            <Route path="/doctor/:doctorId" element={<DoctorProfile />} />
+            <Route path="/doctor/:id" element={<DoctorProfile />} />
             <Route path="/doctor/mypatients" element={<MyPatients/>} />
+            <Route path="/doctor/appointment" element={<MyAppointments/>} />
            
           </>
         )}
@@ -195,11 +204,17 @@ function RoutesWrapper() {
         <Route path="/patients" element={<PatientsData />} />
         <Route path="/patients/:id" element={<SinglePatientData />} />
         <Route path="/patient/appointment" element={<Appointments/>} />
+        <Route path="/patient/appointmentschedule" element={<AppointmentSchedule/>} />
         </>
        )}
 
-        {/* 404 Not Found Route */}
+        
         {/* <Route path="*" element={<NotFoundPage />} /> */}
+
+        {/* footer */}
+      
+
+
       </Routes>
     </>
   );

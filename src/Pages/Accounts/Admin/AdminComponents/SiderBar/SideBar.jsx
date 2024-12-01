@@ -3,17 +3,14 @@ import { useState } from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AccessibleIcon from "@mui/icons-material/Accessible";
 import PersonSharpIcon from "@mui/icons-material/PersonSharp";
-import ChecklistRtlIcon from "@mui/icons-material/ChecklistRtl";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
-// import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SideBar = ({ setShowGif, setGifMessage }) => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState(null);
-  // const [blur, setBlur] = useState(false);
-  // const [loading, setLoading] = useState(false);
 
   const handleClick = (route, index) => {
     setSelectedItem(index);
@@ -21,24 +18,18 @@ const SideBar = ({ setShowGif, setGifMessage }) => {
   };
 
   const handleLogout = () => {
-    // Update the state in Admin through props
-    setGifMessage("You have logged out!");
-    setShowGif(true);
-    // setBlur(true)
-    // setLoading(true)
+    
 
     localStorage.clear();
 
-    // Navigate to login after a delay
+    toast.success("You logout")
     setTimeout(() => {
-      setShowGif(false); // Optionally hide the GIF
       navigate("/login");
     }, 1500);
   };
 
   return (
     <div className="sidebar">
-      {/* {loading || blur ? <div className="blur-background"></div> : null} */}
       <div className="top">
         <span className="logo">HealthBridge</span>
       </div>
@@ -69,6 +60,7 @@ const SideBar = ({ setShowGif, setGifMessage }) => {
           Logout
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 };

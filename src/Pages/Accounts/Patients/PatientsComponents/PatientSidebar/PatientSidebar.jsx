@@ -4,6 +4,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import AccessibleIcon from "@mui/icons-material/Accessible";
 import PersonSharpIcon from "@mui/icons-material/PersonSharp";
 import ChecklistRtlIcon from "@mui/icons-material/ChecklistRtl";
+import MenuIcon from "@mui/icons-material/Menu";
 import Person3Icon from "@mui/icons-material/Person3";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { useNavigate } from "react-router-dom";
@@ -12,12 +13,10 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PatientSidebar = () => {
-  // console.log(patientId && )
-
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isCollapsed, setIsCollapsed] = useState(false); // State to track sidebar collapse
 
-  // Handle different route navigation
   const handleClick = (route) => {
     navigate(route);
   };
@@ -26,100 +25,98 @@ const PatientSidebar = () => {
     setSelectedItem(index);
   };
 
+  const currentPatients = JSON.parse(localStorage.getItem('patientData'));
+  console.log(currentPatients?.name);
 
-const currentPatients = JSON.parse(localStorage.getItem('patientData'))
-console.log(currentPatients.name);
+  const handleLogout = () => {
+    console.log("User logged out");
+    localStorage.clear();
+    toast.success("Successfully logged out!!!");
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
+  };
 
-const handleLogout = () => {
-  console.log("User logged out");
-  localStorage.clear();
-toast.success("Successfully logout!!!")
- setTimeout(() => {
-  navigate("/login");
- }, 1500);
-};
+  // Toggle sidebar collapse
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
       <div className="top">
-        <span className="logo">HealthBridge</span>
+        <MenuIcon className="hamburger" onClick={toggleSidebar} />
+        {!isCollapsed && <span className="logo">HealthBridge</span>}
       </div>
-      {/* <hr /> */}
       <div className="center">
         <ul>
-          <p className="title">Main</p>
-          <li className={selectedItem === 1 ? "green" : ""}>
+          <p className="title">{!isCollapsed && "Main"}</p>
+          <li className={selectedItem === 1 ? "#4daaf5 vinod" : ""}   onClick={() => {
+                  handleColor(1);
+                  handleClick("/patients/dashboard");
+                }}>
             <DashboardIcon />
-            <span
-              onClick={() => {
-                handleColor(1);
-                handleClick("/patients/dashboard");
-              }}
-            >
-              Dashboard
-            </span>
+            {!isCollapsed && (
+              <span><button> Dashboard</button></span>
+            )}
           </li>
 
-          <p className="title">My Details</p>
-          <li className={selectedItem === 2 ? "green" : ""}>
+          <p className="title">{!isCollapsed && "My Details"}</p>
+          <li className={selectedItem === 2 ? "#4daaf5" : ""}   
+                  onClick={() => {
+                  handleColor(2);
+                  handleClick(`/patients/${currentPatients.id}`);
+                }}>
             <AccessibleIcon />
-            <span
-              onClick={() => {
-                handleColor(2);
-                handleClick(`/patients/${currentPatients.id}`);
-              }}
-            >
-              My Details
-            </span>
+            {!isCollapsed && (
+              <span><button> My Details</button> </span>
+            )}
           </li>
 
-          <p className="title">Staff</p>
+          {/* <p className="title">{!isCollapsed && "Staff"}</p>
           <li className={selectedItem === 3 ? "green" : ""}>
             <Person3Icon />
-            <span onClick={() => {
-              handleColor(3);
-              handleClick("/nurses");
-            }}>
-              Nurses
-            </span>
-          </li>
+            {!isCollapsed && (
+              <span
+                onClick={() => {
+                  handleColor(3);
+                  handleClick("/patient/Myprescriptions");
+                }}
+              >
+                <button>My perscriptions</button>
+              </span>
+            )}
+          </li> */}
 
-          <p className="title">Check List</p>
-          <li className={selectedItem === 4 ? "green" : ""}>
+          <p className="title">{!isCollapsed && "Check List"}</p>
+          <li className={selectedItem === 4 ? "#4daaf5" : ""}   onClick={() => {
+                  handleColor(4);
+                  handleClick("/patient/appointment");
+                }}>
             <ChecklistRtlIcon />
-            <span
-              onClick={() => {
-                handleColor(4);
-                handleClick("/patient/appointment");
-              }}
-            >
-              Appointments
-            </span>
+            {!isCollapsed && (
+              <span><button>Find My Doctors</button></span>
+            )}
           </li>
-          <li className={selectedItem === 5 ? "green" : ""}>
+          <li className={selectedItem === 5 ? "4daaf5" : ""} onClick={() => {
+                  handleColor(5);
+                  handleClick("/patient/appointmentschedule");
+                }}>
             <AccessTimeIcon />
-            <span
-              onClick={() => {
-                handleColor(5);
-                // handleClick("/appointment-schedule");
-                <Link to={`/patients/${patientId}`}>
-                Patient Details
-              </Link>
-              }}
-            >
-              Appointment Schedule
-            </span>
+            {!isCollapsed && (
+              <span><button>Appointments</button></span>
+            )}
           </li>
         </ul>
       </div>
 
-      <div className="bottom2">
-       
-       <button className="logout" onClick={handleLogout}>
-       <LogoutIcon className="logouticon"/>
-         logout
-       </button>
-     </div>
-     <ToastContainer/>
+      <div className="bottom2" onClick={handleLogout}>
+        <button className="logout" >
+          <LogoutIcon className="logouticon" />
+          {!isCollapsed && "Logout"}
+        </button>
+      </div>
+      <ToastContainer />
     </div>
   );
 };

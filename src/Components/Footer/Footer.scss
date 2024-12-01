@@ -1,0 +1,83 @@
+.footer {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    flex: 6;
+    padding: 20px;
+    background-image: url('./assets/Healthbridge\ 1.svg');
+    background-position: top right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative; /* To position the overlay within the footer */
+}
+
+/* Overlay for better text visibility */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent dark overlay */
+    // z-index: 1; /* Make sure it is behind the text */
+    // backdrop-filter: blur(0.9px); /* Blur the background */
+}
+
+.footer-data {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    background-color: transparent; /* No background color for the data section */
+    color: white;
+    position: relative; /* To place the text above the overlay */
+    z-index: 2; /* Ensure text is above the overlay */
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Apply blue background effect only to h2 */
+.footer-info h2 {
+    width: fit-content;
+    background-color: rgba(159, 159, 212, 0.9); /* Blue background for the h2 element */
+    padding: 5px;
+    border-radius: 5px; /* Optional: to give it rounded corners */
+    &:hover {
+        // color: green;
+        background-color: rgba(142, 204, 147, 0.9);
+    }
+}
+
+/* Styling the paragraph text */
+.footer-info p {
+    width: fit-content;
+    // background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    &:hover {
+        color: red;
+        // background-color: rgba(92, 54, 54, 0.9);
+    }
+}
+
+/* Optional: Apply text shadow for better visibility */
+.footer-info p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow to the text for contrast */
+}
+
+.footer-bottom {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: green;
+    position: sticky;
+    z-index: 3; /* Ensure footer-bottom stays above everything else */
+}

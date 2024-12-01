@@ -1,12 +1,11 @@
 .doctorcard-container {
-  width: 300px;
+  width: 400px;
   // height: 300px;
   display: flex;
   // height: 50vh;
   // flex: 1 0 300px !important;
   align-items: center;
   padding: 20px;
-  background-color: #f9f9f9;
   // margin-top: 40px;
 }
 
@@ -15,11 +14,13 @@
   display: flex;
  
    flex-wrap: wrap;
-  flex: 1 1 500px;
-  background: #fff;
+  // flex: 1 1 500px;
+  // background: #fff;
   border-radius: 12px;
   // background-color: red;
+  border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   padding: 20px;
   // max-width: 300px;
   text-align: center;
@@ -30,7 +31,7 @@
   }
 
   .doctor-image {
-    width: 100%;
+    width:100%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;

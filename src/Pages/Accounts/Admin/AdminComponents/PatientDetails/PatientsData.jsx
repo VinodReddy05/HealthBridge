@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from "react";
 import SideBar from "../SiderBar/SideBar";
 import NavBar from "../../../../../Components/NavBar/NavBar";
@@ -181,10 +178,10 @@ const PatientsData = () => {
                     <td>{patient.specialization}</td>
                     <td>{patient.consultation_number}</td>
                     <td>
-                      <Link to={`/patients/edit/${patient.id}`}>
+                     <td className="edit"> <Link to={`/patients/edit/${patient.id}`}>
                         <EditIcon />
-                      </Link>
-                      <DeleteIcon onClick={() => handleDelete(patient.id)} />
+                      </Link></td>
+                    <td className="edit">  <DeleteIcon onClick={() => handleDelete(patient.id)} /></td>
                     </td>
                   </tr>
                 ))}

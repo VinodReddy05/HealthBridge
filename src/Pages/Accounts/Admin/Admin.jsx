@@ -7,12 +7,13 @@ import DoctorInfo from "./AdminComponents/AdminHome/DoctorsInfo/DoctorInfo";
 import { supabase } from "../../../utilies/SupaBase";
 import { useEffect,useState } from "react";
 import PatientInfo from "./AdminComponents/PatientInfo/PatientInfo";
+import Footer from "../../../Components/Footer/Footer";
 
 const Admin = () => {
   const [showGif, setShowGif] = useState(false); // Control GIF visibility
   const [gifMessage, setGifMessage] = useState(""); // Message for the GIF
-  const [blur, setBlur] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [blur, setBlur] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
 
   return (
@@ -45,6 +46,7 @@ const Admin = () => {
             <PatientInfo />
           </div>
         </div>
+        <div><Footer/></div>
       </div>
     </div>
   );

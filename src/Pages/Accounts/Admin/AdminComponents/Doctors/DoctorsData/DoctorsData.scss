@@ -1,9 +1,10 @@
 .DoctorsData {
   display: flex;
-  // flex-direction: column;
+  flex-direction: column;
   // align-items: center;
   padding: 20px;
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
+  
   margin: 10vh auto 0 250px;
 
     table {
@@ -24,7 +25,7 @@
       }
 
       tr:nth-child(even) {
-        background-color: #f2f2f2;
+        // background-color: #f2f2f2;
       }
 
       tr:hover {

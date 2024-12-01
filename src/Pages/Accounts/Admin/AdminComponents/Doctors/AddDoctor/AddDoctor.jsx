@@ -4,8 +4,12 @@ import emailjs from 'emailjs-com';
 import NavBar from '../../../../../../Components/NavBar/NavBar';
 import SideBar from '../../SiderBar/SideBar';
 import './AddDoctor.scss'
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
-const AddDoctor = () => {   
+const AddDoctor = () => { 
+   
+   const navigate = useNavigate()
    const [name, setName] = useState('');
    const [designation, setDesignation] = useState('');
    const [info, setInfo] = useState('');
@@ -46,17 +50,17 @@ const AddDoctor = () => {
       console.log("Rating:", rating);
       console.log("Email:", email); 
       setFormError('');
-
+   
       const trimmedName = name.trim();
       const trimmedDesignation = designation.trim();
       const trimmedInfo = info.trim();
       const parsedRating = Number(rating.trim());
-
+   
       if (!trimmedName || !trimmedDesignation || !trimmedInfo || isNaN(parsedRating) || !email) {
          setFormError("Please fill out all fields correctly, including a valid email and rating.");
          return;
       }
-
+   
       try {
          const { data, error } = await supabase
             .from('DoctorsData')
@@ -68,54 +72,83 @@ const AddDoctor = () => {
                email_id: email,
                password
             }]);
-
+   
          if (error) {
             console.error('Insert error:', error);
             setFormError(`There was an issue submitting the form: ${error.message}`);
-            return;
-         }
-
-         if (data) {
-            console.log('Doctor data inserted:', data);
-            alert("Doctor added successfully");
-
-            sendEmail();   
-
-            setName('');
-            setDesignation('');
-            setInfo('');
-            setRating('');
-            setEmail('');
-            setPassword('');
-            setShowForm(true);
-            refreshDoctors();
+         } else {
+            setTimeout(() => {
+               toast.success("Successfully added Doctor details");
+            }, 500); // Delay of 500ms
+   
+            sendEmail();
+   
+            setTimeout(() => {
+               navigate("/admin/doctors");
+            }, 1500); // Navigate after 1.5 seconds
          }
       } catch (error) {
          console.error("Error during form submission:", error);
+         setTimeout(() => {
+            toast.error("Unexpected error occurred. Please try again.");
+         }, 500); // Delay of 500ms
          setFormError("Unexpected error occurred. Please try again.");
       }
    };
-
+   
    const sendEmail = () => {
       console.log('Attempting to send email...');
+      setTimeout(() => {
+         toast.info("Attempting to send email...");
+      }, 500); // Delay of 500ms
+   
       const userTemplateParams = {
          to_email: email,
          name,
          message: `Welcome! Here is your generated password: ${password}`
       };
-
+   
       emailjs.send('service_bij7amq', 'template_2qsut27', userTemplateParams, 'oNdVP1DnDdfn_f0zA')
          .then(
             (response) => {
                console.log('Email sent successfully:', response);
-               alert('Email sent successfully');
+               setTimeout(() => {
+                  toast.success("Email sent successfully");
+               }, 1000); // Delay of 1 second
             },
             (error) => {
                console.error('Failed to send email:', error);
-               alert('Failed to send email. Please check your EmailJS configuration.');
+               setTimeout(() => {
+                  toast.error("Failed to send email. Please check your EmailJS configuration.");
+               }, 1000); // Delay of 1 second
             }
          );
    };
+   
+
+   // const sendEmail = () => {
+   //    console.log('Attempting to send email...');
+   //    toast.info("Attempting to send email...")
+   //    const userTemplateParams = {
+   //       to_email: email,
+   //       name,
+   //       message: `Welcome! Here is your generated password: ${password}`
+   //    };
+
+   //    emailjs.send('service_bij7amq', 'template_2qsut27', userTemplateParams, 'oNdVP1DnDdfn_f0zA')
+   //       .then(
+   //          (response) => {
+   //             console.log('Email sent successfully:', response);
+   //             toast.success("Email sent successfully")
+               
+   //          },
+   //          (error) => {
+   //             console.error('Failed to send email:', error);
+   //             toast.error("Failed to send email. Please check your EmailJS configuration.")
+               
+   //          }
+   //       );
+   // };
 
    return (
       <>

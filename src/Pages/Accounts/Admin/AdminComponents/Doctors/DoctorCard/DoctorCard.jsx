@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../../../../../../Components/NavBar/NavBar";
 import SideBar from "../../SiderBar/SideBar";
 import EditIcon from "@mui/icons-material/Edit";
@@ -15,7 +15,7 @@ const Doctorcard = ({ doctor }) => {
     if (confirmDelete) {
       try {
         const { error } = await supabase
-          .from("doctors") // Replace with your actual table name
+          .from("DoctorsData") 
           .delete()
           .eq("id", id);
 
@@ -32,9 +32,13 @@ const Doctorcard = ({ doctor }) => {
     }
   };
 
+  // useEffect(() => {
+  //   fetchDoctors();
+  // }, []);
+
   return (
     <>
-      <NavBar />
+      <NavBar  />
       <SideBar />
       <div className="doctorcard-container">
         <div className="doctorcard">

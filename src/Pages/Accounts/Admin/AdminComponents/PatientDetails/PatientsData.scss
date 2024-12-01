@@ -4,7 +4,7 @@
     // height: 100vh;
     margin-left: 250px;
     padding-top: 50px;
-    // background-color: #f4f7fa;
+    background-color: #f4f7fa;
 
     .patientContainer {
         flex: 1;
@@ -28,12 +28,12 @@
         border: none;
         border-radius:10px ;
         font-weight: bold;
-        background-color: #36C95F;
-        color: rgb(22, 22, 22);
+        background-color: #4DAAF5;
+        // color: rgb(22, 22, 22);
         cursor: pointer;
         margin-right: 20px;
         &:hover{
-            background-color: #55df7c;
+            background-color: #4496cd;
             color: #fff;
         }
       
@@ -82,20 +82,21 @@
                     border: 1px solid #ddd;
                     font-size: 1rem;
                 }
-
+                
                 th {
                     background-color: #36C95F;
                     color: #fff;
                     font-weight: 600;
                     text-transform: uppercase;
                 }
-
-                tr:nth-child(even) {
-                    // background-color: #f9f9f9;
+                
+                .edit{
+                    transform: scale(1.05);
                 }
-
+              
                 tr:hover {
-                    background-color: #949799;
+                    // background-color: #7aec8d;
+                    background-color: #90b8d2;
                 }
                 .icon{
                     cursor: pointer;
@@ -109,7 +110,7 @@
                 margin-top: 20px;
 
                 button {
-                    background-color: #36C95F;
+                    background-color:#4DAAF5;
                     color: #fff;
                     border: none;
                     padding: 10px 15px;
@@ -120,11 +121,11 @@
                     transition: background-color 0.3s ease;
                     
                     &.active {
-                        background-color: #36C95F;
+                        background-color: #4DAAF5
                     }
 
                     &:hover:not(.active) {
-                        background-color: #0056b3;
+                        background-color: #4496cd;
                     }
                 }
             }

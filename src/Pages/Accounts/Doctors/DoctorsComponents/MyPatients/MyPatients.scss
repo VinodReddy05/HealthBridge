@@ -1,67 +1,98 @@
- 
+.appointments {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 150px 0 0 250px;
 
-.doctors-Patients {
-  display: flex;
-  flex-direction: column;
-  margin:90px 0 0 250px;  
-  background-color: #E6E6E6;
-  border-radius: 25px 10px 10px 10px;
-  height: 80vh;
-  .heading h1{
-display: flex;
-width: fit-content;
-    margin: 10px 0 0 20px;  
-    height: fit-content;
-    background-color:#45A049;
-    padding: 5px 15px;
-    border-radius: 10px ;
-    font-weight: 700;
-    color: #fff;
-  }
-  .sidebar {
-    flex: 1;
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    // text-align: start;
+    color: #2c3e50;
   }
 
-  .content {
-    flex: 4; 
-    margin: 40px 0 0 0;  
-
+  .loading {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 
-    .my-patients-container {
-      padding: 20px;
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
 
-      .patients-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+    img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  .error-message {
+    text-align: center;
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .patients-list {
+    display: flex;
+    flex-wrap: wrap;
+    // gap: 20px;
+    justify-content: center;
+  }
+
+  .patient-card {
+    width: 45%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    // border: 2px solid red;
+
+
+    p{
+  &:nth-child(2){
+    color: red;
+    font-weight: bold;
+ 
+  }
+}
+  .patient-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{
+      color:green;
+    }
+  }
+
+    h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #2c3e50;
+    }
+
+    p {
+      margin: 0.5rem 0;
+
+      strong {
+        color: #2c3e50;
       }
 
-      .patient-card {
-        // border: 3px solid #dbd4d4;
-        background-color: #F2F2F2;
-        border-radius: 8px;
-        padding: 20px;
-        // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 250px;
-      }
-      span{
+      span {
         font-weight: bold;
       }
-
-      .patient-card h2 {
-        margin: 0 0 10px;
-        // font-size: 20px;
-      }
-
-      .patient-card p {
-        margin: 5px 0;
-        font-size: 16px;
-      }
     }
+  }
+
+  .no-appointments {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    color: #555;
   }
 }

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./MyPatients.scss";
 import { supabase } from "../../../../../utilies/SupaBase";
 import NavBar from "../../../../../Components/NavBar/NavBar";
-
 import DoctorsSidebar from "../../../Doctors/DoctorsComponents/DoctorsSidebar/DoctorsSidebar";
 
 const MyPatients = () => {
   const [patientsData, setPatientsData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [profileImage, setProfileImage] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,91 +23,63 @@ const MyPatients = () => {
 
   useEffect(() => {
     if (!doctorSpecialization) {
+      setProfileImage(null);  // Clear profile image if designation is missing
       setError("Doctor data is missing. Please login again.");
       return;
     }
 
-    const fetchPatientsBySpecialization = async () => {
-
+    const fetchPatients = async () => {
+      // Fetch all patients from the "patientsdata" table
       const { data, error } = await supabase
         .from("patientsdata")
         .select("*")
-        .eq("specialization", doctorSpecialization);  
+        .eq("visited", true);  // Filter by visited true
 
-      if (data) {
-        setPatientsData(data);
-      } else {
+      if (error) {
         setError("Error fetching patient data.");
+      } else {
+        // Filter patients based on the doctor's designation (if needed)
+        const filteredPatients = data.filter(
+          (patient) => patient.specialization === doctorSpecialization
+        );
+        setPatientsData(filteredPatients);
       }
     };
 
-    fetchPatientsBySpecialization();
+    fetchPatients();
   }, [doctorSpecialization]);
 
   return (
-    <div className="vinod">
-      <div className="doctors-Patients">
-        <div className="heading">
-          <h1>My Patients</h1>
+    <div className="appointments">
+      <NavBar profileImage={profileImage} />
+      <h1>My Patients</h1>
+      {loading ? (
+        <div className="loading">
+          <p>Loading patients...</p>
+          <img
+            src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=ecf05e47l2mubft6j3ziu9t1qbgvfkfngodcfrx0efthlwlz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+            alt="Loading..."
+          />
         </div>
-
-        <div>
-          <div className="sidebar">
-            <DoctorsSidebar />
-          </div>
-          <div className="content">
-            <div className="navbar">
-              <NavBar />
+      ) : error ? (
+        <p className="error-message">Error: {error}</p>
+      ) : patientsData.length === 0 ? (
+        <p className="no-appointments">No patients found who have visited.</p>
+      ) : (
+        <div className="patients-list">
+          {patientsData.map((patient) => (
+            <div key={patient.id} className="patient-card">
+             <div className="patient-head"> 
+              <h2>{patient.name}</h2>
+             <p><strong>OP:</strong> {patient.joining_date}</p>
+             </div>
+              <p><strong>Patient Id:</strong> {patient.id}</p>
+              <p><strong>Gender:</strong> {patient.Gender}</p>
+              <p><strong>prescription:</strong> {patient.prescription}</p>
             </div>
-            <div className="my-patients-container">
-              {error && <div style={{ color: "red" }}>{error}</div>}
-              <div className="patients-list">
-                {loading ? (
-                  <img
-                    src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=ecf05e47l2mubft6j3ziu9t1qbgvfkfngodcfrx0efthlwlz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
-                    alt="Loading..."
-                    style={{
-                      display: "block",
-                      margin: "20px auto",
-                      width: "100%",
-                      maxWidth: "200px",
-                    }}
-                  />
-                ) : patientsData && patientsData.length > 0 ? (
-                  patientsData.map((patient) => (
-                    <div key={patient.id} className="patient-card">
-                      <h2>{patient.name}</h2>
-                      <p>
-                        <strong>OP:</strong> {patient.joining_date}
-                      </p>
-                      <p>
-                        <strong>Specialization:</strong>{" "}
-                        {patient.specialization}
-                      </p>
-                      <p>
-                        <strong>Status:</strong>{" "}
-                        <span
-                          style={{
-                            color:
-                              patient.Status === "Emergency" ? "red" : "green",
-                          }}
-                        >
-                          {patient.Status}
-                        </span>
-                      </p>
-                      <p>
-                        <strong>Gender:</strong> {patient.Gender}
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <p>Patient Details not found</p>
-                )}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </div>
+      )}
     </div>
   );
 };

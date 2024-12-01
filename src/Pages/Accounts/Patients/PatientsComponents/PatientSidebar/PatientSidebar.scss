@@ -4,7 +4,17 @@
     left: 0;           
     height: 100vh;     
     width: 250px;      
-    z-index: 1000;
+    // z-index: 1000;
+
+    .sidebar {
+      position: sticky; /* or position: fixed */
+      top: 0; /* Ensures it starts from the top when scrolled */
+      height: 100vh; /* Full height */
+      width: 250px; /* Sidebar width */
+      background-color: #f4f4f4;
+      overflow-y: auto; /* Scroll within the sidebar if needed */
+    }
+    // background-color: #58B55C;
 
     .top {
         height: 9.5vh;
@@ -14,7 +24,7 @@
     
         .logo {
             font-size: 20px;
-            font-weight: bold;
+            // font-weight: bold;
             color: #50A071;
         }
     }
@@ -36,10 +46,11 @@
                 cursor: pointer;
             }
 
-            .green {
-                background-color: #58B55C;
+            .vinod{
+                // background-color: #58B55C;
                 border-radius: 5px 13px 50px 5px;
                 transition: all 0.5s ease-in-out;
+                border: #797777;
             }
 
             li {
@@ -51,9 +62,14 @@
                 padding: 20px;
                 position: relative;
                 transition: transform 0.5s ease, background-color 0.5s ease; /* Add smooth transition */
+                button{
+                  padding: 0;
+                  background-color: unset;
+                  color: black;
+                }
 
                 &:hover {
-                    background-color: #58B55C;  /* Hover background */
+                    background-color: #4daaf5;  /* Hover background */
                     border-radius: 5px 13px 50px 5px;  /* Hover border radius */
                     transform: translateY(1px); /* Smoothly move the background down */
                     color: #fff;
@@ -61,7 +77,7 @@
 
                 span {
                     font-size: 15px;
-                    font-weight: bold;
+                    // font-weight: bold;
                 }
             }
         } 
@@ -78,7 +94,7 @@
             border: none;
             padding: 10px 30px 10px 40px;
             border-radius: 20px;
-            border: 2px solid #50A071;
+            border: 2px solid red;
             color: red;
             background-color: unset;
             font-weight: bold;
@@ -92,3 +108,42 @@
         }
         }
 }
+
+
+.sidebar {
+    transition: width 0.3s ease; // Smooth width transition
+    &.collapsed {
+      width: 50px;
+  
+      .top {
+        .logo {
+          display: none; // Hide the logo in collapsed state
+        }
+      }
+  
+      .center {
+        ul {
+          .title {
+            display: none; // Hide section titles
+          }
+  
+          li {
+            justify-content: center; // Center-align icons in collapsed state
+            span {
+              display: none; // Hide text labels
+            }
+          }
+        }
+      }
+  
+      .bottom2 {
+        button {
+          padding: 10px; // Adjust button padding
+          .logouticon {
+            left: unset;
+          }
+        }
+      }
+    }
+  }
+  

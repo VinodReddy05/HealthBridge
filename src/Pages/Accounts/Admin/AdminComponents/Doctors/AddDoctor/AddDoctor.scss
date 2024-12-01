@@ -6,7 +6,7 @@
     padding: 20px;
     // background-color: #f4f4f4;
     border-radius: 8px;
-    // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 10vh auto 510px; 
     padding: 20px; 
@@ -41,6 +41,7 @@
         font-size: 1rem;
         font-weight: bold;
         color: #333;
+
       }
 
       input,
@@ -48,14 +49,17 @@
       textarea {
         padding: 10px;
         font-size: 1rem;
-        // border: 1px solid #ccc;
-        border-radius: 5px;
+        border: 1px solid #ccc;
+        // border-radius: 5px;
         margin-top: 5px;
         transition: border-color 0.3s;
+        border: none;
+        border-bottom:2px solid #45a049 ;
   
         &:focus {
           border-color: #4CAF50; /* Green focus border */
           outline: none;
+          border-bottom: 2px solid #45a049;
         }
       
       }
@@ -65,9 +69,11 @@
         resize: vertical;
         height: 100px;
         background-color: unset;
+        border-bottom: 2px solid #45a049;
       }
   
       button[type='submit'] {
+        width: 100%;
         background-color: #4CAF50;
         color: white;
         padding: 12px 20px;

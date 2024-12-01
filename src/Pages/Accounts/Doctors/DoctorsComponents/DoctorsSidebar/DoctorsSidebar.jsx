@@ -19,15 +19,10 @@ const DoctorsSidebar = () => {
   };
 
   const handleLogout = () => {
-    // Clear the localStorage data
     localStorage.clear();
 
-    // Display success toast with correct position
-    toast.success("Successfully logged out from website!", {
-      position: toast.position.top-left, // Corrected position
-    });
+    toast.success("Successfully logged out");
 
-    // Navigate to login page after 1.5 seconds
     setTimeout(() => {
       navigate("/login");
     }, 1500);
@@ -73,7 +68,7 @@ const DoctorsSidebar = () => {
           </li>
           <li className={selectedItem === 4 ? "green" : ""}>
             <ChecklistRtlIcon />
-            <span onClick={() => handleClick("/doctor/appointments", 4)}>
+            <span onClick={() => handleClick("/doctor/appointment", 4)}>
               Appointments
             </span>
           </li>

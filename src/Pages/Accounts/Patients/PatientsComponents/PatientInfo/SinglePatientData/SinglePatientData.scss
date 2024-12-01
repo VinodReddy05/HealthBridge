@@ -1,78 +1,163 @@
+/* SinglePatientData.scss */
 .single-patient-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-top: 100px;
-  }
-  
-  .patient-card {
-    // background: #fff;
-    // border: 2px dashed red;
-    border-radius: 10px;
-    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 600px;
-    width: 100%;
-  }
-  
-  .profile-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  
-    img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  
-    .profile-details {
-      h2 {
-        margin: 0;
-        font-size: 1.5rem;
-        color: #333;
-      }
-      p {
-        margin: 5px 0;
-        color: #555;
-      }
+  font-family: Arial, sans-serif;
+  margin:80px 0 0 0 ;
+ 
+}
+
+.patient-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 800px;
+  margin: 0 auto;
+  button{
+    background-color: #4daaf5;
+    &:hover{
+      background-color: #5897cb;
     }
   }
-  
-  .edit-section {
-    .editable-field {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 15px;
-  
-      label {
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-  
-      input {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-    }
-  
-    .actions {
-      text-align: right;
-  
-      button {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        &:hover {
-          background-color: #0056b3;
-        }
-      }
-    }
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width:250px;
+  height:250px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile-details {
+
+  flex: 1;
+}
+
+.top-details{
+  display: flex;
+  justify-content: space-between;
+  align-items:center ;
+  color: #28a745;
+  .highlighted-cn{
+    color: red;
   }
-  
+  h2 {
+   margin: 0;
+   font-size: 24px;
+   color: #28a745;
+  }
+}
+
+
+.highlighted-cn {
+  font-weight: bold;
+  color: #333;
+}
+
+.other-details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.prescription-button {
+  background-color:#4daaf5;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+}
+
+.prescription-button:hover {
+  background-color: #4daaf5;
+}
+
+.edit-section {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.editable-field {
+  margin-bottom: 10px;
+}
+
+.editable-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  background-color: #4daaf5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color:#2a79b9;
+    
+  }
+}
+
+
+/* Table for prescription details */
+.prescription-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.prescription-table th, 
+.prescription-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.prescription-table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.advice-section {
+  margin-top: 20px;
+}
+
+.advice-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.advice-section ul li {
+  font-size: 14px;
+}
+
+.follow-up {
+  text-align: right;
+  margin-top: 20px;
+  font-weight: bold;
+  color: red;
+}

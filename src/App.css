@@ -11,6 +11,7 @@ font-family:'Open Sans';
     align-items: center;
     height: 100vh;
     background-color: #f9f9f9; /* Optional background color */
+ 
   }
   
   .loading-gif {
@@ -31,6 +32,23 @@ body.dark-mode {
   color: #ffffff;
 }
 
+
+/* //  doctor dashboard */
+
+
+body.light-mode .DoctorsData {
+  background-color: #e8e6e6;
+}
+body.dark-mode .DoctorsData {
+  background-color: #000000;
+}
+body.light-mode .doctorcard {
+  background-color: #f4f0f0;
+}
+body.dark-mode .doctorcard {
+  background-color: #000000;
+}
+
 body.light-mode input {
   color: #000000;
 }
@@ -49,3 +67,21 @@ body.light-mode button {
   color: #ffffff;
 }
 
+
+
+/* admin dashboard */
+
+body.light-mode .admincontainer {
+  background-color: #dbd7d7;
+  
+}
+body.dark-mode .admincontainer {
+  background-color: #000000;
+}
+body.light-mode .admincontainer {
+  background-color: #dbd7d7;
+  
+}
+body.dark-mode .admincontainer {
+  background-color: #000000;
+}

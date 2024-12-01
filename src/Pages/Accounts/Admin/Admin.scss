@@ -1,14 +1,27 @@
 
 .admin {
-    display: flex;
-    flex: 1; // Remaining space after sidebar
-    padding-left: 260px; // Offset sidebar width for alignment
-    padding-top: 40px;
-    flex-direction: column;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: 
+      "sidebar admincontainer";
+  padding-top: 60px;
+
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.admincontainer {
+  grid-area: admincontainer;
+}
+
+   
 
     .admincontainer {
       display: flex;
       flex-direction: column;
+      background-color: #dbd7d7;
     }
     
     .doctors {
@@ -59,3 +72,23 @@
     color: #333;
   }
   
+
+  @media(max-width:1690px){
+    .admin {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: 
+          "sidebar admincontainer";
+      padding-top: 90px;
+    
+    
+    .sidebar {
+      grid-area: sidebar;
+      width: 250px;
+    }
+    
+    .admincontainer {
+      grid-area: admincontainer;
+    }
+  }
+  }

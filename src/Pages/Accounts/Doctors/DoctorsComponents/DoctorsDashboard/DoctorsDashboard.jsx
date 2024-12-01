@@ -7,9 +7,12 @@ import Widget from './widgets/Widget'
 import Charts from '../DoctorsDashboard/charts/Charts'
 import DoctorProfile from '../DoctorProfile/DoctorProfile'
 import { PieChart } from '@mui/icons-material'
+import Footer from '../../../../../Components/Footer/Footer'
 
 
 const DoctorsDashboard = () => {
+ 
+
  
   const {doctorsId} = useParams()
 
@@ -24,9 +27,11 @@ const DoctorsDashboard = () => {
             <Widget/> 
             <Charts/>
         </div>
+       
         
        
     </div>
+     <Footer/>
 </div>
   )
 }
