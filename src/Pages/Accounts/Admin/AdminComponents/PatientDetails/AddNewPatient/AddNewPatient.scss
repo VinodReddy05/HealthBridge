@@ -1,16 +1,19 @@
 .patientDetail{
+    width: 100%;
     display: flex;
-    background: url('src/Pages/AddNewPatient/patientAssets/bgimg.jpg') no-repeat center center fixed;
+    background: url('../../../../../Authentication/Login/loginAssets/backgroundImg.svg') no-repeat center center fixed;
     background-size: cover;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: lightblue;
+    // background-color: lightblue;
+    padding: 0 0 0 250px;
 
 h2 {
-    font-size: 1.8rem;
-    // color: #fff;
-    background-color: #36C95F;
+    font-size: 29px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
     border-radius: 20px;
     padding: 10px 15px;
     margin: 20px 0 20px 0;
@@ -41,7 +44,7 @@ form {
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    background-color: #f7f7f9;
+    // background-color: #f7f7f9;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -49,7 +52,7 @@ form {
     label {
         font-size: 0.95rem;
         color: #444;
-        font-weight: 600;
+        font-weight: 900;
     }
     .patientId{
         cursor: pointer;
@@ -59,12 +62,14 @@ form {
         padding: 12px;
         font-size: 1rem;
         border-radius: 5px;
-        border: 1px solid #ccc;
+        // border: 1px solid #ccc;
+        font-weight: bold;
+        // background: transparent;
         transition: border-color 0.3s ease;
 
         &:focus {
             outline: none;
-            border-color: #007bff;
+            border:2px solid #72a3d7;
         }
     }
     select{
@@ -98,4 +103,15 @@ form {
     }
 }
 
+}
+
+@media(max-width:776px){
+    .patientDetail{
+        background: url('../../../../../Authentication/Login/loginAssets/backgroundImg.svg') no-repeat right center fixed;
+        background-size:cover;
+        padding:0;
+        form {
+            width: 90%;
+        }
+    }
 }

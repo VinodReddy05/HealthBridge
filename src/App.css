@@ -95,7 +95,7 @@ body.dark-mode .sidebar center {
 /* admin dashboard */
 
 body.light-mode .admincontainer {
-  background-color: #dbd7d7;
+  background-color: #F9F9F9;
   
 }
 body.dark-mode .admincontainer {
@@ -136,19 +136,19 @@ body.dark-mode .container {
 
 
 body.light-mode .DoctorsData {
-  background-color: #e8e6e6;
+  background-color: #F9F9F9;
 }
 body.dark-mode .DoctorsData {
   background-color: #000000;
 }
 body.light-mode .doctorcard {
-  background-color: #f4f0f0;
+  background-color: #F9F9F9;
 }
 body.dark-mode .doctorcard {
   background-color: #000000;
 }
 body.light-mode .doctor-info-card p {
-  background-color: #f4f0f0;
+  background-color: #F9F9F9;
 }
 body.dark-mode .doctor-info-card p {
   background-color: #000000;
@@ -157,14 +157,14 @@ body.dark-mode .doctor-info-card p {
 
 
 body.light-mode .appointments{
-  background-color: #f4f0f0;
+  background-color: #F9F9F9;
 }
 body.dark-mode .appointments {
   background-color: #000000;
  
 }
 body.light-mode .appointment-schedule p {
-  background-color: #f4f0f0;
+  background-color: #F9F9F9;
   color: #000000;
 }
 body.dark-mode .appointment-schedule p {

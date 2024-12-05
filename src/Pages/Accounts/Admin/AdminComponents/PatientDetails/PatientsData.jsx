@@ -120,8 +120,8 @@ const PatientsData = () => {
             <button className="addpatientbtn" onClick={handleAddPatient}>
               Add a Patient
             </button>
-            <div className="inputfields">
-               <div className="inputfield">
+               <div className="inputfields">
+            <div className="inputfield">
               <input
                 className="inputsearch"
                 type="date"
@@ -133,7 +133,7 @@ const PatientsData = () => {
 
             <div className="inputfield">
               <input
-                className="inputsearch"
+                className="inputsearch inputsearch1 "
                 type="text"
                 placeholder="Search by Doctor Name"
                 value={searchTerm}
@@ -191,7 +191,7 @@ const PatientsData = () => {
             !loading && <p>No patients found.</p>
           )}
 
-<div className="pagination">
+          <div className="pagination">
             <button onClick={() => paginate(currentPage - 1)}>Prev</button>
 
             {Array.from({ length: 1 }, (_, i) => (

@@ -54,7 +54,7 @@ const DoctorInfo = () => {
           pagination={{ clickable: true }}
           navigation
           modules={[EffectCoverflow, Pagination, Navigation]}
-          className="doctor-swiper"
+          id="doctor-swiper"
         >
           {doctors.map((doctor) => (
             <SwiperSlide key={doctor.id} className="doctor-slide">

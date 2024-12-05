@@ -40,7 +40,7 @@ const Doctorcard = ({ doctor }) => {
     <>
       <NavBar  />
       <SideBar />
-      <div className="doctorcard-container">
+     
         <div className="doctorcard">
           <img
             src={doctor.image_url}
@@ -64,7 +64,7 @@ const Doctorcard = ({ doctor }) => {
             </div>
           </div>
         </div>
-      </div>
+     
     </>
   );
 };

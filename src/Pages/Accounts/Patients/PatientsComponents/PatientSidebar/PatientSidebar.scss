@@ -1,161 +1,10 @@
-// .sidebar {
-//     // position: fixed;
-//     top: 0;           
-//     left: 0;           
-//     height: 100vh;     
-//     // width: 400px;      
-//     // z-index: 1000;
-
-//     // .sidebar {
-//     //   position: sticky; /* or position: fixed */
-//     //   top: 0; /* Ensures it starts from the top when scrolled */
-//     //   height: 100vh; /* Full height */
-//     //   width: 250px; /* Sidebar width */
-//     //   background-color: #f4f4f4;
-//     //   overflow-y: auto; /* Scroll within the sidebar if needed */
-//     // }
-//     // background-color: #58B55C;
-
-//     .top {
-//         height: 9.5vh;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-    
-//         .logo {
-//             font-size: 20px;
-//             // font-weight: bold;
-//             color: #50A071;
-//         }
-//     }
-    
-//     .center {
-//         display: flex;
-//         flex-direction: column;
-//         ul {
-//             list-style: none;
-//             padding: 0;
-//             margin: 0;
-
-//             .title {
-//                 font-size: 12px;
-//                 font-weight: bold;
-//                 color: #797777;
-//                 margin-top: 15px;
-//                 margin-bottom: 5px;
-//                 cursor: pointer;
-//             }
-
-//             .vinod{
-//                 // background-color: #58B55C;
-//                 border-radius: 5px 13px 50px 5px;
-//                 transition: all 0.5s ease-in-out;
-//                 border: #797777;
-//             }
-
-//             li {
-//                 display: flex;
-//                 align-items: center;
-//                 gap: 5px;
-//                 cursor: pointer;
-//                 border-radius: 5px 13px 50px 5px;
-//                 padding: 20px;
-//                 position: relative;
-//                 transition: transform 0.5s ease, background-color 0.5s ease; /* Add smooth transition */
-//                 button{
-//                   padding: 0;
-//                   background-color: unset;
-//                   // color: black;
-//                 }
-
-//                 &:hover {
-//                     background-color: #4daaf5;  /* Hover background */
-//                     border-radius: 5px 13px 50px 5px;  /* Hover border radius */
-//                     transform: translateY(1px); /* Smoothly move the background down */
-//                     color: #fff;
-//                 }
-
-//                 span {
-//                     font-size: 15px;
-//                     // font-weight: bold;
-//                 }
-//             }
-//         } 
-//     }
-
-    
-//     .bottom2{
-//         display: flex;
-//         justify-content:center;
-//         align-items: end;
-//         margin-top: 100px;
-//         position: relative;
-//         button{
-//             border: none;
-//             padding: 10px 30px 10px 40px;
-//             border-radius: 20px;
-//             border: 2px solid red;
-//             color: red;
-//             background-color: unset;
-//             font-weight: bold;
-//             font-size: 16px;
-//             cursor: pointer;
-//         }
-//         .logouticon{
-//             position: absolute;
-//             left:70px  ;
-    
-//         }
-//         }
-// }
-
-
-// .sidebar {
-//     transition: width 0.3s ease; // Smooth width transition
-//     &.collapsed {
-//       width: 50px;
-  
-//       .top {
-//         .logo {
-//           display: none; // Hide the logo in collapsed state
-//         }
-//       }
-  
-//       .center {
-//         ul {
-//           .title {
-//             display: none; // Hide section titles
-//           }
-  
-//           li {
-//             justify-content: center; // Center-align icons in collapsed state
-//             span {
-//               display: none; // Hide text labels
-//             }
-//           }
-//         }
-//       }
-  
-//       .bottom2 {
-//         button {
-//           padding: 10px; // Adjust button padding
-//           .logouticon {
-//             left: unset;
-//           }
-//         }
-//       }
-//     }
-//   }
-  
-
-
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: #ffffff;
+  // background-color: #ffffff;
   color: rgb(0, 0, 0);
   transform: translateX(0); // Always visible above 768px
   transition: transform 0.3s ease-in-out;
@@ -189,7 +38,10 @@
   .center {
     ul {
       list-style: none;
+      margin-bottom: 40px;
+      gap: 40px;
       padding: 0;
+      
 
       .title {
         margin: 15px 0;
@@ -203,6 +55,7 @@
         padding: 10px;
         border-radius: 0 20px 20px 0;
         cursor: pointer;
+        margin-bottom: 20px;
 
         &:hover,
         &.green {
@@ -231,9 +84,10 @@
     .logout {
       display: flex;
       align-items: center;
-      background-color: #e63946;
+      background-color: unset;
       border: none;
-      color: white;
+
+      color: red;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;

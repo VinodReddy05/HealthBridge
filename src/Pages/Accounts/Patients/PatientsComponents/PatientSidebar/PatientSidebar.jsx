@@ -178,7 +178,7 @@ const PatientSidebar = () => {
             <p className="title">Main</p>
             <li className={selectedItem === 1 ? "green" : ""}>
               <DashboardIcon />
-              <span onClick={() => handleClick("/patients/dashboard", 1)}>Dashboard</span>
+              <span onClick={() => handleClick("/", 1)}>Dashboard</span>
             </li>
             <p className="title">My Details</p>
             <li className={selectedItem === 2 ? "green" : ""}>

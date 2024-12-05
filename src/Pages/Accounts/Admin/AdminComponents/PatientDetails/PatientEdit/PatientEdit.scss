@@ -6,17 +6,21 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: url('../../../../../Authentication/Login/loginAssets/backgroundImg.svg') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
     width: 100%;
 
     .patient-edit-title {
         text-align: center;
-        color: #007bff;
-        margin-bottom: 1.5rem;
+        margin-bottom:20px;
+        padding: 10px 15px;
+        border-radius: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
     }
 
     .patient-edit-form {
-        background-color: #ffffff;
+        // background-color: #ffffff;
         padding: 2rem;
         border-radius: 8px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -34,13 +38,16 @@
             width: 100%;
             padding: 0.75rem;
             margin-bottom: 1.25rem;
-            border: 1px solid #ced4da;
             border-radius: 4px;
             font-size: 1rem;
-            color: #495057;
+            background-color:#fff ;
+            // color: #495057;
+            outline: none;
+            border: none;
+            border: 1px solid #50ACF5;
 
             &:focus {
-                border-color: #007bff;
+                border-color: #50ACF5;
                 outline: none;
                 box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
             }
@@ -49,7 +56,7 @@
         .form-submit-button {
             width: 100%;
             padding: 0.75rem;
-            background-color: #007bff;
+            background-color: #50ACF5;
             border: none;
             border-radius: 4px;
             color: #fff;
@@ -69,5 +76,13 @@
             margin-top: 1rem;
             text-align: center;
         }
+    }
+}
+
+@media(max-width:767px){
+    .patient-edit-container {
+        flex-direction: column;
+        background: url('../../../../../Authentication/Login/loginAssets/backgroundImg.svg') no-repeat right bottom fixed;
+        background-size: cover;
     }
 }

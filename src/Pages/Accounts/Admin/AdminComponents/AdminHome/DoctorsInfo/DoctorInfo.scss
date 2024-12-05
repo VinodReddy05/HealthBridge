@@ -1,7 +1,8 @@
 .doctor-info {
   text-align: center;
+  // border: 2px solid red;
 
-  .doctor-swiper {
+  #doctor-swiper {
     width: 80%;
     max-width: 800px;
     margin: auto;
@@ -39,5 +40,52 @@
         color: #666;
       }
     }
+  }
+
+  @media (max-width: 750px) {
+    min-width: 500px;
+    text-align: unset;
+  }
+
+  // Additional Media Query for smaller screens
+}
+@media (max-width: 500px) {
+  .doctor-info {
+    min-width: 400px;
+    text-align: unset;
+    #doctor-swiper {
+      width: 80%;
+      max-width:900px;
+      // margin: auto;
+      // padding: 20px 0;
+    }
+  }
+
+  .doctor-card {
+    width: 90%;
+    padding: 10px;
+  }
+  .swiper-button-prev, .swiper-button-next{
+    display: none !important;
+  }
+}
+@media (max-width: 400px) {
+  .doctor-info {
+    min-width: 350px;
+    text-align: unset;
+    #doctor-swiper {
+      width: 80%;
+      max-width:900px;
+      // margin: auto;
+      // padding: 20px 0;
+    }
+  }
+
+  .doctor-card {
+    width: 90%;
+    padding: 10px;
+  }
+  .swiper-button-prev, .swiper-button-next{
+    display: none !important;
   }
 }

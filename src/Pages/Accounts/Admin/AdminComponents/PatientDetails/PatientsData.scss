@@ -1,15 +1,16 @@
 .patientsData {
     display: flex;
     // width: 80vw;
-    // height: 100vh;
+    height: auto;
     margin-left: 250px;
     padding-top: 50px;
     // background-color: #f4f7fa;
-    // overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
 
     .patientContainer {
         flex: 1;
-        padding: 20px;
+        padding-top: 30px;
         // background-color: #fff;
         
         .datatable {
@@ -17,15 +18,17 @@
             height: 100vh;
             // overflow-x: auto;  
             // background-color: #ffffff;
-            padding: 20px;
+            padding-top: 20px;
             // box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
             border-radius: 8px;
             margin: 0 auto;
     scrollbar-width: none;
     .created_attbtn,.addpatientbtn,.doctor_namebtn{
-        
+        position: sticky;
+        left: 10px;
         padding: 10px 15px;
         margin-bottom: 10px;
+        // margin-top: 50px;
         border: none;
         border-radius:10px ;
         font-weight: bold;
@@ -37,8 +40,9 @@
             background-color: #4496cd;
             color: #fff;
         }
-      
+        
     }
+    
    
         .buttonstatus{
             display: flex;
@@ -46,16 +50,26 @@
             border: 1px solid red;
         }
         .inputfields{
+          
             display: flex;
             justify-content: end;
             gap: 20px;
-        }
-        .inputfield{
-            display: flex;
-            justify-content: end;
-            cursor: pointer;
+           
+            .inputfield{
+                position:sticky;
+                left: 10px;
+                display: flex;
+                justify-content: end;
+                cursor: pointer;
+               
+            }
+            .inputsearch1{
+                position:sticky;
+                left: 90px;
 
+            }
         }
+       
         
     .inputsearch{
         display: flex;
@@ -100,7 +114,7 @@
                     // background-color: #7aec8d;
                     background-color: #90b8d2;
                 }
-                .icon{
+                .edit{
                     cursor: pointer;
                 }
             }
@@ -144,3 +158,31 @@
     color: green;
     font-weight: bold;
   }
+
+
+  @media (max-width: 767px) {
+    .patientsData {
+      margin-left: 0;
+      padding-top: 50px;
+  
+      .patientContainer {
+        .datatable {
+          
+            .inputfields {
+              justify-content:start;
+            }
+          
+        .sort-options{
+            display: flex;
+            flex-direction: column;
+        }
+        }
+      }
+    }
+  }
+  
+
+
+
+
+  

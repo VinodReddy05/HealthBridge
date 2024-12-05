@@ -75,6 +75,8 @@
 
 .widget-container {
   // width: 100%;
+// border: 2px solid red;
+
   color: #404040;
 
   .widget-heading {
@@ -130,15 +132,16 @@
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 766px) {
   .widget-container {
     width: 90%; /* Adjusts the width to 90% of the screen */
     margin: 0 auto; /* Centers the container */
-    flex-direction: column;
+    // flex-direction: column;
+    .widget {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
-  .widget {
-    display: grid;
-    grid-template-columns:unset; /* One column layout */
-  }
+  
 }

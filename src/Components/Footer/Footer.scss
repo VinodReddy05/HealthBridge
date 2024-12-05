@@ -1,4 +1,5 @@
 .footer {
+  display: none;
   width: 100%;
   display: flex;
   margin-top: 50px;
@@ -8,8 +9,10 @@
   // background-position: top right;
   // background-size: cover;
   // background-repeat: no-repeat;
-  background-color: #f09696;
+  // background-color: #f09696;
   position: relative; 
+  // flex-wrap: wrap;
+  // border: 2px solid red;
 }
 
 .footer::before {
@@ -26,6 +29,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   cursor: pointer;
   padding: 10px;
   font-size: 20px;
@@ -74,23 +78,22 @@
 
 @media(max-width:769px){
     .footer-data {
-   display: flex;
-   flex-wrap:wrap ;
-   justify-content: start;
    padding: 0;
    font-size: 12px;
+   flex-direction: column;
+  flex-wrap: wrap;
   
    .footer-info {
-    display: flex;
-    flex-direction: column;
+    display: 100%;
     gap: 0;
-    // margin: 10px;
+   
     h2 {
-    font-size: 16px;
+    // font-size: 16px;
    margin-bottom:0 ;
       
       }
   }
   
       }
+
 }

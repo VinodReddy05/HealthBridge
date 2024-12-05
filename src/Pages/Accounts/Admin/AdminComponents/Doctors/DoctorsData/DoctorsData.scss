@@ -1,4 +1,5 @@
 .DoctorsData {
+  width: 100%;
   display: flex;
   flex-direction: column;
   // align-items: center;
@@ -6,40 +7,13 @@
   // background-color: #f7f7f7;
   
   margin: 10vh auto 0 250px;
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-
-      th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-      }
-
-      th {
-        background-color: #4CAF50;
-        color: white;
-        font-size: 1.1rem;
-      }
-
-      // tr:nth-child(even) {
-      //   // background-color: #f2f2f2;
-      // }
-
-      tr:hover {
-        background-color: #ddd;
-      }
-
-      img {
-        width: 100px;
-        height: auto;
-        border-radius: 5px;
-      }
-    }
+  button{
+    background-color: #50ACF5;
+  }
     
 .doctors-grid{
+  width: 100%;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
  
@@ -70,3 +44,11 @@
 //   gap: 20px;
 //   padding: 20px;
 // }
+
+
+
+@media(max-width:767px){
+  .DoctorsData {
+    margin: 10vh auto 0 0;
+  }
+}

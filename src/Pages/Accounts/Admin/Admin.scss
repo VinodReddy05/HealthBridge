@@ -1,110 +1,115 @@
-
 .admin {
   width: 100%;
-  display: grid;
-  // grid-template-columns: 1fr 2fr;
-  // grid-template-areas: 
-  //     "sidebar admincontainer";
-  padding: 100px 0 0 250px;
+  // background-color: red;
 
+  .sidebar {
+    grid-area: sidebar;
+  }
 
-.sidebar {
-  grid-area: sidebar;
+  .admincontainer {
+    width: 100%;
+    grid-area: admincontainer;
+  }
+  .admincontainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #dbd7d7;
+    padding: 100px 0 0 250px;
+    .charts {
+      // background-color: red;
+      // width:500px;
+    }
+  }
+
+  .doctors {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 80px;
+
+    .doctors-1 {
+      width: 50%;
+      display: flex;
+    }
+    .doctors-2 {
+      display: none;
+      scrollbar-width: none;
+      color: red;
+    }
+  }
 }
 
 .admincontainer {
-  grid-area: admincontainer;
+  transition: filter 0.3s ease; // Smooth transition for blur effect
 }
-    .admincontainer {
-      display: flex;
-      flex-direction: column;
-      background-color: #dbd7d7;
-    }
-    
-    .doctors {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-top: 40px;
-      gap: 80px;
-      
-      .doctors-1{
-        width: 50%;
-        display:flex;
-       
-      }
-      .doctors-2{
-        display: none;
-        scrollbar-width: none;
-         color: red;
-      }
-      
-      
-    }
-  }
 
+.admincontainer.blur {
+  filter: blur(5px); // Apply the blur effect
+  pointer-events: none; // Disable interactions while blurred
+}
 
+.gif-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10; // Ensure it appears above all other content
+}
 
-  .admincontainer {
-    transition: filter 0.3s ease; // Smooth transition for blur effect
-  }
-  
-  .admincontainer.blur {
-    filter: blur(5px); // Apply the blur effect
-    pointer-events: none; // Disable interactions while blurred
-  }
-  
-  .gif-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 10; // Ensure it appears above all other content
-  }
-  
- 
-  
-  .gif-container p {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #333;
-  }
-  
+.gif-container p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
 
-  @media(max-width:1690px){
-    .admin {
-      display: grid;
-      // grid-template-columns: 1fr 2fr;
-      // grid-template-areas: 
-      //     "sidebar admincontainer";
-      padding-top: 90px;
-    
-    
+@media (max-width: 1690px) {
+  .admin {
+    // display: grid;
+    // grid-template-columns: 1fr 2fr;
+    // grid-template-areas:
+    //     "sidebar admincontainer";
+    padding-top: 90px;
+
     .sidebar {
       grid-area: sidebar;
       width: 250px;
     }
-    
+
     .admincontainer {
       grid-area: admincontainer;
     }
   }
-  }
-  @media(max-width:850px){
-    .doctors {
-      flex-direction: column;
-      .doctors-1{
-        width: 0;
-        display:flex;
-       
-      }
+}
+@media (max-width: 850px) {
+  .doctors {
+    flex-direction: column;
+    .doctors-1 {
+      width: 0;
+      display: flex;
     }
   }
-  @media(max-width:767px){
-  
-.admin {
-  padding: 100px 0 0 0;
 }
+@media (max-width: 767px) {
+  .admin {
+    padding: 100px 0 0 0;
+    .admincontainer {
+      display: flex;
+      flex-direction: column;
+      background-color: #dbd7d7;
+      padding: 0 0 0 0;
+    }
   }
-
+}
+@media (max-width: 450px) {
+  .admin {
+    padding: 100px 0 0 0;
+    .admincontainer {
+      display: flex;
+      flex-direction: column;
+      background-color: #dbd7d7;
+      padding: 0 0 0 0;
+    }
+  }
+}

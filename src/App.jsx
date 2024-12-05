@@ -200,7 +200,7 @@ function RoutesWrapper() {
         {/* Patient Routes */}
         {userRole === "patient" && (
         <>
-        <Route path="/patients/dashboard" element={<PatientDashboard />} />
+        <Route path="/" element={<PatientDashboard />} />
         <Route path="/patients" element={<PatientsData />} />
         <Route path="/patients/:id" element={<SinglePatientData />} />
         <Route path="/patient/appointment" element={<Appointments/>} />

@@ -124,37 +124,14 @@ const AddDoctor = () => {
             }
          );
    };
-   
 
-   // const sendEmail = () => {
-   //    console.log('Attempting to send email...');
-   //    toast.info("Attempting to send email...")
-   //    const userTemplateParams = {
-   //       to_email: email,
-   //       name,
-   //       message: `Welcome! Here is your generated password: ${password}`
-   //    };
-
-   //    emailjs.send('service_bij7amq', 'template_2qsut27', userTemplateParams, 'oNdVP1DnDdfn_f0zA')
-   //       .then(
-   //          (response) => {
-   //             console.log('Email sent successfully:', response);
-   //             toast.success("Email sent successfully")
-               
-   //          },
-   //          (error) => {
-   //             console.error('Failed to send email:', error);
-   //             toast.error("Failed to send email. Please check your EmailJS configuration.")
-               
-   //          }
-   //       );
-   // };
 
    return (
       <>
-         <NavBar/>
+         {/* <NavBar/> */}
          <SideBar/>
       <div className='page-create'>
+         <h1>Add Doctor</h1>
          <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name</label>
             <input
