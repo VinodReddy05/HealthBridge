@@ -143,7 +143,7 @@ const PatientDashboard = () => {
   const [error, setError] = useState(null);
   const [isCollapsed, setIsCollapsed] = useState(false); // Track sidebar state
 
-  const currentPatients = JSON.parse(localStorage.getItem("patientData")); // Get the patient data from localStorage
+  const currentPatients = JSON.parse(localStorage.getItem("patientData"));
   const patientId = currentPatients?.id || params.id;
 
   const toggleSidebar = () => {
@@ -166,7 +166,6 @@ const PatientDashboard = () => {
 
       if (data) {
         setPatientData(data);
-        console.log("Patient Data:", data);
         fetchDoctorBySpecialization(data.specialization);
       } else {
         console.error(error);
@@ -175,7 +174,6 @@ const PatientDashboard = () => {
     };
 
     const fetchDoctorBySpecialization = async (specialization) => {
-      console.log("Fetching doctors for Designation:", specialization);
       const { data, error } = await supabase
         .from("DoctorsData")
         .select()
@@ -193,46 +191,45 @@ const PatientDashboard = () => {
 
   return (
     <>
-    <div className="patient-dashboard-containers">
-
-      <NavBar />
-      <div className={`main-container ${isCollapsed ? "collapsed" : ""}`}>
-        <div className="main-sidebar">
-          <PatientSidebar 
-            patientId={patientId}
-            isCollapsed={isCollapsed} 
-            toggleSidebar={toggleSidebar} 
-          />
-        </div>
-        <div className="patient-dashboard-content">
-          <Widget />
-          {error && <div style={{ color: "red" }}>{error}</div>}
-          {patientData && doctorData && (
-            <div className="doctor-details">
-              <h3>Recommended Doctor's</h3>
-              <div className="doctors-card2">
-                {doctorData && doctorData.length > 0 ? (
-                  doctorData.map((doctor) => (
-                    <div key={doctor.id} className="doctor-card">
-                      <img src={doctor.image_url} alt="" />
-                      <h4><strong>{doctor.name}</strong></h4>
-                      <p><strong className="disg">{doctor.Designation}</strong></p>
-                      <p>{doctor.info}</p>
-                      <button>Get Appointment</button>
-                    </div>
-                  ))
-                ) : (
-                  <p>No doctors found for the given specialization.</p>
-                )}
+      <div className="patient-dashboard-containers">
+        <NavBar />
+        <div className={`main-container ${isCollapsed ? "collapsed" : ""}`}>
+          {/* <div className="main-sidebar">
+            <PatientSidebar 
+              isCollapsed={isCollapsed} 
+              toggleSidebar={toggleSidebar} 
+            />
+          </div> */}
+          <div className="patient-dashboard-content">
+            <Widget />
+            {error && <div style={{ color: "red" }}>{error}</div>}
+            {patientData && doctorData && (
+              <div className="doctor-details">
+                <h3>Recommended Doctors</h3>
+                <div className="doctors-card2">
+                  {doctorData.length > 0 ? (
+                    doctorData.map((doctor) => (
+                      <div key={doctor.id} className="doctor-card">
+                        <img src={doctor.image_url} alt="" />
+                        <h4><strong>{doctor.name}</strong></h4>
+                        <p><strong className="disg">{doctor.Designation}</strong></p>
+                        <p>{doctor.info}</p>
+                        <button>Get Appointment</button>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No doctors found for the given specialization.</p>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
-      <Footer/>
+            )}
+            <Footer />
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
 
 export default PatientDashboard;
+

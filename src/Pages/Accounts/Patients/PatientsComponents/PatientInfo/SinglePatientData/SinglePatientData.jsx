@@ -231,7 +231,7 @@ const SinglePatientData = () => {
   return (
     <>
       <NavBar profileImage={profileImage} />
-      <PatientSidebar patientId={id} />
+      {/* <PatientSidebar patientId={id} /> */}
       <div className="single-patient-container">
         <div className="patient-card">
           <div className="profile-header">
@@ -258,6 +258,10 @@ const SinglePatientData = () => {
                 <p>
                   <b>Doctor: </b>
                   {patient?.doctor_name}
+                </p>
+                <p>
+                  <b>Address: </b>
+                  {patient?.address}
                 </p>
               </div>
             </div>

@@ -162,7 +162,7 @@ function RoutesWrapper() {
   }, [navigate, userRole]); // Depend on navigate and userRole to handle changes
 
   return (
-    <>
+    <div className="app">
       {/* Role-based Sidebar */}
       {userRole === "admin" && <SideBar />}
       {userRole === "doctor" && <DoctorsSidebar />}
@@ -205,6 +205,12 @@ function RoutesWrapper() {
         <Route path="/patients/:id" element={<SinglePatientData />} />
         <Route path="/patient/appointment" element={<Appointments/>} />
         <Route path="/patient/appointmentschedule" element={<AppointmentSchedule/>} />
+
+
+
+
+        
+        {/* <Route path="/patient/Myprescriptions" element={<Myprescriptions/>} /> */}
         </>
        )}
 
@@ -216,7 +222,7 @@ function RoutesWrapper() {
 
 
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -2,49 +2,27 @@
 .main-container {
   display: flex;
   min-height: 100vh;
-  transition: margin-left 0.3s ease, flex 0.3s ease;
+  // transition: margin-left 0.3s ease, flex 0.3s ease;
   flex: 6;
-
-
-  &.collapsed {
-    margin-left: 50px; // Adjust margin when sidebar is collapsed
-  }
+  padding: 50px 0 0 250px;
+ 
 }
 
 // Sidebar Styles
 .main-sidebar {
-  width: 250px;
-  transition: width 0.3s ease;
+  // width: 250px;
+  // transition: width 0.3s ease;
+  background-color: aqua;
 
-  &.collapsed {
-    width: 50px; // Collapsed width
-  }
-
-  .sidebar {
-    flex: 1;
-    transition: width 0.3s ease;
-
-    &.collapsed {
-      width: 50px;
-
-      .logo {
-        display: none; // Hide logo when collapsed
-      }
-    }
-
-    .hamburger {
-      cursor: pointer;
-    }
-  }
 }
 
 // Dashboard Content
 .patient-dashboard-content {
-  flex: 6;
-  padding: 20px;
+  // flex: 6;
+  // padding: 20px;
   transition: flex 0.3s ease;
   overflow-y: auto; 
-  background-color: rgb(222, 219, 219);
+  // background-color: rgb(222, 219, 219);
 
   .main-container.collapsed & {
     flex: 8; // Adjust content area when sidebar is collapsed
@@ -63,8 +41,8 @@
 
 // Patient Sidebar
 .patient-sidebar {
-  width: 250px; // Sidebar width
-  background-color: #f4f4f4; // Sidebar background
+  // width: 250px; // Sidebar width
+  // background-color: #f4f4f4; // Sidebar background
   padding: 20px;
   position: sticky;
   top: 0; // Keep fixed during scrolling
@@ -101,37 +79,72 @@
   .doctors-card2 {
     display: flex;
     gap: 30px;
-    flex-wrap: wrap;
-    button{
-      background-color:#4daaf5;
+    flex-wrap: wrap; /* Ensures wrapping for smaller screens */
+    justify-content: center; /* Centers the cards when wrapping */
+    button {
+      background-color: #4daaf5;
     }
   }
-
-  // Individual Doctor Card
+  
+  /* Individual Doctor Card */
   .doctor-card {
-    width: 30%;
+    width: 30%; /* Adjusts for larger screens */
     display: flex;
     flex-direction: column;
     gap: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 20px;
-   &:hover{
-    transition: all 0.5s ease-in-out;
-    transform: scale(1.05);
-   }
-    img{
-      width: 100% ;
-      height:auto;
+    transition: all 0.5s ease-in-out; /* Add smooth transition effect */
+    flex-wrap: wrap;
+  
+    &:hover {
+      transform: scale(1.05);
     }
-
+  
+    img {
+      width: 100%;
+      height: auto;
+    }
+  
     h4 strong {
       color: #45a049;
       padding: 10px 15px;
       border-radius: 10px;
     }
-
+  
     .disg {
       color: red;
     }
   }
+  
+  /* Responsive Styling */
+  @media (max-width: 1024px) {
+    .doctor-card {
+      width: 45%; /* Adjusts for medium-sized screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .doctor-card {
+      width: 100%; /* Stacks cards vertically for smaller screens */
+    }
+    .main-container {
+      padding: 0 0 0 0;
+  
+     
+    }
+  }
+  
+  
 }
+
+@media (max-width:767px) {
+  .main-container {
+    padding: 50px 0 0 0;
+// border: 2px solid red;
+   
+  }
+}
+
+/* Main Container Styles (PatientDashboard.scss) */
+

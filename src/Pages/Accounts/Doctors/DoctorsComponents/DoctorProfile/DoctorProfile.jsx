@@ -6,6 +6,7 @@ import NavBar from "../../../../../Components/NavBar/NavBar";
 import DoctorSidebar from "../DoctorsSidebar/DoctorsSidebar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EditIcon from '@mui/icons-material/Edit';
 
 const DoctorProfile = () => {
   const { id } = useParams();
@@ -188,7 +189,7 @@ const DoctorProfile = () => {
             <p>{doctor?.address || "Address"}</p>
             <p>{doctor?.Language || "Language"}</p>
           </div>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button onClick={() => setIsEditing(true)}><EditIcon/></button>
         </div>
 
         <div className="info">

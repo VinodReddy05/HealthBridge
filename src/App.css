@@ -3,6 +3,7 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family:'Open Sans';
+/* border: 1px solid red; */
 }
 
 .loading-container {
@@ -33,7 +34,105 @@ body.dark-mode {
 }
 
 
-/* //  doctor dashboard */
+
+
+body.light-mode input {
+  color: #000000;
+}
+
+
+/* body.light-mode,p,h1,h2,h3,h4{
+  color: #000000;
+} */
+/* body.dark-mode p,h1,h2,h3,h4{
+  color: #fffdfd;
+}  */
+body.dark-mode input {
+  background-color: #f0ebeb;
+  color: #0e0e0e;
+  border: 1px solid #555555;
+}
+
+/* Example styles for buttons */
+body.light-mode button {
+  color: #ffffff;
+}
+
+
+
+/* Light Mode */
+body.light-mode .sidebar {
+  background-color: #ffffff;
+  color: black;
+}
+
+body.light-mode .sidebar .title,
+body.light-mode .sidebar ul,
+body.light-mode .sidebar li,
+body.light-mode .sidebar center {
+  background-color: inherit; /* Matches the parent */
+  color: #333; /* Matches the parent */
+}
+
+/* Dark Mode */
+body.dark-mode .sidebar {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode .sidebar .title,
+body.dark-mode .sidebar ul,
+body.dark-mode .sidebar li,
+body.dark-mode .sidebar span,
+
+body.dark-mode .sidebar center {
+  background-color: inherit; /* Matches the parent */
+  color: white; /* Matches the parent */
+}
+
+
+
+/* admin dashboard */
+
+body.light-mode .admincontainer {
+  background-color: #dbd7d7;
+  
+}
+body.dark-mode .admincontainer {
+  background-color: #000000;
+}
+
+/* .patient-dashboard */
+
+
+body.light-mode .patientsData {
+  background-color: #f4f7fa;
+  
+}
+body.dark-mode .patientsData {
+  background-color: #000000;
+}
+
+
+body.light-mode .patient-dashboard-content {
+  background-color: #F9F9F9;
+  
+}
+
+body.dark-mode .patient-dashboard-content {
+  background-color: #000000;
+}
+
+
+/* doctor-dashnnoard */
+
+body.light-mode .container {
+  background-color: #F9F9F9;
+  
+}
+body.dark-mode .container {
+  background-color: #000000;
+}
 
 
 body.light-mode .DoctorsData {
@@ -48,40 +147,69 @@ body.light-mode .doctorcard {
 body.dark-mode .doctorcard {
   background-color: #000000;
 }
+body.light-mode .doctor-info-card p {
+  background-color: #f4f0f0;
+}
+body.dark-mode .doctor-info-card p {
+  background-color: #000000;
+  color: #9c9999;
+}
 
-body.light-mode input {
+
+body.light-mode .appointments{
+  background-color: #f4f0f0;
+}
+body.dark-mode .appointments {
+  background-color: #000000;
+ 
+}
+body.light-mode .appointment-schedule p {
+  background-color: #f4f0f0;
   color: #000000;
 }
-body.dark-mode p {
-  color: #fffdfd;
-}
-
-body.dark-mode input {
-  background-color: #333333;
-  color: #ffffff;
-  border: 1px solid #555555;
-}
-
-/* Example styles for buttons */
-body.light-mode button {
-  color: #ffffff;
-}
-
-
-
-/* admin dashboard */
-
-body.light-mode .admincontainer {
-  background-color: #dbd7d7;
-  
-}
-body.dark-mode .admincontainer {
+body.dark-mode .appointment-schedule p {
   background-color: #000000;
+   color: rgb(184, 181, 181);
 }
-body.light-mode .admincontainer {
-  background-color: #dbd7d7;
+body.light-mode .appointment-schedule strong {
+  background-color: #f4f0f0;
+  color: #000000;
+}
+body.dark-mode .appointment-schedule strong {
+  background-color: #000000;
+   color: rgb(128, 159, 243);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.light-mode .center ul li button {
+  color: #111111;
   
 }
-body.dark-mode .admincontainer {
+
+.app{
+  display: flex;
+ 
+
+}
+
+
+
+body.light-mode .app {
+  background-color: #F9F9F9;
+}
+body.dark-mode .app {
   background-color: #000000;
 }

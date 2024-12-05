@@ -7,11 +7,6 @@ const Footer = () => {
 <>
 
 <div className="footer">
-        <div className="F-logo">
-          {/* <img src={image} alt="" /> */}
-          {/* <label>Subscribe</label>
-          <input type="email" placeholder="email" required readOnly /> */}
-        </div>
 
 <div className="footer-data">
     
@@ -51,7 +46,7 @@ const Footer = () => {
 </div>
     </div>
 <div className="footer-bottom">
-   <p> copy rights 2024-2025</p>
+<p>&#169; Copyright 2024-2025</p>
     
 </div>
 </>

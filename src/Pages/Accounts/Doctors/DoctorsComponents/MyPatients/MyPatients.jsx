@@ -50,13 +50,13 @@ const MyPatients = () => {
   }, [doctorSpecialization]);
 
   return (
-    <div className="appointments">
+    <div className="my-patients">
       <NavBar profileImage={profileImage} />
       <h1>My Patients</h1>
       {loading ? (
         <div className="loading">
           <p>Loading patients...</p>
-          <img
+          <img 
             src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif?cid=ecf05e47l2mubft6j3ziu9t1qbgvfkfngodcfrx0efthlwlz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
             alt="Loading..."
           />

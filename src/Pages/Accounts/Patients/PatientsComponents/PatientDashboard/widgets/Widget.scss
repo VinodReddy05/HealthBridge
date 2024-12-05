@@ -39,6 +39,7 @@
   }
  
   .widg-11, .widg-33{
+  
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,6 +89,8 @@ cursor: pointer;
     outline: none;
     // border: 2px solid #5a8dee ;
     border: 2px solid #4daaf5 ;
+  z-index: 0;
+
 
   }
 
@@ -97,3 +100,16 @@ cursor: pointer;
   }
 }
 
+
+@media(max-width:475px){
+  .widget-patient {
+    .widgets {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+     
+    }  
+    .widg-11, .widg-33{
+      height: 120px;
+    }
+  }
+}

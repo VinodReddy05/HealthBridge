@@ -1,10 +1,14 @@
 .appointment-schedule {
     font-family: Arial, sans-serif;
     color: #333;
-    padding:150px 0 0 250px ;
+    padding:100px 0 0 290px ;
+    // background-color: aqua;
+
     
   
     h1 {
+      position: sticky;
+      top:0;
       width: fit-content;
       // padding: 10px 15px;
       text-align: center;
@@ -59,8 +63,8 @@
   
       li {
         width: 300px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
+        // background-color: #f9f9f9;
+        border: 2px solid #ddd;
         border-radius: 8px;
         padding: 1rem;
         margin-bottom: 20px;
@@ -95,3 +99,42 @@
   }
   
 
+@media(max-width:768px){
+  .appointment-schedule {
+    h1 {
+      position: sticky;
+      top:90px;
+      font-size: 30px;
+      background-color: #ffff;
+     
+    }
+   ul{
+    gap: 0;
+    li{
+      width: 500px;
+      img{
+    margin: 0 auto;
+       }
+    }
+   }
+  }
+}
+@media(max-width:767px){
+  .appointment-schedule {
+    padding:100px 0 0 0 ;
+  }
+}
+
+@media(max-width:475px){
+  .appointment-schedule {
+   ul{
+    gap: 0;
+    li{
+      width: 420px;
+      img{
+    margin: 0 auto;
+       }
+    }
+   }
+  }
+}

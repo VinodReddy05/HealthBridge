@@ -1,15 +1,21 @@
 /* SinglePatientData.scss */
 .single-patient-container {
+ 
   font-family: Arial, sans-serif;
   margin:80px 0 0 0 ;
+  // background-color: #2a79b9;
+  // color: red;
+  padding: 50px 0 0 500px;
  
 }
 
 .patient-card {
+  min-width: 650px;
+  height: auto;
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  // background-color: #f9f9f9;
   max-width: 800px;
   margin: 0 auto;
   button{
@@ -29,9 +35,9 @@
 }
 
 .profile-image {
-  width:250px;
-  height:250px;
-  border-radius: 50%;
+  width:200px;
+  height:200px;
+  border-radius: 15%;
   margin-right: 20px;
 }
 
@@ -160,4 +166,59 @@ input[type="file"] {
   margin-top: 20px;
   font-weight: bold;
   color: red;
+}
+
+
+
+@media(max-width:767px){
+  .single-patient-container {
+    padding: 50px 0 0 ;
+    .patient-card {
+      min-width: 420px;
+    }
+    .profile-header {
+    flex-direction: column;
+    .profile-image {
+      width:350px;
+      height:250px;
+    }
+    .profile-details {
+     
+
+      flex: 1;
+      .top-details{
+        display: flex;
+        justify-content: space-between;
+        gap: 150px;
+      }
+    }
+    }
+   
+  }
+}
+@media(max-width:370px){
+  .single-patient-container {
+    padding: 50px 0 0 ;
+    .patient-card {
+      min-width: 280px;
+    }
+    .profile-header {
+    flex-direction: column;
+    .profile-image {
+      width:350px;
+      height:250px;
+    }
+    .profile-details {
+     
+
+      flex: 1;
+      .top-details{
+        display: flex;
+        justify-content: space-between;
+        gap: 150px;
+      }
+    }
+    }
+   
+  }
 }

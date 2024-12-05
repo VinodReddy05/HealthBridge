@@ -1,12 +1,12 @@
-.appointments {
+.my-patients {
   font-family: Arial, sans-serif;
   color: #333;
-  padding: 150px 0 0 250px;
+  padding: 100px 0 0 250px;
+  background-color: #F9F9F9;
 
   h1 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    // text-align: start;
     color: #2c3e50;
   }
 
@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    text-align: center;
 
     p {
       font-size: 1.2rem;
@@ -23,9 +23,17 @@
     }
 
     img {
-      width: 250px;
-      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
     }
+  }
+
+  .patients-list {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .error-message {
@@ -35,45 +43,32 @@
     margin-top: 2rem;
   }
 
-  .patients-list {
+  .patients-container {
     display: flex;
     flex-wrap: wrap;
-    // gap: 20px;
+    gap: 20px;
     justify-content: center;
   }
 
   .patient-card {
-    width: 45%;
+    flex: 0 1 calc(45% - 20px); /* Flexible size, taking up about 45% width with spacing */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
-  
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
-    // border: 2px solid red;
 
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-    p{
-  &:nth-child(2){
-    color: red;
-    font-weight: bold;
- 
-  }
-}
-  .patient-head{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h2{
-      color:green;
-    }
-  }
-
-    h2 {
-      margin: 0;
-      font-size: 1.6rem;
-      color: #2c3e50;
+      h2 {
+        color: green;
+        margin: 0;
+        font-size: 1.6rem;
+      }
     }
 
     p {
@@ -83,16 +78,40 @@
         color: #2c3e50;
       }
 
-      span {
+      &:nth-child(2) {
+        color: red;
         font-weight: bold;
       }
     }
   }
 
-  .no-appointments {
+  .no-patients {
     text-align: center;
     font-size: 1.2rem;
     margin-top: 2rem;
     color: #555;
+  }
+}
+
+@media (max-width: 767px) {
+  .my-patients {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 100px 0 0 0;
+    h1{
+      position: sticky;
+      top: 90px;
+      background-color: #fff;
+      text-align: center;
+      padding: 15px 10px;
+    }
+    .patients-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .patient-card {
+      min-width: 400px;
+    }
   }
 }

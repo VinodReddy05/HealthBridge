@@ -1,5 +1,5 @@
 import NavBar from "../../../Components/NavBar/NavBar"
-import SideBar from "./AdminComponents/SiderBar/SideBar"
+// import SideBar from "../../../Components/SideBar/SideBar"
 import "./Admin.scss"
 import Widget from "./AdminComponents/AdminHome/widgets/Widget";
 import Charts from "../Admin/AdminComponents/AdminHome/Charts/Charts";
@@ -29,7 +29,7 @@ const Admin = () => {
         </div>
       )}
 
-      <SideBar setShowGif={setShowGif} setGifMessage={setGifMessage} />
+      {/* <SideBar setShowGif={setShowGif} setGifMessage={setGifMessage} /> */}
       <div className="admincontainer">
         <NavBar />
         <div className="widgets">

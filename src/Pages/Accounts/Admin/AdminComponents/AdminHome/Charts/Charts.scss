@@ -2,12 +2,13 @@
     display: flex;
     justify-content:center;
     gap: 30px;
-    margin-left: 20px;
+    // margin-left: 20px;
 
-    .chart-1,
-    .chart-2 {
+    .chart-11,
+    .chart-12 {
         padding: 20px;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        min-width:700px;
 
         .main-heading {
             display: flex;

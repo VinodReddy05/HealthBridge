@@ -2,10 +2,10 @@
 .admin {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas: 
-      "sidebar admincontainer";
-  padding-top: 60px;
+  // grid-template-columns: 1fr 2fr;
+  // grid-template-areas: 
+  //     "sidebar admincontainer";
+  padding: 100px 0 0 250px;
 
 
 .sidebar {
@@ -15,9 +15,6 @@
 .admincontainer {
   grid-area: admincontainer;
 }
-
-   
-
     .admincontainer {
       display: flex;
       flex-direction: column;
@@ -30,12 +27,14 @@
       justify-content: center;
       margin-top: 40px;
       gap: 80px;
+      
       .doctors-1{
         width: 50%;
         display:flex;
        
       }
       .doctors-2{
+        display: none;
         scrollbar-width: none;
          color: red;
       }
@@ -76,9 +75,9 @@
   @media(max-width:1690px){
     .admin {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-template-areas: 
-          "sidebar admincontainer";
+      // grid-template-columns: 1fr 2fr;
+      // grid-template-areas: 
+      //     "sidebar admincontainer";
       padding-top: 90px;
     
     
@@ -92,3 +91,20 @@
     }
   }
   }
+  @media(max-width:850px){
+    .doctors {
+      flex-direction: column;
+      .doctors-1{
+        width: 0;
+        display:flex;
+       
+      }
+    }
+  }
+  @media(max-width:767px){
+  
+.admin {
+  padding: 100px 0 0 0;
+}
+  }
+

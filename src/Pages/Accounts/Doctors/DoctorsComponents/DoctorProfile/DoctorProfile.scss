@@ -1,9 +1,10 @@
 .single-doctor-data {
   width: 80%;
-  height: 70vh;
-    padding: 20px;
-    margin: 100px 0 0 250px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  // height: 70vh;
+  padding: 20px;
+  margin: 100px 0 0 250px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #F9F9F9;
 
   .profile-header {
     display: flex;
@@ -18,7 +19,6 @@
     }
 
     .profile-details {
-     
       h2 {
         margin: 0;
         font-size: 24px;
@@ -33,22 +33,20 @@
     button {
       margin-left: auto;
       padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
+      background-color: unset;
+      color: #333;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       &:hover {
-        background-color: #0056b3;
+        color: red;
       }
     }
   }
 
   .edit-section {
-  
     margin-top: 20px;
     .editable-field {
-      
       margin-bottom: 15px;
 
       label {
@@ -98,6 +96,7 @@
         background-color: #4d9be9;
         border: 1px solid #ddd;
         border-radius: 5px;
+        // border: 2px solid red;
         cursor: pointer;
 
         &.active1 {
@@ -114,11 +113,10 @@
     .info-content {
       width: 50%;
       margin-top: 20px;
-      ul{
+      ul {
         margin: 30px;
-        
-list-style-type:square
-      
+
+        list-style-type: square;
       }
       .project-detail {
         padding: 20px;
@@ -129,7 +127,6 @@ list-style-type:square
     }
   }
 }
-
 
 .popform {
   position: fixed;
@@ -142,7 +139,6 @@ list-style-type:square
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  
 }
 
 .popform-content {
@@ -174,10 +170,10 @@ list-style-type:square
   gap: 20px;
   padding: 20px;
   margin-bottom: 20px;
-  .editable-field{
+  .editable-field {
     display: flex;
     gap: 20px;
-    input{
+    input {
       border: none;
       border-bottom: 2px solid;
     }
@@ -187,4 +183,98 @@ list-style-type:square
 .popform-footer {
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  .single-doctor-data {
+    width: 100%;
+    height: 100vh;
+
+    margin: 90px 0 0 0;
+    .info {
+      .info-content {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    .profile-header {
+      flex-direction: column;
+      gap: 20px;
+      img {
+        width: 380px;
+        height: 350px;
+        // border: radius 50%;;
+        border-radius: 80px;
+      }
+    }
+
+    .profile-details {
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      flex-direction: column;
+
+      h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+      }
+      p {
+        margin: 5px 0;
+        color: #666;
+      }
+    }
+  }
+}
+@media (max-width: 330px) {
+  .single-doctor-data {
+    width: 100%;
+    height: 100vh;
+
+    margin: 90px 0 0 0;
+    .info {
+      .info-content {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    .profile-header {
+      flex-direction: column;
+      gap: 20px;
+      img {
+        width: 200px;
+        height: 200px;
+        // border: radius 50%;;
+        border-radius: 10px;
+      }
+    }
+
+    .profile-details {
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      flex-direction: column;
+
+      h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+      }
+      p {
+        margin: 5px 0;
+        color: #666;
+      }
+    }
+
+    .info {
+      .info-buttons {
+        button {
+          // padding: 10px 15px;
+          font-size: 10px;
+         
+        }
+      }}
+  }
 }

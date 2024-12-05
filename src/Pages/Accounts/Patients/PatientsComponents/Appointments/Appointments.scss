@@ -1,68 +1,66 @@
-/* Container for the doctor cards */
 .doctors-card {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap onto the next line */
-    gap: 16px; /* Space between cards */
-    justify-content: center; /* Centers the cards */
-    padding: 16px;
-    // margin: 100px 0 0 250px;
-  }
-  
-  /* Individual doctor card */
-  .doctor-info-card {
-    width: 20%;
-    display: flex;
-    flex-direction: column; /* Stacks image and text vertically */
-    align-items: center; /* Center-aligns content */
-    border: 1px solid #ccc; /* Light border for the card */
-    border-radius: 8px; /* Rounded corners */
-    padding: 16px; /* Inner spacing */
-    // width: 200px; /* Fixed width for consistency */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    // background-color: #fff; /* White background */
-    text-align: center; /* Centers text */
-    &:hover{
-      transition: all 0.19s ease-in-out;
-      transform: scale(1.05);
-    }
-    strong{
-        color: rgb(72, 160, 75);
-    }
-    .appointmentbtn{
-        width: fit-content;
-        padding: 5px ;
-        font-size: 10x;
-        font-weight: unset;
-        background-color: #4daaf5;
-        &:hover{
-          background-color: #2a71aa;
-        }
-    }
-  }
-  
-  /* Image inside the card */
-  .doctor-info-card img {
-    width: 200px; /* Fixed image width */
-    height: 200px; /* Fixed image height */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image maintains aspect ratio */
-    margin-bottom: 12px; /* Space below the image */
-    &:hover{
-      transition: all 0.5s ease-in-out;
-      transform: scale(1.05);
-    }
-  }
-  
-  /* Text styling */
-  .doctor-info-card p {
-    margin: 4px 0; /* Space between text */
-    color: #333; /* Dark gray text */
-    font-size: 14px; /* Adjust font size */
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-fill with responsive columns */
+  gap: 16px; /* Space between cards */
+  justify-items: center; /* Centers the cards inside their grid cells */
+  padding: 16px;
+  margin: 100px 0 0 250px ;
+}
 
+/* Individual Doctor Card */
+.doctor-info-card {
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center-align the content */
+  width: 100%; /* Full width inside the grid */
+  border: 2px solid #ccc; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Centers text */
+  transition: transform 0.19s ease-in-out; /* Smooth hover transition */
 
-/* Popup container */
+  &:hover {
+    transform: scale(1.05); /* Hover effect */
+  }
+
+  strong {
+    color: rgb(72, 160, 75); /* Green color for strong text */
+  }
+
+  .appointmentbtn {
+    width: fit-content;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: unset;
+    background-color: #4daaf5;
+
+    &:hover {
+      background-color: #2a71aa; /* Hover effect for appointment button */
+    }
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    margin-bottom: 12px;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05); /* Image hover effect */
+    }
+  }
+
+  p {
+    margin: 4px 0;
+    color: #333;
+    font-size: 14px;
+  }
+}
+
+/* Popup Styles */
 .appointment-popup {
   position: fixed;
   top: 0;
@@ -76,7 +74,6 @@
   z-index: 1000;
 }
 
-/* Popup content box */
 .popup-content {
   background: #fff;
   padding: 20px 30px;
@@ -84,47 +81,53 @@
   width: 400px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   text-align: center;
-}
 
-.popup-content h3 {
-  margin-bottom: 20px;
-}
+  h3 {
+    margin-bottom: 20px;
+  }
 
-.popup-content label {
-  display: block;
-  margin: 10px 0;
-  text-align: left;
-}
+  label {
+    display: block;
+    margin: 10px 0;
+    text-align: left;
+  }
 
-.popup-content input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 }
 
 .popup-actions {
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
+
+  button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:first-child {
+      background-color: #48a04b;
+      color: white;
+    }
+
+    &:last-child {
+      background-color: #ccc;
+      color: black;
+    }
+  }
 }
 
-.popup-actions button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.popup-actions button:first-child {
-  background-color: #48a04b;
-  color: white;
-}
-
-.popup-actions button:last-child {
-  background-color: #ccc;
-  color: black;
+@media(max-width:767px){
+  .doctors-card {
+    margin: 100px 0 0  ;
+  }
 }

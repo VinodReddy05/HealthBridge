@@ -69,6 +69,8 @@ import 'leaflet/dist/leaflet.css';
 import './widget.scss';
 
 const Widget = () => {
+
+  const navigate = useNavigate();
   const [location, setLocation] = useState(null); // Null until fetched
   const [medicalShops, setMedicalShops] = useState([]);
   const [userInput, setUserInput] = useState('');
@@ -93,31 +95,96 @@ const Widget = () => {
     }
   };
 
-  const initializeMap = (latitude, longitude) => {
-    if (!mapRef.current) {
-      mapRef.current = L.map('map').setView([latitude, longitude], 14);
+  // const initializeMap = (latitude, longitude) => {
+  //   if (!mapRef.current) {
+  //     mapRef.current = L.map('map').setView([latitude, longitude], 14);
 
+  //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  //       attribution: '© OpenStreetMap contributors',
+  //     }).addTo(mapRef.current);
+  //   } else {
+  //     mapRef.current.setView([latitude, longitude], 14);
+  //   }
+
+  //   // Remove existing markers
+  //   mapRef.current.eachLayer((layer) => {
+  //     if (layer instanceof L.Marker) {
+  //       mapRef.current.removeLayer(layer);
+  //     }
+  //   });
+
+  //   // Add markers for medical shops
+  //   medicalShops.forEach((shop) => {
+  //     L.marker([shop.geometry.location.lat, shop.geometry.location.lng])
+  //       .addTo(mapRef.current)
+  //       .bindPopup(`<b>${shop.name}</b><br>${shop.vicinity}`);
+  //   });
+  // };
+
+
+  const initializeMap = (latitude, longitude, navigate) => {
+    // Check if the map is already initialized
+    if (!mapRef.current) {
+      // Create the map instance and set the initial view
+      mapRef.current = L.map('map').setView([latitude, longitude], 14);
+  
+      // Add a tile layer (OpenStreetMap in this case)
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors',
       }).addTo(mapRef.current);
     } else {
+      // Update the map view to the new location
       mapRef.current.setView([latitude, longitude], 14);
     }
-
-    // Remove existing markers
+  
+    // Remove existing markers from the map
     mapRef.current.eachLayer((layer) => {
       if (layer instanceof L.Marker) {
         mapRef.current.removeLayer(layer);
       }
     });
-
-    // Add markers for medical shops
+  
+    // Loop through the medical shops and add markers
     medicalShops.forEach((shop) => {
-      L.marker([shop.geometry.location.lat, shop.geometry.location.lng])
-        .addTo(mapRef.current)
-        .bindPopup(`<b>${shop.name}</b><br>${shop.vicinity}`);
+      const { lat, lng } = shop.geometry.location;
+      const marker = L.marker([lat, lng]).addTo(mapRef.current);
+  
+      // Create popup content as a DOM element
+      const popupContent = document.createElement('div');
+      popupContent.innerHTML = `
+        <b>${shop.name}</b><br>
+        ${shop.vicinity}<br>
+        <button
+          style="background: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-top: 5px;"
+          id="navigate-${shop.place_id}">
+          More Info
+        </button>
+      `;
+  
+      // Attach an event listener to the button inside the popup
+      popupContent.querySelector(`#navigate-${shop.place_id}`).addEventListener('click', () => {
+        // Navigate within the React app or open Google Maps
+        const openInGoogleMaps = true; // Set to false if you want React navigation
+  
+        if (openInGoogleMaps) {
+          // Open Google Maps in a new tab
+          window.open(
+            `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
+            '_blank'
+          );
+        } else {
+          // Navigate to a route in your React application
+          navigate(`/medical-shop/${shop.place_id}`);
+        }
+      });
+  
+      // Bind the popup to the marker
+      marker.bindPopup(popupContent);
     });
   };
+  
+  
+
 
   useEffect(() => {
     // Fetch user's current location
@@ -144,9 +211,9 @@ const Widget = () => {
 
   useEffect(() => {
     if (location) {
-      initializeMap(location.lat, location.lng);
+      initializeMap(location.lat, location.lng, navigate);
     }
-  }, [location, medicalShops]); // Re-run when location or medicalShops updates
+  }, [location, medicalShops, navigate]); // Re-run when location or medicalShops updates
 
   const handleLocationSearch = () => {
     const geocodeLocation = async (address) => {
@@ -183,7 +250,7 @@ const Widget = () => {
     }
   };
 
-  const navigate = useNavigate();
+ 
 
     const handleClick = (route) => {
       navigate(route);   
@@ -223,7 +290,7 @@ const Widget = () => {
          </div>
 
          <div className="widgets">
-         <div className=" widg-11" onClick={() => handleClick('/patients')}>
+         <div className=" widg-11" onClick={() => handleClick()}>
            <div className="patients" >
              <h3 >Happy Paatients</h3> 
              <h2 style={{color:"white", fontSize:"35px"} }>
@@ -260,7 +327,7 @@ const Widget = () => {
         />
         <button  onClick={handleLocationSearch}>Search</button>
 
-        <div id="map" style={{ width: '100%', height: '400px', marginTop: '20px' }}></div>
+        <div id="map" style={{ width: '100%', height: '400px', marginTop: '20px', zIndex:"0" }}></div>
       </div>
     </div>
   );

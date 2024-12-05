@@ -13,7 +13,6 @@ const Appointments = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [patientName, setPatientName] = useState("");
 
-
   useEffect(() => {
     const patientData = JSON.parse(localStorage.getItem("patientData"));
     if (patientData && patientData.name) {
@@ -80,8 +79,8 @@ const Appointments = () => {
             doctor_name: selectedDoctor.name, // Store doctor's name
             doctor_image: selectedDoctor.image_url, // Store doctor's image
             doctor_specialization: selectedDoctor.Degree, // Store doctor's specialization
-            doctor_designation:selectedDoctor.Designation,
-            patient_name:patientName,
+            doctor_designation: selectedDoctor.Designation,
+            patient_name: patientName,
           },
         ])
         .select();
@@ -129,7 +128,7 @@ const Appointments = () => {
   };
 
   return (
-    <div>
+    <div className="toggle">
       <NavBar />
       {fetchError && <p>{fetchError}</p>}
       {doctors && (
@@ -140,7 +139,7 @@ const Appointments = () => {
               <p>
                 <strong>{doctor.name}</strong>
               </p>
-              <p style={{color:"red"}} >
+              <p style={{ color: "red" }}>
                 <b>{doctor.Designation}</b>
               </p>
               <p>
@@ -178,9 +177,9 @@ const Appointments = () => {
             </p>
 
             <p>
-             <strong>Patient Name:</strong> {patientName}
-           </p>
-           
+              <strong>Patient Name:</strong> {patientName}
+            </p>
+
             <label>
               <strong>Date and Time:</strong>
               <input

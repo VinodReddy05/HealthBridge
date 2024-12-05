@@ -1,7 +1,10 @@
 /* Make the outer container a flex container */
 .container {
+  width:100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    padding: 50px 0 0 250px ;
+    background-color: #F9F9F9;
   }
   
   /* Make the main-content area a flex container */
@@ -9,20 +12,21 @@
     display: flex;
     flex: 1;  /* Takes up remaining space */
   }
-  
-  /* Sidebar styling */
-  .doctordashboard {
-    flex: 1;
-    padding: 20px;
-    /* Optionally you can add fixed width if you want to control the sidebar size */
-    min-width: 200px; // You can set the minimum width if needed
-  }
+
   
   /* Content section styling */
   .homeinfo {
     flex: 6;  
-    padding: 20px;
+    // padding: 60px 0 0 0;
     overflow-x: hidden;
     // min-width: 200px;
   }
   
+
+  @media(max-width:767px){
+    .container {
+      width: 100%;
+ 
+        padding: 50px 0 0 0  ;
+      }
+  }
