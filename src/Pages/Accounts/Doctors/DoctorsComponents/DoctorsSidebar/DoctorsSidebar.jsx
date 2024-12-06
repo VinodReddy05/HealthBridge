@@ -63,29 +63,28 @@ const DoctorsSidebar = () => {
         </div>
         <div className="center">
           <ul>
-            <p className="title">Main</p>
-            <li className={selectedItem === 1 ? "green" : ""}>
+            <li className={selectedItem === 1 ? "green" : ""} onClick={() => handleClick("/doctor/dashboard", 1)}>
               <DashboardIcon />
-              <span onClick={() => handleClick("/doctor/dashboard", 1)}>
+              <span >
                 Dashboard
               </span>
             </li>
             <p className="title">My Details</p>
-            <li className={selectedItem === 2 ? "green" : ""}>
+            <li className={selectedItem === 2 ? "green" : ""} onClick={() => handleClick(`/doctor/${currentDoctor.id}`, 2)}>
               <AccessibleIcon />
-              <span onClick={() => handleClick(`/doctor/${currentDoctor.id}`, 2)}>
+              <span >
                 My Details
               </span>
             </li>
-            <li className={selectedItem === 3 ? "green" : ""}>
+            <li className={selectedItem === 3 ? "green" : ""} onClick={() => handleClick("/doctor/mypatients", 3)}>
               <AccessibleIcon />
-              <span onClick={() => handleClick("/doctor/mypatients", 3)}>
+              <span >
                 My Patients
               </span>
             </li>
-            <li className={selectedItem === 4 ? "green" : ""}>
+            <li className={selectedItem === 4 ? "green" : ""} onClick={() => handleClick("/doctor/appointment", 4)}>
               <ChecklistRtlIcon />
-              <span onClick={() => handleClick("/doctor/appointment", 4)}>
+              <span >
                 Appointments
               </span>
             </li>

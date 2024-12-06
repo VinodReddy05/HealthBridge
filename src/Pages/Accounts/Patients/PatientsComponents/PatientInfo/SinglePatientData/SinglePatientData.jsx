@@ -76,6 +76,7 @@ const SinglePatientData = () => {
       const updates = {
         address: address, // Address from state
         image_url: previewImage, // Image URL from preview
+       
       };
 
       const { error } = await supabase

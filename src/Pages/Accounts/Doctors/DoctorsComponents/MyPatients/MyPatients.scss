@@ -34,6 +34,7 @@
   .patients-list {
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
   }
 
   .error-message {
@@ -50,14 +51,21 @@
     justify-content: center;
   }
 
-  .patient-card {
-    flex: 0 1 calc(45% - 20px); /* Flexible size, taking up about 45% width with spacing */
+  .patient-cards {
+    width: 400px;
+
+    // flex: 0 1 calc(45% - 20px); /* Flexible size, taking up about 45% width with spacing */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
+  
+    margin:10px;
+    &:hover{
+      transition: all 0.2s ease-in-out;
+      transform: scale(1.03);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    }
 
     .card-header {
       display: flex;

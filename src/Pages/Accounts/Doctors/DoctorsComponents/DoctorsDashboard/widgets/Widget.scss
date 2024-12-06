@@ -33,20 +33,23 @@
     align-items: center;
     padding: 20px;
     border-radius: 20px;
+    &:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.02);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    }
   }
 
   .widg-11 {
     background: linear-gradient(135deg, #ff7f7f, #ff9f9f);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  
 cursor: pointer;
 
   }
 
   .widg-33 {
     background: linear-gradient(135deg, #42a5f5, #64b5f6);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
-
 }
 
 

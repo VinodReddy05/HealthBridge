@@ -52,14 +52,19 @@
   
       li {
         width:47%;
-        margin: 10px;
-        // border: 2px solid red;
-        // background-color: #f9f9f9;
+        margin: 10px 0 0 20px;
+      
         border: 1px solid #ddd;
         border-radius: 8px;
         padding: 1rem;
         margin-bottom: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   
+        &:hover{
+          transition: all 0.2s ease-in-out;
+          transform: scale(1.03);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+
+        }
         .date{
             display: flex;
             justify-content: space-between;

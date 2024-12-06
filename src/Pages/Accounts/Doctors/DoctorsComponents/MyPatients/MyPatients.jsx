@@ -68,7 +68,7 @@ const MyPatients = () => {
       ) : (
         <div className="patients-list">
           {patientsData.map((patient) => (
-            <div key={patient.id} className="patient-card">
+            <div key={patient.id} className="patient-cards">
              <div className="patient-head"> 
               <h2>{patient.name}</h2>
              <p><strong>OP:</strong> {patient.joining_date}</p>
