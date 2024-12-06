@@ -176,7 +176,7 @@ function RoutesWrapper() {
         {/* Admin Routes */}
         {userRole === "admin" && (
           <>
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/" element={<Admin />} />
             <Route path="/admin/patients" element={<PatientsData />} />
             <Route path="/patients/new" element={<AddNewPatient />} />
             <Route path="/patients/edit/:id" element={<PatientEdit />} />

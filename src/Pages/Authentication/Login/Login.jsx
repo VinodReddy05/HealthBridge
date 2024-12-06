@@ -21,7 +21,7 @@ const Login = () => {
       } else if (userRole === "patient") {
         navigate("/");
       } else if (userRole === "doctor") {
-        navigate("/doctor/dashboard");
+        navigate("");
       }
     }
   }, [navigate]);
@@ -40,7 +40,7 @@ const Login = () => {
         setShowGif(true);
         setTimeout(() => {
           localStorage.setItem("userRole", "admin");
-          navigate("/admin");
+          navigate("/");
         }, 1500);
         return;
       }
@@ -69,7 +69,7 @@ const Login = () => {
               ...data,
             })
           );
-          navigate(userType === "patient" ? "/patients/dashboard" : "/doctor/dashboard");
+          navigate(userType === "patient" ? "/" : "/doctor/dashboard");
         }, 1500);
         return;
       }
