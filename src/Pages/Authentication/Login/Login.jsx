@@ -21,7 +21,7 @@ const Login = () => {
       } else if (userRole === "patient") {
         navigate("/");
       } else if (userRole === "doctor") {
-        navigate("");
+        navigate("/");
       }
     }
   }, [navigate]);

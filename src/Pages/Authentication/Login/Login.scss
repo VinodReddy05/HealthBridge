@@ -159,3 +159,16 @@ h2 {
 .hidden {
   display: none;
 }
+
+
+@media(max-width:475px){
+  .login-container {
+    background: url('./loginAssets//backgroundImg.svg') no-repeat right center fixed;
+    background-size: cover;
+    .form-input {
+     
+      background: white;
+    
+    }    
+  }
+}
