@@ -156,13 +156,44 @@ body.dark-mode .doctor-info-card p {
 }
 
 
-body.light-mode .appointments{
+body.light-mode .appointments h1  {
   background-color: #F9F9F9;
 }
-body.dark-mode .appointments {
+body.dark-mode .appointments h1 {
   background-color: #000000;
+  color: white;
  
 }
+
+
+
+/* Dark mode - Text color will be black */
+body.dark-mode .appointmentS ul li p strong {
+  color: #ffffff;
+}
+/* body.light-mode .appointmentS, ul, li, p, strong {
+  color: #000000;
+} */
+
+body.light-mode .my-patients {
+  background-color: #ffffff;
+  color: black;
+}
+
+/* Dark mode - Text color will be black */
+body.dark-mode .my-patients {
+  background-color: #000000;
+  color: white;
+}
+body.dark-mode .my-patients .patient-cards  p strong{
+color: #ffffff;
+}
+
+/* Dark mode - Text color will be black */
+body.dark-mode .my-patients {
+  background-color: #000000;
+}
+
 body.light-mode .appointment-schedule p {
   background-color: #F9F9F9;
   color: #000000;

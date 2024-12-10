@@ -47,18 +47,58 @@ body.dark-mode {
         display: flex;
         padding: 20px;
         align-items: center;
-        justify-content: space-between;
+        justify-content: end;
         position: relative;
         .items{
             display: flex;
             align-items: center;
             cursor: pointer;
+            .icons {
+              display: flex;
+              gap: 15px;
+            
+              .icon-wrapper {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                cursor: pointer;
+            
+                &::before {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                  border: 3px solid transparent; /* Initially transparent */
+                 
+                  transition: transform 0.3s ease-in-out;
+                  z-index: -1;
+                }
+            
+                &:hover::before {
+                  transform: rotate(1800deg);
+                  background: linear-gradient(white, white) padding-box, 
+                  linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1, #5f27cd) border-box;
+                }
+            
+                .MuiSvgIcon-root {
+                  font-size: 30px;
+                  position: relative;
+                  z-index: 1; // Ensures the icon stays above the gradient border
+                }
+              }
+            }
+            
+            
             .profile{
                 display: flex;
                 margin: 0;
             }
             .item-bright{
-              
+              margin-left: 20px;
 
                &:hover{
                 color: red;
@@ -97,6 +137,18 @@ body.dark-mode {
                     top: 0;
                     right: 0;
                 }
+            }
+
+            .welcome-message{
+              h2{
+               position: relative;
+               left: -400px;
+               background-image: linear-gradient(to right, #ff7e5f, #feb47b); /* Example gradient */
+    -webkit-background-clip: text; /* For WebKit-based browsers */
+    background-clip: text; /* For other browsers */
+    color: transparent;
+    margin: 0;
+              }
             }
         }
         .profile {

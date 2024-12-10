@@ -1,22 +1,15 @@
 // Signup.scss
 
 .signup-container {
+  width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // padding: 2rem;
     height: 100vh;
-    // background-color: #f7f8fa;
     border-radius: 8px;
- 
-    //
-    // margin: 2rem auto;
-    // background-color: #f7f7f7;
-    // position: relative;
     background: url('../Login/loginAssets/backgroundImage.svg') no-repeat center center fixed;
     background-size: cover;
-    // border: 2px solid red;
   
     h2 {
       font-size: 1.8rem;
@@ -26,7 +19,7 @@
     }
   
     .signup-form {
-      width: 100%;
+      width: 90%;
       display: flex;
       flex-direction: column;
       padding: 20px 15px;

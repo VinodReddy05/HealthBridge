@@ -55,7 +55,7 @@
     width: 400px;
 
     // flex: 0 1 calc(45% - 20px); /* Flexible size, taking up about 45% width with spacing */
-    background-color: #f9f9f9;
+    // background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
@@ -65,6 +65,17 @@
       transition: all 0.2s ease-in-out;
       transform: scale(1.03);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    }
+    .patient-head{
+      display: flex;
+      justify-content: space-between;
+      h2{
+        color: grey;
+      }
+    }
+    .blood-group{
+      display: flex;
+      justify-content: space-between;
     }
 
     .card-header {

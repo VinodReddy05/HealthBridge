@@ -58,6 +58,7 @@
         border-radius: 8px;
         padding: 1rem;
         margin-bottom: 1rem;
+
    
         &:hover{
           transition: all 0.2s ease-in-out;
@@ -72,10 +73,10 @@
   
         p {
           margin: 0.5rem 0;
-  
-          strong {
-            color: #2c3e50;
-          }
+     strong{
+      color:#6f6e6e;
+     }
+        
         }
   
         img {
@@ -94,8 +95,10 @@
         // @include flex();
 
       label{
+        color: #6f6e6e;
+        color: green;
         &:hover{
-          color: green;
+          color: blue;
           cursor: pointer;
         }
       input{

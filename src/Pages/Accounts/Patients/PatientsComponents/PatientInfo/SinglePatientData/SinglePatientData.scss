@@ -18,6 +18,11 @@
   // background-color: #f9f9f9;
   max-width: 800px;
   margin: 0 auto;
+  &:hover{
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
+
+  }
   button{
     background-color: #4daaf5;
     &:hover{

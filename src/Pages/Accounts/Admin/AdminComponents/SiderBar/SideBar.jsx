@@ -33,7 +33,9 @@ const SideBar = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    toast.success("You have logged out");
+    toast.success("You have logged out" , {
+      position: "top-right", // or "bottom-right"
+    });
     setTimeout(() => navigate("/login"), 1500);
   };
 

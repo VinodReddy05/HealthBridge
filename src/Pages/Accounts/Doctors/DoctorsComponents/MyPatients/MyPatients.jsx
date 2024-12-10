@@ -73,8 +73,11 @@ const MyPatients = () => {
               <h2>{patient.name}</h2>
              <p><strong>OP:</strong> {patient.joining_date}</p>
              </div>
-              <p><strong>Patient Id:</strong> {patient.id}</p>
+            <p><strong>Patient Id:</strong> {patient.id}</p>
+            <div className="blood-group">
               <p><strong>Gender:</strong> {patient.Gender}</p>
+            <p><strong>Blood Group:</strong> {patient.Blood_Group}</p>
+            </div>
               <p><strong>prescription:</strong> {patient.prescription}</p>
             </div>
           ))}
