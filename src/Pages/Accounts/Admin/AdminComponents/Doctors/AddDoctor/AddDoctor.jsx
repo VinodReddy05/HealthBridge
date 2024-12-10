@@ -79,19 +79,19 @@ const AddDoctor = () => {
          } else {
             setTimeout(() => {
                toast.success("Successfully added Doctor details");
-            }, 500); // Delay of 500ms
+            }, 1500);  
    
             sendEmail();
    
             setTimeout(() => {
                navigate("/admin/doctors");
-            }, 1500); // Navigate after 1.5 seconds
+            }, 2500); 
          }
       } catch (error) {
          console.error("Error during form submission:", error);
          setTimeout(() => {
             toast.error("Unexpected error occurred. Please try again.");
-         }, 500); // Delay of 500ms
+         }, 500); 
          setFormError("Unexpected error occurred. Please try again.");
       }
    };
@@ -100,7 +100,7 @@ const AddDoctor = () => {
       console.log('Attempting to send email...');
       setTimeout(() => {
          toast.info("Attempting to send email...");
-      }, 500); // Delay of 500ms
+      }, 500);  
    
       const userTemplateParams = {
          to_email: email,
@@ -114,13 +114,13 @@ const AddDoctor = () => {
                console.log('Email sent successfully:', response);
                setTimeout(() => {
                   toast.success("Email sent successfully");
-               }, 1000); // Delay of 1 second
+               }, 1000); 
             },
             (error) => {
                console.error('Failed to send email:', error);
                setTimeout(() => {
                   toast.error("Failed to send email. Please check your EmailJS configuration.");
-               }, 1000); // Delay of 1 second
+               }, 1000);  
             }
          );
    };
@@ -128,7 +128,6 @@ const AddDoctor = () => {
 
    return (
       <>
-         {/* <NavBar/> */}
          <SideBar/>
       <div className='page-create'>
          <h1>Add Doctor</h1>

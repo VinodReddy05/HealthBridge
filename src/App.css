@@ -2,24 +2,37 @@
 margin: 0;
 padding: 0;
 box-sizing: border-box;
-font-family:'Open Sans';
-/* border: 1px solid red; */
+font-family:'Open Sans', sans-serif !important;
 }
 
 .loading-container {
+  width: 200px;
+  height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    object-fit: contain; 
+    margin: 300px auto;  
     background-color: #f9f9f9; /* Optional background color */
  
   }
   
   .loading-gif {
     width: 150px;
-    height: auto;
+    height: 150px;
   }
 
+  .app {
+  
+    .loading-image {
+      width: 200px;   
+      height: 200px;  
+      object-fit: contain; 
+      margin: 300px auto;  
+      display: block;
+    }
+  }
+  
 
   /* Default Light Mode */
 body.light-mode {
@@ -41,19 +54,13 @@ body.light-mode input {
 }
 
 
-/* body.light-mode,p,h1,h2,h3,h4{
-  color: #000000;
-} */
-/* body.dark-mode p,h1,h2,h3,h4{
-  color: #fffdfd;
-}  */
+
 body.dark-mode input {
   background-color: #f0ebeb;
   color: #0e0e0e;
   border: 1px solid #555555;
 }
 
-/* Example styles for buttons */
 body.light-mode button {
   color: #ffffff;
 }
@@ -86,8 +93,8 @@ body.dark-mode .sidebar li,
 body.dark-mode .sidebar span,
 
 body.dark-mode .sidebar center {
-  background-color: inherit; /* Matches the parent */
-  color: white; /* Matches the parent */
+  background-color: inherit;  
+  color: white;  
 }
 
 
@@ -97,6 +104,22 @@ body.dark-mode .sidebar center {
 body.light-mode .admincontainer {
   background-color: #F9F9F9;
   
+}
+body.dark-mode .footer-data {
+  background-color: #000000;
+  color: white;
+}
+
+body.light-mode .footer-data {
+  color: black; 
+}
+body.dark-mode .footer {
+  background-color: #000000;
+ 
+}
+
+body.light-mode .footer {
+  background-color: #d1d3d3;
 }
 body.dark-mode .admincontainer {
   background-color: #000000;
@@ -171,9 +194,6 @@ body.dark-mode .appointments h1 {
 body.dark-mode .appointmentS ul li p strong {
   color: #ffffff;
 }
-/* body.light-mode .appointmentS, ul, li, p, strong {
-  color: #000000;
-} */
 
 body.light-mode .my-patients {
   background-color: #ffffff;
@@ -210,20 +230,6 @@ body.dark-mode .appointment-schedule strong {
   background-color: #000000;
    color: rgb(128, 159, 243);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 body.light-mode .center ul li button {
   color: #111111;

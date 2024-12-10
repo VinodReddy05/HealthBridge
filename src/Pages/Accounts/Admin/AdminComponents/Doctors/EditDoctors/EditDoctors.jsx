@@ -7,42 +7,24 @@ const EditDoctors = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    // State variables for doctor data
     const [doctorName, setDoctorName] = useState('');
     const [specialization, setSpecialization] = useState('');
     const [degree, setDegree] = useState('');
-    // const [experience, setExperience] = useState('');
-    // const [qualification, setQualification] = useState('');
-    // const [gender, setGender] = useState('');
-    // const [consultNo, setConsultNo] = useState('');
-    // const [status, setStatus] = useState('');
     const [formError, setFormError] = useState('');
 
-    // Static options
     const Designation = ["Cardiology", "Neurology", "Orthopedics", "Pediatrics", "Dermatology"];
     const genders = ["Male", "Female"];
     const statuses = ["Active", "Inactive"];
 
-    // Generate consultation number if not present
-    // useEffect(() => {
-    //     if (!consultNo) {
-    //         const generatedConsultNo = `DOC${Math.floor(1000 + Math.random() * 9000)}`;
-    //         setConsultNo(generatedConsultNo);
-    //     }
-    // }, [consultNo]);
-
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setFormError('');
     
-        // Create an update object with only the modified fields
         const updates = {};
         if (doctorName.trim()) updates.name = doctorName.trim();
         if (specialization.trim()) updates.Designation = specialization.trim();
         if (degree.trim()) updates.Degree = degree.trim();
     
-        // Proceed only if there are fields to update
         if (Object.keys(updates).length === 0) {
             setFormError('Please modify at least one field before submitting.');
             return;
@@ -50,7 +32,7 @@ const EditDoctors = () => {
     
         try {
             const { data, error } = await supabase
-                .from('DoctorsData') // Ensure this matches your table name
+                .from('DoctorsData')  
                 .update(updates)
                 .eq('id', Number(id))
                 .select();
@@ -60,7 +42,7 @@ const EditDoctors = () => {
                 setFormError(`Submission error: ${error.message}`);
             } else if (data && data.length > 0) {
                 setFormError(null);
-                navigate('/admin/doctors'); // Redirect to doctor list after successful update
+                navigate('/admin/doctors');  
             } else {
                 setFormError('No doctor data was updated. Please check your input.');
             }
@@ -72,7 +54,6 @@ const EditDoctors = () => {
     
  
 
-    // Fetch doctor data to prefill the form
     useEffect(() => {
       const fetchDoctor = async () => {
           const { data: doctorData, error: fetchError } = await supabase
@@ -90,7 +71,6 @@ const EditDoctors = () => {
               if (doctorData) {
                   setDoctorName(doctorData.name);
                   setSpecialization(doctorData.Designation);
-                  // Set other state variables as necessary
               }
           }
       };
@@ -134,54 +114,6 @@ const EditDoctors = () => {
                     value={degree}
                     onChange={(e) => setDegree(e.target.value)}
                 />
-
-                {/* <label className="form-label" htmlFor="Qualification">Qualification</label>
-                <input
-                    className="form-input"
-                    type="text"
-                    id="Qualification"
-                    value={qualification}
-                    onChange={(e) => setQualification(e.target.value)}
-                /> */}
-
-                {/* <label className="form-label" htmlFor="Gender">Gender</label>
-                <select
-                    className="form-input"
-                    id="Gender"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                >
-                    <option value="">Select Gender</option>
-                    {genders.map(genderOption => (
-                        <option key={genderOption} value={genderOption}>
-                            {genderOption}
-                        </option>
-                    ))}
-                </select> */}
-{/* 
-                <label className="form-label" htmlFor="ConsultNo">Consultation No.</label>
-                <input
-                    className="form-input"
-                    type="text"
-                    id="ConsultNo"
-                    value={consultNo}
-                    disabled
-                /> */}
-
-                {/* <label className="form-label" htmlFor="Status">Status</label>
-                <select
-                    className="form-input"
-                    id="Status"
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                >
-                    <option value="">Select Status</option>
-                    {statuses.map(statusOption => (
-                        <option key={statusOption} value={statusOption}>
-                            {statusOption}
-                        </option>
-                    ))}
-                </select> */}
 
                 <button className="form-submit-button" type="submit">Update Details</button>
                 {formError && <p className="form-error">{formError}</p>}

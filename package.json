@@ -23,6 +23,7 @@
     "emailjs-com": "^3.2.0",
     "generate-password": "^1.7.1",
     "jspdf": "^2.5.2",
+    "lazy": "^1.0.11",
     "leaflet": "^1.9.4",
     "motion": "^11.11.17",
     "print-js": "^1.6.0",

@@ -63,7 +63,6 @@ const Widget = () => {
         <div className=" widg-1" onClick={() => handleClick('/admin/patients')}>
           <div className="patient" >
             <h3 >Total Patients</h3> 
-            {/* <h1>723 <ShowChartIcon fontSize="large" /></h1> */}
             {loading ? (
       <p>Loading total patients...</p>
     ) : (

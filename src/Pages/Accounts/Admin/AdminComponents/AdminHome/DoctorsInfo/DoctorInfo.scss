@@ -1,6 +1,5 @@
 .doctor-info {
   text-align: center;
-  // border: 2px solid red;
 
   #doctor-swiper {
     width: 80%;
@@ -15,9 +14,7 @@
     align-items: center;
 
     .doctor-card {
-      // background: #fff;
       border-radius: 10px;
-      // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       text-align: center;
       padding: 20px;
@@ -26,7 +23,6 @@
       .doctor-image {
         width: 100%;
         height: auto;
-        // border-radius: 50%;
         margin-bottom: 10px;
       }
 
@@ -47,7 +43,6 @@
     text-align: unset;
   }
 
-  // Additional Media Query for smaller screens
 }
 @media (max-width: 500px) {
   .doctor-info {
@@ -56,8 +51,6 @@
     #doctor-swiper {
       width: 80%;
       max-width:900px;
-      // margin: auto;
-      // padding: 20px 0;
     }
   }
 
@@ -76,8 +69,6 @@
     #doctor-swiper {
       width: 80%;
       max-width:900px;
-      // margin: auto;
-      // padding: 20px 0;
     }
   }
 

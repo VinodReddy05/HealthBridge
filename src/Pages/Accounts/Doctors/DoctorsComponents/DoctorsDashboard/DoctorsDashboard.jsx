@@ -21,7 +21,6 @@ const DoctorsDashboard = () => {
     <NavBar/>
     <div className="main-content">
         <div className='doctordashboard'>
-            {/* <DoctorsSidebar doctors={doctorsId}/> */}
         </div> 
         <div className="homeinfo"> 
             <Widget/> 

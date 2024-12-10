@@ -1,10 +1,8 @@
 .single-doctor-data {
   width: 80%;
-  // height: 70vh;
   padding: 20px;
   margin: 100px 0 0 250px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  // background-color: #F9F9F9;
 
   .profile-header {
     display: flex;
@@ -58,7 +56,6 @@
 
       input[type="text"],
       input[type="file"] {
-        // width: 100%;
         padding: 10px;
         border: 1px solid #bd2e2e;
         border-radius: 5px;
@@ -96,7 +93,6 @@
         background-color: #4d9be9;
         border: 1px solid #ddd;
         border-radius: 5px;
-        // border: 2px solid red;
         cursor: pointer;
 
         &.active1 {
@@ -204,7 +200,6 @@
       img {
         width: 380px;
         height: 350px;
-        // border: radius 50%;;
         border-radius: 80px;
       }
     }
@@ -246,7 +241,6 @@
       img {
         width: 200px;
         height: 200px;
-        // border: radius 50%;;
         border-radius: 10px;
       }
     }
@@ -271,7 +265,6 @@
     .info {
       .info-buttons {
         button {
-          // padding: 10px 15px;
           font-size: 10px;
          
         }

@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import {
-    Bar,
-    BarChart,
-    CartesianGrid,
-    Legend,
-    Line,
-    LineChart,
-    ResponsiveContainer,
-    Tooltip,
-    XAxis,
-    YAxis,
-} from 'recharts';
+import {Bar,BarChart,CartesianGrid,Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,} from 'recharts';
 import './Charts.scss';
 import { supabase } from '../../../../../../utilies/SupaBase';
 
 const Charts = () => {
-    const [selectedYear, setSelectedYear] = useState('2024'); // Default year
-    const [data2, setData2] = useState([]); // Dynamically fetched data for BarChart
-    const [loading, setLoading] = useState(true); // Loading state
-    const years = ['2022', '2023', '2024', '2025', '2026']; // Add more years as needed
+    const [selectedYear, setSelectedYear] = useState('2024'); 
+    const [data2, setData2] = useState([]);  
+    const [loading, setLoading] = useState(true);  
+    const years = ['2022', '2023', '2024', '2025', '2026'];  
 
     const handleYearChange = (event) => {
         setSelectedYear(event.target.value);
@@ -59,8 +48,8 @@ const Charts = () => {
                     .fill(0)
                     .map((_, index) => ({
                         name: new Date(0, index).toLocaleString('default', { month: 'short' }),
-                        uv: 0, // Recovered Patients
-                        pv: 0, // New Patients
+                        uv: 0,  
+                        pv: 0,  
                     }));
 
                 filteredData.forEach((entry) => {

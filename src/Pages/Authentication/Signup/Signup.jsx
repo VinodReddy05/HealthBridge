@@ -13,7 +13,7 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    setPasswordError(""); // Reset the password error message
+    setPasswordError(""); 
     if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters long");
       return;
@@ -67,10 +67,10 @@ const Signup = () => {
             className="form-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            minLength={6} // Set minimum password length
+            minLength={6} 
             required
           />
-          {passwordError && <p className="error-message">{passwordError}</p>} {/* Show error message */}
+          {passwordError && <p className="error-message">{passwordError}</p>} 
         </div>
         <button type="submit" className="submit-button" disabled={loading}>
           {loading ? "Registering..." : "Register"}

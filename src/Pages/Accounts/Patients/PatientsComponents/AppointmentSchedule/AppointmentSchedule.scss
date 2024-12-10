@@ -1,8 +1,7 @@
 .appointment-schedule {
     font-family: Arial, sans-serif;
     color: #333;
-    padding:100px 0 0 290px ;
-    // background-color: aqua;
+    padding:120px 0 0 290px ;
 
     
   
@@ -10,7 +9,6 @@
       position: sticky;
       top:0;
       width: fit-content;
-      // padding: 10px 15px;
       text-align: center;
       position: relative;
       margin-bottom: 30px;
@@ -21,7 +19,7 @@
         bottom: -5px;
         left: 0;
         width: 100%;
-        height: 5px; // Thickness of the line
+        height: 5px;  
         background-image: linear-gradient(to right, pink 30%, transparent 100%);
       }
     }
@@ -57,25 +55,23 @@
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 50px;
+      gap:20px;
      
      
   
       li {
-        width: 300px;
-        // background-color: #f9f9f9;
+        width: 280px;
         border: 2px solid #ddd;
         border-radius: 8px;
         padding: 1rem;
         margin-bottom: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        // border: 2px solid red;
         &:hover{
           transition: all 0.19s ease-in-out ;
           transform: scale(1.05);
         }
      img{
-      width: 260px;
+      width:240px;
       display: flex;
       justify-content: center;
       border-radius:10%;

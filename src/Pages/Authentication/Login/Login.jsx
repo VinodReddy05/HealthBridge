@@ -7,7 +7,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("patient"); // Tracks whether it's "patient" or "doctor"
+  const [userType, setUserType] = useState("patient"); 
   const [blur, setBlur] = useState(false);
   const [showGif, setShowGif] = useState(false);
   const [gifMessage, setGifMessage] = useState("");
@@ -87,18 +87,11 @@ const Login = () => {
     }
   };
 
-  // const handleNewPatientRegistration = () => {
-  //   console.log("Navigating to signup...");
-
-  //   navigate("/signup");
-  // };
 
   return (
     <div className="login-container">
-      {/* Blur effect while loading */}
       {loading || blur ? <div className="blur-background"></div> : null}
 
-      {/* GIF display */}
       {showGif && (
         <div className="gif-container">
           <img

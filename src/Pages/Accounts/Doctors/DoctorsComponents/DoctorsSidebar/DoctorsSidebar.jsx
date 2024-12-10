@@ -14,10 +14,9 @@ const DoctorsSidebar = () => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Check if mobile on load
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); 
   const currentDoctor = JSON.parse(localStorage.getItem("doctorData")) || {};
 
-  // Monitor window resize to update isMobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 766);
@@ -30,7 +29,7 @@ const DoctorsSidebar = () => {
   const handleClick = (route, index) => {
     setSelectedItem(index);
     if (isMobile) 
-      setIsSidebarOpen(false); // Close sidebar only on mobile
+      setIsSidebarOpen(false); 
     
     navigate(route);
   };
@@ -45,18 +44,16 @@ const DoctorsSidebar = () => {
 
   const toggleSidebar = () => {
     if (isMobile) {
-      setIsSidebarOpen((prev) => !prev); // Toggle sidebar visibility only for mobile
+      setIsSidebarOpen((prev) => !prev); 
     }
   };
 
   return (
     <>
-      {/* Hamburger menu */}
       <div className="hamburger" onClick={toggleSidebar}>
         {isSidebarOpen ? <CloseIcon  style={{ fontSize: '25px' }}/> : <MenuIcon  style={{ fontSize: '35px' }} />}
       </div>
 
-      {/* Sidebar */}
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="top">
           <span className="logo">HealthBridge</span>

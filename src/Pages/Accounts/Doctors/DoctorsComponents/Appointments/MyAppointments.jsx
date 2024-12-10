@@ -151,7 +151,6 @@ const MyAppointments = () => {
                 Send Prescription
               </button>
 
-              {/* Radio Button to Mark as Visited */}
               <label>
                 <input
                   type="radio"
@@ -168,7 +167,6 @@ const MyAppointments = () => {
         </ul>
       )}
 
-      {/* Prescription Form Popup */}
       {showForm && (
         <div className="prescription-form">
           <div className="form-container">

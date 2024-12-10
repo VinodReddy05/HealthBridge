@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {
-  LineChart,
-  BarChart,
-  Bar,
-  CartesianGrid,
-  Legend,
-  Tooltip,
-  XAxis,
-  YAxis,
-  Line,
-  ResponsiveContainer,
-} from 'recharts';
-import { supabase } from '../../../../../../utilies/SupaBase'; // Adjust path as needed
+  LineChart,BarChart,Bar,CartesianGrid,Legend,Tooltip,XAxis,YAxis,Line,ResponsiveContainer} from 'recharts';
+import { supabase } from '../../../../../../utilies/SupaBase'; 
 import './Charts.scss';
 
 const Charts = () => {
-  const [selectedYear, setSelectedYear] = useState('2024'); // Default year
-  const [data2, setData2] = useState([]); // Dynamically fetched data for BarChart
-  const [loading, setLoading] = useState(true); // Loading state
-  const years = ['2022', '2023', '2024', '2025', '2026']; // Add more years as needed
+  const [selectedYear, setSelectedYear] = useState('2024');  
+  const [data2, setData2] = useState([]);  
+  const [loading, setLoading] = useState(true);  
+  const years = ['2022', '2023', '2024', '2025', '2026'];  
 
   const handleYearChange = (event) => {
     setSelectedYear(event.target.value);
@@ -36,7 +26,7 @@ const Charts = () => {
 
   useEffect(() => {
     const fetchChartData = async () => {
-      setLoading(true); // Set loading to true
+      setLoading(true);  
       try {
         const { data, error } = await supabase
           .from('patientsdata')
@@ -52,8 +42,8 @@ const Charts = () => {
           .fill(0)
           .map((_, index) => ({
             name: new Date(0, index).toLocaleString('default', { month: 'short' }),
-            uv: 0, // Recovered Patients
-            pv: 0, // New Patients
+            uv: 0,  
+            pv: 0,  
           }));
 
         filteredData.forEach((entry) => {
@@ -69,7 +59,7 @@ const Charts = () => {
       } catch (err) {
         console.error('Error fetching chart data:', err);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);  
       }
     };
 
@@ -78,7 +68,6 @@ const Charts = () => {
 
   return (
     <div className="chart2">
-      {/* Bar Chart Section */}
       <div id="chart-2">
         <div className="main-heading">
           <div className="heading">
@@ -111,7 +100,6 @@ const Charts = () => {
         )}
       </div>
 
-      {/* Line Chart Section */}
       <div id="chart-1">
         <div className="main-heading">
           <div className="heading">

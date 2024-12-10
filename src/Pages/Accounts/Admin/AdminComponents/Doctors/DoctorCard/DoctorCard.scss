@@ -1,17 +1,15 @@
 .doctorcard {
-  width: 100%; /* Make the card responsive */
-  max-width: 300px; /* Set a maximum width for larger screens */
-  // height: 700px;
+  width: 100%;  
+  max-width: 350px; 
   display: flex;
   flex-wrap: wrap;
   border-radius: 12px;
-  border: 2px solid white;
+  border: 2px solid rgb(103, 165, 10);
 margin:10px 40px 10px 0;
-  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);x
+
   padding: 20px;
   justify-content: center;
-  // border: 2px solid red;
-  text-align: center; /* Centers text */
+  text-align: center; 
   transition: transform 0.19s ease-in-out;
 
   &:hover {
@@ -19,7 +17,7 @@ margin:10px 40px 10px 0;
   }
 
   .doctor-image {
-    width: 100%; /* Ensure image takes full width of its container */
+    width: 100%; 
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -27,9 +25,9 @@ margin:10px 40px 10px 0;
 
   .doctor-details {
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
     gap: 10px;
-    width: 100%; /* Make sure details occupy full width */
+    width: 100%; 
   }
 
   .doctor-name {
@@ -60,19 +58,18 @@ margin:10px 40px 10px 0;
   .doctor-actions {
     display: flex;
     justify-content: space-between;
-    width: 100%; /* Ensure buttons align properly */
+    width: 100%;  
   }
 }
 
 @media (max-width: 768px) {
   .doctorcard {
-    max-width: 100%; /* Scale card width down for medium screens */
+    max-width: 100%;  
     padding: 15px;
   }
 
   .doctor-name {
-    font-size: 1.3rem; /* Adjust font size */
-  }
+    font-size: 1.3rem;    }
 
   .doctor-info,
   .doctor-designation {
@@ -86,42 +83,42 @@ margin:10px 40px 10px 0;
 
 @media (max-width: 475px) {
   .doctorcard {
-    max-width: 100%; /* Take full width for small screens */
-    padding: 10px; /* Adjust padding */
+    max-width: 100%;  
+    padding: 10px;  
   }
 
   .doctor-details {
-    gap: 5px; /* Reduce gap between elements */
+    gap: 5px;  
   }
 
   .doctor-name {
-    font-size: 1.1rem; /* Adjust font size */
+    font-size: 1.1rem; 
   }
 
   .doctor-info,
   .doctor-designation,
   .doctor-rating {
-    font-size: 0.85rem; /* Adjust font size for smaller screens */
+    font-size: 0.85rem;  
   }
 }
 @media (max-width: 420px) {
   .doctorcard {
-    max-width: 100%; /* Take full width for small screens */
-    padding: 10px; /* Adjust padding */
+    max-width: 100%; 
+    padding: 10px; 
     margin:0;
   }
 
   .doctor-details {
-    gap: 5px; /* Reduce gap between elements */
+    gap: 5px;  
   }
 
   .doctor-name {
-    font-size: 1.1rem; /* Adjust font size */
+    font-size: 1.1rem; 
   }
 
   .doctor-info,
   .doctor-designation,
   .doctor-rating {
-    font-size: 0.85rem; /* Adjust font size for smaller screens */
+    font-size: 0.85rem;  
   }
 }

@@ -4,7 +4,7 @@ import SideBar from "../../SiderBar/SideBar";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link, useNavigate } from "react-router-dom";
-import { supabase } from "../../../../../../utilies/SupaBase"; // Ensure correct import
+import { supabase } from "../../../../../../utilies/SupaBase";  
 import "./Doctorcard.scss";
 
 const Doctorcard = ({ doctor }) => {
@@ -23,7 +23,7 @@ const Doctorcard = ({ doctor }) => {
           alert("Error deleting doctor: " + error.message);
         } else {
           alert("Doctor deleted successfully!");
-          navigate("/admin/doctors"); // Redirect to the doctors list after delete
+          navigate("/admin/doctors");  
         }
       } catch (error) {
         console.error("Error deleting doctor:", error);
@@ -32,9 +32,7 @@ const Doctorcard = ({ doctor }) => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchDoctors();
-  // }, []);
+
 
   return (
     <>

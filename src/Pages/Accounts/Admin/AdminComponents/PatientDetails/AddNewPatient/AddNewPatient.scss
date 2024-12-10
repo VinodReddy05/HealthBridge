@@ -6,7 +6,6 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    // background-color: lightblue;
     padding: 0 0 0 250px;
 
 h2 {
@@ -44,7 +43,6 @@ form {
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    // background-color: #f7f7f9;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -62,9 +60,7 @@ form {
         padding: 12px;
         font-size: 1rem;
         border-radius: 5px;
-        // border: 1px solid #ccc;
         font-weight: bold;
-        // background: transparent;
         transition: border-color 0.3s ease;
 
         &:focus {

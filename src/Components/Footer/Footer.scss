@@ -5,14 +5,7 @@
   margin-top: 50px;
   flex: 6;
   padding: 20px;
-  // background-image: url('./assets/hopitalBlock.jpg');
-  // background-position: top right;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-color: #f09696;
   position: relative; 
-  // flex-wrap: wrap;
-  // border: 2px solid red;
 }
 
 .footer::before {
@@ -54,10 +47,9 @@
 
 .footer-info p {
   width: fit-content;
-  color: black;
   padding: 5px;
   &:hover {
-    color: #fff;
+    color: #980202;
   }
 }
 
@@ -88,7 +80,6 @@
     gap: 0;
    
     h2 {
-    // font-size: 16px;
    margin-bottom:0 ;
       
       }

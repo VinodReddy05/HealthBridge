@@ -1,55 +1,56 @@
 .doctors-card {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-fill with responsive columns */
-  gap: 16px; /* Space between cards */
-  justify-items: center; /* Centers the cards inside their grid cells */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  
+  gap: 16px; 
+  justify-items: center;  
   padding: 16px;
   margin: 100px 0 0 250px ;
 }
 
-/* Individual Doctor Card */
 .doctor-info-card {
   display: flex;
-  flex-direction: column; /* Stack image and text vertically */
-  align-items: center; /* Center-align the content */
-  width: 100%; /* Full width inside the grid */
-  border: 2px solid #ccc; /* Light border */
-  border-radius: 8px; /* Rounded corners */
+  flex-direction: column; 
+  align-items: center;  
+  width: 100%; 
+  border: 2px solid #ccc;  
+  border-radius: 8px; 
   padding: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  text-align: center; /* Centers text */
-  transition: transform 0.19s ease-in-out; /* Smooth hover transition */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+  text-align: center;
+  transition: transform 0.19s ease-in-out;  
 
   &:hover {
-    transform: scale(1.05); /* Hover effect */
+    transform: scale(1.05);  
   }
 
   strong {
-    color: rgb(72, 160, 75); /* Green color for strong text */
+    color: rgb(72, 160, 75);  
   }
 
   .appointmentbtn {
     width: fit-content;
-    padding: 5px;
+    padding: 5px 15px;
     font-size: 14px;
     font-weight: unset;
     background-color: #4daaf5;
-
+    border: none;
+    border-radius: 10px;
+cursor: pointer;
     &:hover {
-      background-color: #2a71aa; /* Hover effect for appointment button */
+      background-color: #2a71aa;  
     }
   }
 
   img {
     width: 200px;
     height: 200px;
-    border-radius: 50%; /* Circular image */
+    border-radius: 50%; 
     object-fit: cover;
     margin-bottom: 12px;
     transition: transform 0.5s ease-in-out;
 
     &:hover {
-      transform: scale(1.05); /* Image hover effect */
+      transform: scale(1.05); 
     }
   }
 
@@ -60,14 +61,13 @@
   }
 }
 
-/* Popup Styles */
 .appointment-popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.5); 
   display: flex;
   justify-content: center;
   align-items: center;

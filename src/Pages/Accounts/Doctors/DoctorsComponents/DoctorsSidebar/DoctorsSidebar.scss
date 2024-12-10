@@ -1,25 +1,23 @@
-/* Sidebar styles */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100%;
-  // background-color: #ffffff;
   color: rgb(0, 0, 0);
-  transform: translateX(0); // Always visible above 768px
+  transform: translateX(0);  
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
 
   &.open {
-    transform: translateX(0); // Fully visible
+    transform: translateX(0);  
   }
 
   @media (max-width: 767px) {
-    transform: translateX(-250px); // Hidden by default on mobile
+    transform: translateX(-250px);  
 
     &.open {
-      transform: translateX(0); // Fully visible when toggled
+      transform: translateX(0); 
     }
   }
 
@@ -58,6 +56,7 @@
 
         &:hover,
         &.green {
+          border-radius: 20px 10px 30px 0;
           background-color:#50ACF5;
         }
 
@@ -67,7 +66,6 @@
 
         span {
           font-size: 16px;
-          // color: rgb(0, 0, 0);
         }
       }
     }
@@ -84,7 +82,6 @@
     .logout {
       display: flex;
       align-items: center;
-      // background-color: ;
       border: none;
       border: 2px solid #e63946;
       color: red;
@@ -105,7 +102,6 @@
   }
 }
 
-/* Hamburger menu styles */
 .hamburger {
   position: fixed;
   top: 35px;
@@ -118,6 +114,6 @@
   color: red;
 
   @media (max-width: 766px) {
-    display: block; // Visible on mobile
+    display: block;  
   }
 }

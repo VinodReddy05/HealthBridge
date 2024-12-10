@@ -27,25 +27,21 @@ const SideBar = () => {
 
   const handleClick = (route, index) => {
     setSelectedItem(index);
-    if (isMobile) setIsSidebarOpen(false); // Close sidebar on mobile after navigation
+    if (isMobile) setIsSidebarOpen(false);  
     navigate(route);
   };
 
   const handleLogout = () => {
     localStorage.clear();
     toast.success("You have logged out" , {
-      position: "top-right", // or "bottom-right"
+      position: "top-right",  
     });
     setTimeout(() => navigate("/login"), 1500);
   };
 
   const toggleSidebar = (e) => {
     if (isMobile) {
-      // Safely check the className
-      // const className = e.target.className?.toString() || "";
-      // if (!className.includes("hamburger")) return; // Ensure the click is on the intended element
-  
-      setIsSidebarOpen((prev) => !prev); // Toggle visibility only for mobile
+      setIsSidebarOpen((prev) => !prev); 
       console.log(isSidebarOpen);
     }
   };
@@ -53,13 +49,11 @@ const SideBar = () => {
 
   return (
     <>
-      {/* Hamburger menu */}
       <div className="hamburger" onClick={(e) => toggleSidebar(e)}>
   {isSidebarOpen ? <CloseIcon style={{ fontSize: "25px" }} /> : <MenuIcon style={{ fontSize: "35px" }} />}
 </div>
 
 
-      {/* Sidebar */}
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="top">
           <span className="logo">HealthBridge</span>
@@ -67,7 +61,7 @@ const SideBar = () => {
         <div className="center">
           <ul>
            
-            <li className={selectedItem === 1 ? "green" : ""} onClick={() => handleClick("/admin", 1)}>
+            <li className={selectedItem === 1 ? "green" : ""} onClick={() => handleClick("/", 1)}>
               <DashboardIcon />
               <span >Dashboard</span>
             </li>

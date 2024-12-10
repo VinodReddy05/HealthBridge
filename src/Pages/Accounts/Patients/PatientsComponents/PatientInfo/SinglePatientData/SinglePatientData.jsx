@@ -20,8 +20,8 @@ const SinglePatientData = () => {
   const [prescription, setPrescription] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
-  const [profileImage, setProfileImage] = useState(null); // For NavBar image
-  const [visited, setVisited] = useState(false); // New state for visited flag
+  const [profileImage, setProfileImage] = useState(null);  
+  const [visited, setVisited] = useState(false); 
 
   useEffect(() => {
     const fetchPatient = async () => {
@@ -47,7 +47,7 @@ const SinglePatientData = () => {
           setProfileImage(data.image_url);
           setAddress(data.address || "");
           setPrescription(data.prescription || "");
-          setVisited(data.visited || false); // Set visited flag
+          setVisited(data.visited || false);
         }
       } catch (error) {
         setError("An unexpected error occurred");
@@ -64,7 +64,7 @@ const SinglePatientData = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        setPreviewImage(event.target.result); // Update the preview image
+        setPreviewImage(event.target.result); 
       };
       reader.readAsDataURL(file);
     }
@@ -74,22 +74,22 @@ const SinglePatientData = () => {
     try {
       const patientId = patient?.id;
       const updates = {
-        address: address, // Address from state
-        image_url: previewImage, // Image URL from preview
+        address: address, 
+        image_url: previewImage, 
        
       };
 
       const { error } = await supabase
-        .from("patientsdata") // Your database table
+        .from("patientsdata")  
         .update(updates)
         .eq("id", patientId);
 
       if (error) {
-        throw error; // Trigger error handling
+        throw error;  
       }
 
       alert("Details saved successfully!");
-      setIsEditing(false); // Close edit mode
+      setIsEditing(false);  
     } catch (err) {
       console.error("Failed to save details:", err.message);
       alert("Error saving details. Please try again.");
@@ -98,9 +98,8 @@ const SinglePatientData = () => {
 
   const handleGeneratePrescription = () => {
     if (!visited) {
-      // If the patient has not visited the doctor, show an alert
       alert("You haven't visited the doctor yet. Please visit the doctor to generate your prescription.");
-      return; // Prevent further execution of the function
+      return; 
     }
   
     const content = `
@@ -232,7 +231,6 @@ const SinglePatientData = () => {
   return (
     <>
       <NavBar profileImage={profileImage} />
-      {/* <PatientSidebar patientId={id} /> */}
       <div className="single-patient-container">
         <div className="patient-card">
           <div className="profile-header">
@@ -306,7 +304,6 @@ const SinglePatientData = () => {
             </div>
           )}
 
-          {/* Conditional rendering for prescriptions, advice, and follow-up */}
           {visited && (
             <>
               <table className="prescription-table">
@@ -328,11 +325,9 @@ const SinglePatientData = () => {
                     <td>1 Morning, 1 Night</td>
                     <td>8 Days</td>
                   </tr>
-                  {/* More prescription rows can be dynamically added */}
                 </tbody>
               </table>
 
-              {/* Advice Section */}
               <div className="advice-section">
                 <h3>Advice:</h3>
                 <ul>
@@ -342,14 +337,12 @@ const SinglePatientData = () => {
                 </ul>
               </div>
 
-              {/* Follow-up Section */}
               <div className="follow-up">
                 <p>Follow Up: 04-09-2023</p>
               </div>
             </>
           )}
 
-          {/* Add My Prescription Button */}
           <button
             onClick={handleGeneratePrescription}
             className="prescription-button"

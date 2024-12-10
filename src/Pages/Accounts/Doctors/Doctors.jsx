@@ -11,7 +11,6 @@ const Doctors = ({doctorsId}) => {
       <NavBar/>
       <DoctorsSidebar doctors={doctorsId}/>
       <Widget/>
-      {/* <Charts/> */}
      
     </div>
   )

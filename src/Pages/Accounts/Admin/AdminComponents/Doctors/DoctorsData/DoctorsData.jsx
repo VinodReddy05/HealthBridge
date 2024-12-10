@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from '../../../../../../utilies/SupaBase';
 import DoctorCard from "../DoctorCard/DoctorCard";
-// import AddDoctor from "./AddDoctor";
 
 import "./DoctorsData.scss";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +19,6 @@ const DoctorsData = () => {
             .from('DoctorsData')
             .select();
         if (error) {
-            // console.error("Error fetching data:", error);
             setFetchError("Could not fetch data");
             setDoctors([]);
         } else {
@@ -42,7 +40,6 @@ const DoctorsData = () => {
 
     return (
         <div className="DoctorsData">
-            {/* <AddDoctor refreshDoctors={fetchDoctors} /> */}
             <button onClick={handleClick}>add Doctor</button>
             <div className="doctorFetch">
                 {fetchError && <p>{fetchError}</p>}

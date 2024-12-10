@@ -21,7 +21,6 @@ const PatientEdit = () => {
     const genders = ["Male", "Female"];
     const statuses = ["Emergency", "Normal"];
 
-    // Function to generate consultation number if not present
     useEffect(() => {
         if (!consultNo) {
             const generatedConsultNo = `HB${Math.floor(1000 + Math.random() * 9000)}`;

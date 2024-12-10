@@ -1,4 +1,3 @@
-// Global container that centers the login form and applies background
 .login-container {
   display: flex;
   justify-content: center;
@@ -10,19 +9,15 @@
   background-size: cover;
 }
 
-// Styling for the login form container
 .login {
   border-radius: 8px;
   padding: 30px;
-  // box-shadow: 2px 4px 12px rgba(189, 132, 189, 0.5);
   box-shadow: rgba(50, 50, 93, 0.5) 0px 50px 100px -20px, rgba(0, 0, 0, 0.8) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  // background-color: lightcoral;
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
-// Heading style
 h2 {
   margin-bottom: 20px;
   font-size: 24px;
@@ -30,14 +25,12 @@ h2 {
   color: #333;
 }
 
-// Login form with column arrangement
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-// Form group to keep elements organized
 .form-group {
   display: flex;
   flex-direction: column;
@@ -45,7 +38,6 @@ h2 {
   align-items: center;
 }
 
-// Label style for form inputs
 .form-label {
   display: flex;
   flex-direction: column;
@@ -56,7 +48,6 @@ h2 {
   margin-bottom: 5px;
 }
 
-// Style for form inputs with flexible layout
 .form-input {
   width: 100%;
   display: flex;
@@ -76,7 +67,6 @@ h2 {
   }
 }
 
-// Styling for the submit button
 .submit-button {
   padding: 12px 20px;
   background-color: #36d77c;
@@ -93,7 +83,6 @@ h2 {
   }
 }
 
-// Container for the spinner
 .spinner-container {
   position: absolute;
   top: 50%;
@@ -102,14 +91,12 @@ h2 {
   z-index: 20; 
 }
 
-// Blur effect to show during loading
 .blur-background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  // background-color: rgba(0, 0, 0, 0.9);
   z-index: 10;
 }
 

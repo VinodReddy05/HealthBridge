@@ -1,5 +1,4 @@
 import NavBar from "../../../Components/NavBar/NavBar"
-// import SideBar from "../../../Components/SideBar/SideBar"
 import "./Admin.scss"
 import Widget from "./AdminComponents/AdminHome/widgets/Widget";
 import Charts from "../Admin/AdminComponents/AdminHome/Charts/Charts";
@@ -10,15 +9,12 @@ import PatientInfo from "./AdminComponents/PatientInfo/PatientInfo";
 import Footer from "../../../Components/Footer/Footer";
 
 const Admin = () => {
-  const [showGif, setShowGif] = useState(false); // Control GIF visibility
-  const [gifMessage, setGifMessage] = useState(""); // Message for the GIF
-  // const [blur, setBlur] = useState(false);
-  // const [loading, setLoading] = useState(false);
+  const [showGif, setShowGif] = useState(false);  
+  const [gifMessage, setGifMessage] = useState("");  
 
 
   return (
     <div className="admin">
-      {/* {loading || blur ? <div className="blur-background"></div> : null} */}
       {showGif && (
         <div className="gif-container">
           <img
@@ -29,7 +25,6 @@ const Admin = () => {
         </div>
       )}
 
-      {/* <SideBar setShowGif={setShowGif} setGifMessage={setGifMessage} /> */}
       <div className="admincontainer">
         <NavBar />
         <div className="widgets">

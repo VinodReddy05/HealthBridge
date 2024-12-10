@@ -4,21 +4,21 @@
   left: 0;
   width: 250px;
   height: 100%;
-  // background-color: #ffffff;
   color: rgb(0, 0, 0);
-  transform: translateX(0); // Always visible above 768px
+  transform: translateX(0); 
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
+  padding-left:15px ;
 
   &.open {
-    transform: translateX(0); // Fully visible
+    transform: translateX(0); 
   }
 
   @media (max-width: 767px) {
-    transform: translateX(-250px); // Hidden by default on mobile
+    transform: translateX(-250px);  
 
     &.open {
-      transform: translateX(0); // Fully visible when toggled
+      transform: translateX(0);  
     }
   }
 
@@ -101,7 +101,6 @@
   }
 }
 
-/* Hamburger menu styles */
 .hamburger {
   position: fixed;
   top: 35px;
@@ -111,6 +110,9 @@
   font-size: 24px;
 
   @media (max-width: 766px) {
-    display: block; // Visible on mobile
+    display: block; 
+  }
+  @media (min-width: 769px) {
+    display: none;  
   }
 }

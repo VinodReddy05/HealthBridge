@@ -68,7 +68,6 @@ const Appointments = () => {
     }
 
     try {
-      // Insert appointment into Appointments table
       const { data: appointmentData, error: appointmentError } = await supabase
         .from("Appointments")
         .insert([
@@ -76,9 +75,9 @@ const Appointments = () => {
             patient_id: patientId,
             doctor_id: selectedDoctor.id,
             date_time: appointmentDate,
-            doctor_name: selectedDoctor.name, // Store doctor's name
-            doctor_image: selectedDoctor.image_url, // Store doctor's image
-            doctor_specialization: selectedDoctor.Degree, // Store doctor's specialization
+            doctor_name: selectedDoctor.name,  
+            doctor_image: selectedDoctor.image_url,  
+            doctor_specialization: selectedDoctor.Degree, 
             doctor_designation: selectedDoctor.Designation,
             patient_name: patientName,
           },
@@ -94,7 +93,7 @@ const Appointments = () => {
       const { error: doctorUpdateError } = await supabase
         .from("DoctorsData")
         .update({
-          appointments: appointmentData, // Add appointment data to doctor
+          appointments: appointmentData, 
         })
         .eq("id", selectedDoctor.id);
 
@@ -108,7 +107,7 @@ const Appointments = () => {
       const { error: patientUpdateError } = await supabase
         .from("patientsdata")
         .update({
-          appointments: appointmentData, // Add appointment data to patient
+          appointments: appointmentData,  
         })
         .eq("id", patientId);
 

@@ -1,21 +1,16 @@
-/* SinglePatientData.scss */
 .single-patient-container {
  
   font-family: Arial, sans-serif;
-  margin:80px 0 0 0 ;
-  // background-color: #2a79b9;
-  // color: red;
-  padding: 50px 0 0 500px;
+  padding: 120px 0 0 500px;
  
 }
 
 .patient-card {
   min-width: 650px;
-  height: auto;
+  height: 100vh;
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: 8px;
-  // background-color: #f9f9f9;
   max-width: 800px;
   margin: 0 auto;
   &:hover{
@@ -25,6 +20,10 @@
   }
   button{
     background-color: #4daaf5;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
     &:hover{
       background-color: #5897cb;
     }
@@ -134,7 +133,6 @@ input[type="file"] {
 }
 
 
-/* Table for prescription details */
 .prescription-table {
   width: 100%;
   border-collapse: collapse;

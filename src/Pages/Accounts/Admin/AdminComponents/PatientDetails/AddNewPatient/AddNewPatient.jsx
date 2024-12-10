@@ -19,7 +19,6 @@ const AddNewPatient = () => {
   const [specialization, setSpecialization] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
-  // const [formError, setFormError] = useState("");
   const form = useRef();
 
   const specializations = [
@@ -30,7 +29,6 @@ const AddNewPatient = () => {
     "Dermatology",
   ];
 
-  // Password generation logic
   const generatePassword = () => {
     const characters =
       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
@@ -41,7 +39,6 @@ const AddNewPatient = () => {
     setPassword(newPassword);
   };
 
-  // Generate consultation number
   useEffect(() => {
     const generateConsultationNumber = () => {
       const newConsultNo = `HB${Math.floor(1000 + Math.random() * 9000)}`;
@@ -50,14 +47,12 @@ const AddNewPatient = () => {
     generateConsultationNumber();
   }, []);
 
-  // Trigger password generation on email entry
   useEffect(() => {
     if (email) generatePassword();
   }, [email]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setFormError("");
 
     if (
       !doctorName ||
@@ -70,13 +65,10 @@ const AddNewPatient = () => {
       !status ||
       !specialization
     ) {
-      // setFormError();
       toast.error("Please fill out all fields correctly.")
-      // return;
     }
 
     try {
-      // console.log("Inserting data into Supabase...");
       const { data, error } = await supabase.from("patientsdata").insert([
         {
           doctor_name: doctorName.trim(),
@@ -91,15 +83,10 @@ const AddNewPatient = () => {
           password,
         },
       ]);
-      // console.log("Data:", data);
-      // console.log("Error:", error);
       toast.success("Successfully added patient details")
       if (error) {
-        // console.error("Supabase insertion error:", error.message);
-        // setFormError(`Submission error: ${error.message}`);
         toast.error("Submission error:")
       } else {
-        // console.log("Successfully inserted data into Supabase:", data);
         sendEmail() ;
       
         setTimeout(() => {
@@ -108,7 +95,6 @@ const AddNewPatient = () => {
       }
     } catch (error) {
       console.error("Unexpected error during form submission:", error);
-      // setFormError();
       toast.error("Unexpected error occurred. Please try again.")
     }
   };
@@ -134,7 +120,6 @@ const AddNewPatient = () => {
          
         },
         (error) => {
-          // console.log("FAILED to send email...", error.text);
           toast.error("Failed to send email. Please check your EmailJS configuration.")
         }
       );
@@ -232,7 +217,6 @@ const AddNewPatient = () => {
         </select>
 
         <button type="submit">Submit</button>
-        {/* {formError && <p className="error">{formError}</p>} */}
       </form>
       <ToastContainer/>
     </div>

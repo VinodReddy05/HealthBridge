@@ -85,10 +85,13 @@ cursor: pointer;
 
   input{
     width: 300px;
+    height: 35px;
+    padding-left: 20px; ;
+    color: black;
     border: none;
     outline: none;
-    // border: 2px solid #5a8dee ;
     border: 2px solid #4daaf5 ;
+    margin-right: 10px;
   z-index: 0;
 
 
@@ -96,7 +99,10 @@ cursor: pointer;
 
   button{
     background-color: #4daaf5;
-    padding:7px 10px;
+    border: none;
+    padding:10px 10px;
+    font-weight: bold;
+    border-radius: 10px;
   }
 }
 

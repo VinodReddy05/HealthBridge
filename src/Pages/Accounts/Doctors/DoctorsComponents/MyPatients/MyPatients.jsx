@@ -23,22 +23,20 @@ const MyPatients = () => {
 
   useEffect(() => {
     if (!doctorSpecialization) {
-      setProfileImage(null);  // Clear profile image if designation is missing
+      setProfileImage(null);   
       setError("Doctor data is missing. Please login again.");
       return;
     }
 
     const fetchPatients = async () => {
-      // Fetch all patients from the "patientsdata" table
       const { data, error } = await supabase
         .from("patientsdata")
         .select("*")
-        .eq("visited", true);  // Filter by visited true
+        .eq("visited", true);  
 
       if (error) {
         setError("Error fetching patient data.");
       } else {
-        // Filter patients based on the doctor's designation (if needed)
         const filteredPatients = data.filter(
           (patient) => patient.specialization === doctorSpecialization
         );
