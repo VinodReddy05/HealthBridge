@@ -51,8 +51,7 @@ This documentation aims to:
 
 
 
-================================================
-Define User Roles and Responsibilities
+======  Define User Roles and Responsibilities ======
 
 
 
