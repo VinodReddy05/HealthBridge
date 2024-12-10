@@ -251,6 +251,21 @@ View Medical History Workflow:
 
 ======  Data storage in SUPABASE with tables  ======
 
+=== Overciew of Supabase === 
+In Supabase, data is stored using tables within the project's database. For the Hospital Management System, the following key tables are used:
+
+=> Patients Table: 
+This table stores information about patients, including personal details such as name, email, contact number, date of birth, medical history, and the date the record was created.
+
+=> Doctors Table: 
+This table holds details about the doctors, such as their name, email, specialization, contact number, and the date of record creation.
+
+=> Appointments Table:
+This table tracks patient appointments, including the patient ID, doctor ID, appointment date and time, and appointment status (e.g., scheduled, completed, canceled).
+
+Additionally, Supabase provides a storage bucket that is used to manage and store images (such as profile pictures of doctors and patients), allowing easy retrieval via public URLs.
+These tables and storage buckets are integrated with the Hospital Management System, enabling seamless management of hospital data and resources through the Supabase backend.
+
 Create a Supabase Account and Project
 
 Sign Up/Login to Supabase:
